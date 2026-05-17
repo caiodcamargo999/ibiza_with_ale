@@ -7,10 +7,19 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
+const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .8.11v-3.5a6.39 6.39 0 0 0-3.11-.8 6.39 6.39 0 0 0-6.39 6.39 6.39 6.39 0 0 0 6.39 6.39 6.39 6.39 0 0 0 6.39-6.39V7.51a8.31 8.31 0 0 0 5.68 2.2V6.28a4.82 4.82 0 0 1-3-.12z" />
+  </svg>
+);
+
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Chi sono", path: "/chi-sono" },
-  { label: "Servizi", path: "/servizi" },
   { label: "Come funziona", path: "/come-funziona" },
 ];
 
@@ -219,11 +228,16 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-display font-semibold mb-4 text-xs uppercase tracking-widest text-muted-foreground">Contatti</h4>
+              <h4 className="font-display font-semibold mb-4 text-xs uppercase tracking-widest text-muted-foreground">Socials</h4>
               <ul className="space-y-3 text-sm">
                 <li>
                   <a href="https://instagram.com/allaboutibiza_ale" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sunset-purple transition-colors flex items-center gap-2">
                     <Instagram className="w-4 h-4" /> Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@alessandra_ibizaplanner" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sunset-purple transition-colors flex items-center gap-2">
+                    <TiktokIcon className="w-4 h-4" /> TikTok
                   </a>
                 </li>
               </ul>

@@ -121,10 +121,14 @@ export default function ErroriIbiza() {
               Ti aiuto a organizzare Ibiza nel modo giusto, senza imprevisti e senza stress.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contatti" className={cn(buttonVariants({ size: 'xl' }), "bg-background text-foreground hover:bg-background/90 shadow-elevated font-bold")}>
-                  Richiedi il tuo piano viaggio <ArrowRight className="w-5 h-5" />
-                </Link>
-              
+              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
+                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
+                </div>
+                <span className="text-sm font-bold tracking-wide">
+                  Richiedi il tuo piano viaggio
+                </span>
+              </Link>
             </div>
           </AnimatedSection>
         </div>

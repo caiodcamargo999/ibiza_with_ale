@@ -509,11 +509,15 @@ export default function CreaViaggio() {
               </Button>
               <Button
                 variant="hero"
-                size="lg"
                 onClick={() => setCurrentStep(Math.min(6, currentStep + 1))}
                 disabled={!canProceed()}
               >
-                Avanti <ChevronRight className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                  <ChevronRight className="w-4 h-4 text-white animate-arrow-slide" />
+                </div>
+                <span className="text-sm font-bold tracking-wide">
+                  Avanti
+                </span>
               </Button>
             </div>
           )}

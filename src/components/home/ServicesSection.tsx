@@ -68,8 +68,8 @@ export default function ServicesSection() {
                   </div>
                   <h3 className="text-lg font-display font-bold mb-3 text-foreground">{s.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5">{s.desc}</p>
-                  <Link href="/servizi" className="text-sm font-medium text-sunset-orange inline-flex items-center gap-1.5 hover:gap-2.5 transition-all group-hover:text-sunset-gold">
-                    Scopri di più <ArrowRight className="w-3.5 h-3.5" />
+                  <Link href="/crea-viaggio" className="text-sm font-medium text-sunset-orange inline-flex items-center gap-1.5 transition-all group-hover:text-sunset-gold">
+                    Richiedi questo servizio <ArrowRight className="w-3.5 h-3.5 animate-arrow-slide" />
                   </Link>
                 </div>
               </div>

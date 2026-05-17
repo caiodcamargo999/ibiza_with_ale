@@ -425,10 +425,14 @@ export default function ItinerariPage() {
               Ogni viaggio è unico. Raccontami cosa cerchi, le tue date e il tuo budget: creerò un itinerario personalizzato al 100% per le tue esigenze.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contatti" className={cn(buttonVariants({ size: 'xl' }), "bg-background text-foreground hover:bg-background/90 shadow-elevated font-bold")}>
-                Richiedi il tuo itinerario <ArrowRight className="w-5 h-5" />
+              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
+                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
+                </div>
+                <span className="text-sm font-bold tracking-wide">
+                  Richiedi il tuo itinerario
+                </span>
               </Link>
-              
             </div>
           </AnimatedSection>
         </div>
