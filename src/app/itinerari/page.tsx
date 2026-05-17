@@ -377,8 +377,13 @@ function ItineraryCard({ itin, index }: { itin: typeof itineraries[0]; index: nu
         {/* CTA */}
         <div className="px-6 md:px-8 pb-6">
           <div className="flex flex-wrap gap-3">
-            <Link href="/contatti" className={cn(buttonVariants({ variant: 'hero', size: 'lg' }), "flex-1 sm:flex-none")}>
-              Richiedi questo itinerario <ArrowRight className="w-4 h-4" />
+            <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }), "flex-1 sm:flex-none")}>
+              <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <ArrowRight className="w-3.5 h-3.5 text-white transform transition-transform duration-300 group-hover:translate-x-0.5" />
+              </div>
+              <span className="text-sm font-bold tracking-wide">
+                Richiedi questo itinerario
+              </span>
             </Link>
             
           </div>

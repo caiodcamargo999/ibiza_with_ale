@@ -12,8 +12,6 @@ const navItems = [
   { label: "Chi sono", path: "/chi-sono" },
   { label: "Servizi", path: "/servizi" },
   { label: "Come funziona", path: "/come-funziona" },
-  { label: "FAQ", path: "/faq" },
-  { label: "Contatti", path: "/contatti" },
 ];
 
 const guideItems = [
@@ -99,8 +97,13 @@ function Header() {
             </Link>
           ))}
           <GuideDropdown />
-          <Link href="/contatti" className={cn(buttonVariants({ variant: "hero", size: "sm" }), "ml-3")}>
-            Richiedi piano viaggio
+          <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }), "ml-3")}>
+            <div className="w-7 h-7 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+              <ChevronDown className="w-3.5 h-3.5 text-white -rotate-90 transform transition-transform duration-300 group-hover:translate-x-0.5" />
+            </div>
+            <span className="text-xs font-bold tracking-wide">
+              Richiedi piano viaggio
+            </span>
           </Link>
         </nav>
 
@@ -147,8 +150,13 @@ function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="/contatti" onClick={() => setMobileOpen(false)} className={cn(buttonVariants({ variant: "hero", size: "lg" }), "mt-2")}>
-                Richiedi piano viaggio
+              <Link href="/crea-viaggio" onClick={() => setMobileOpen(false)} className={cn(buttonVariants({ variant: "hero" }), "mt-2 justify-center")}>
+                <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                  <ChevronDown className="w-4 h-4 text-white -rotate-90 transform transition-transform duration-300 group-hover:translate-x-0.5" />
+                </div>
+                <span className="text-sm font-bold tracking-wide">
+                  Richiedi piano viaggio
+                </span>
               </Link>
             </nav>
           </motion.div>

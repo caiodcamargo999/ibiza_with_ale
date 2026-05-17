@@ -303,8 +303,13 @@ export default function IbizaMapSection() {
             <p className="text-foreground/80 font-display font-semibold text-lg mb-6">
               Vuoi organizzare tutto nel modo giusto?
             </p>
-            <Link href="/contatti" className={cn(buttonVariants({ variant: "hero", size: "xl" }))}>
-              Richiedi il tuo piano viaggio <ArrowRight className="w-5 h-5" />
+            <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }))}>
+              <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <ArrowRight className="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1" />
+              </div>
+              <span className="text-sm font-bold tracking-wide">
+                Richiedi il tuo piano viaggio
+              </span>
             </Link>
           </div>
         </AnimatedSection>

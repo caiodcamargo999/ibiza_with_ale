@@ -481,10 +481,14 @@ export default function CreaViaggio() {
 
                   {/* CTA */}
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href={summaryWhatsApp()} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: 'hero', size: 'xl' })}>
-                        <Send className="w-5 h-5" />
+                    <a href={summaryWhatsApp()} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "hero" })}>
+                      <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                        <Send className="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
+                      <span className="text-sm font-bold tracking-wide">
                         Richiedi preventivo per questo pacchetto
-                      </a>
+                      </span>
+                    </a>
                     
                   </div>
                 </div>
