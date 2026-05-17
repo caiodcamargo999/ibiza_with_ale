@@ -117,7 +117,7 @@ export default function CreaViaggio() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80"
             alt="Ibiza landscape"
             className="w-full h-full object-cover"
           />
@@ -483,7 +483,7 @@ export default function CreaViaggio() {
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
                     <a href={summaryWhatsApp()} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "hero" })}>
                       <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                        <Send className="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <Send className="w-4 h-4 text-white animate-send-slide" />
                       </div>
                       <span className="text-sm font-bold tracking-wide">
                         Richiedi preventivo per questo pacchetto

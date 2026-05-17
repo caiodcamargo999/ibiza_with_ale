@@ -379,7 +379,7 @@ function ItineraryCard({ itin, index }: { itin: typeof itineraries[0]; index: nu
           <div className="flex flex-wrap gap-3">
             <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }), "flex-1 sm:flex-none")}>
               <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <ArrowRight className="w-3.5 h-3.5 text-white transform transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight className="w-3.5 h-3.5 text-white animate-arrow-slide" />
               </div>
               <span className="text-sm font-bold tracking-wide">
                 Richiedi questo itinerario

@@ -305,7 +305,7 @@ export default function IbizaMapSection() {
             </p>
             <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }))}>
               <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <ArrowRight className="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
               </div>
               <span className="text-sm font-bold tracking-wide">
                 Richiedi il tuo piano viaggio

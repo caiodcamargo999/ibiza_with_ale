@@ -99,7 +99,7 @@ function Header() {
           <GuideDropdown />
           <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }), "ml-3")}>
             <div className="w-7 h-7 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-              <ChevronDown className="w-3.5 h-3.5 text-white -rotate-90 transform transition-transform duration-300 group-hover:translate-x-0.5" />
+              <ChevronDown className="w-3.5 h-3.5 text-white -rotate-90 animate-arrow-slide" />
             </div>
             <span className="text-xs font-bold tracking-wide">
               Richiedi piano viaggio
@@ -152,7 +152,7 @@ function Header() {
               ))}
               <Link href="/crea-viaggio" onClick={() => setMobileOpen(false)} className={cn(buttonVariants({ variant: "hero" }), "mt-2 justify-center")}>
                 <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ChevronDown className="w-4 h-4 text-white -rotate-90 transform transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <ChevronDown className="w-4 h-4 text-white -rotate-90 animate-arrow-slide" />
                 </div>
                 <span className="text-sm font-bold tracking-wide">
                   Richiedi piano viaggio

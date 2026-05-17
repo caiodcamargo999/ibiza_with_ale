@@ -271,3 +271,49 @@
     animation: orb-float-3 22s infinite ease-in-out;
   }
 }
+
+@keyframes arrow-slide {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  49% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.group:hover .animate-arrow-slide {
+  animation: arrow-slide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes send-slide {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  49% {
+    transform: translate(140%, -140%);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-140%, 140%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.group:hover .animate-send-slide {
+  animation: send-slide 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

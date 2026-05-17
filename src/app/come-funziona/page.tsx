@@ -25,7 +25,7 @@ export default function ComeFunzionaPage() {
       {/* Hero */}
       <section className="py-28 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80" alt="Ibiza spiaggia" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80" alt="Ibiza spiaggia" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         </div>
         <div className="container text-center relative z-10">

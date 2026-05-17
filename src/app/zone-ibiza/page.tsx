@@ -9,7 +9,7 @@ const zones = [
   {
     name: "Playa d'en Bossa",
     tagline: "Il cuore della nightlife e del lifestyle",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     description: "La zona più dinamica e richiesta di Ibiza per chi vuole vivere l'isola a pieno ritmo. Qui trovi Ushuaïa e Hï Ibiza, i due club più famosi al mondo, raggiungibili a piedi. La spiaggia è la più lunga dell'isola. Vicina all'aeroporto (5 min) e a Ibiza Town (10 min).",
     pros: ["Club principali a piedi (Ushuaïa, Hï Ibiza)", "Spiaggia lunga con servizi completi", "Vicina all'aeroporto e a Ibiza Town", "Ampia offerta di ristoranti e bar", "Vita notturna e diurna sempre attiva"],
     cons: ["Rumorosa, soprattutto vicino ai club", "Prezzi degli alloggi più alti in estate", "Meno adatta a chi cerca tranquillità"],
@@ -19,7 +19,7 @@ const zones = [
   {
     name: "Ibiza Town (Eivissa)",
     tagline: "Cultura, charme e vita notturna sofisticata",
-    image: "https://images.unsplash.com/photo-1555992336-03a23c7b20eb?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&q=80",
     description: "Il centro storico di Ibiza, con Dalt Vila (patrimonio UNESCO), il porto, i negozi e una vita notturna raffinata. Pacha è qui. Base strategica per Formentera e per esplorare tutta l'isola.",
     pros: ["Pacha e vita notturna sofisticata", "Porto e traghetti per Formentera", "Dalt Vila, storia e cultura", "Ristoranti di alto livello", "Centrale e ben collegata"],
     cons: ["Traffico e parcheggio difficili in estate", "Alloggi in centro spesso costosi", "Meno spiagge a portata di mano"],
@@ -29,7 +29,7 @@ const zones = [
   {
     name: "San Antonio",
     tagline: "Tramonto, prezzi accessibili e festa",
-    image: "https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1520454974749-611b7248ffdb?w=800&q=80",
     description: "Famosa per il Sunset Strip (Café del Mar, Café Mambo) e per i tramonti più belli di Ibiza. Club come Eden, Es Paradis e O Beach, atmosfera giovane e vivace. Miglior rapporto qualità-prezzo per gli alloggi.",
     pros: ["Sunset Strip leggendario", "Prezzi alloggi più accessibili", "Club e beach club nella zona", "Water taxi per Cala Bassa e Cala Comte", "Atmosfera giovane e internazionale"],
     cons: ["Lontana da Ushuaïa/Hï (30 min in auto)", "Alcune zone molto turistiche", "Qualità dei ristoranti variabile"],
@@ -39,7 +39,7 @@ const zones = [
   {
     name: "Santa Eulalia",
     tagline: "Relax, natura e qualità della vita",
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1468413253725-0d5181091126?w=800&q=80",
     description: "La terza città dell'isola, sulla costa est. Tranquilla e residenziale, perfetta per coppie e famiglie. Bel lungomare, porto turistico, ristoranti di qualità e spiagge facilmente accessibili.",
     pros: ["Tranquilla e rilassante", "Ottimi ristoranti (La Paloma, Cala Bonita)", "Spiagge accessibili nelle vicinanze", "Mercatino hippie Las Dalias vicino", "Buon rapporto qualità-prezzo"],
     cons: ["Lontana dalla nightlife (30–40 min)", "Meno animata di sera", "Necessaria auto per spostarsi"],
@@ -49,7 +49,7 @@ const zones = [
   {
     name: "San José",
     tagline: "Natura, spiagge e paesaggi mozzafiato",
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1569470128243-d343461b17b5?w=800&q=80",
     description: "Il comune più grande dell'isola, con le spiagge più belle: Cala Comte, Cala d'Hort, Cala Tarida, Cala Jondal. Zona più scenografica di Ibiza, con colline, pinete e viste su Es Vedrà. Alloggi spesso ville e fincas.",
     pros: ["Le spiagge più belle dell'isola", "Paesaggi mozzafiato e natura", "Villa e fincas con privacy", "Blue Marlin e beach club premium", "Lontana dal turismo di massa"],
     cons: ["Auto indispensabile", "Lontana dai club principali", "Supermercati e servizi limitati"],
@@ -59,7 +59,7 @@ const zones = [
   {
     name: "San Juan",
     tagline: "Il nord autentico e alternativo",
-    image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
     description: "La zona più autentica di Ibiza, nel nord dell'isola. Cala Benirrás (tamburi al tramonto), ristoranti locali, mercatino di Sant Joan e atmosfera bohémien. Ibiza diversa, lontana dai club.",
     pros: ["Atmosfera autentica e alternativa", "Cala Benirrás e spiagge del nord", "Mercatino di Sant Joan", "Ristoranti locali di qualità", "Tranquillità assoluta"],
     cons: ["Molto lontana dalla nightlife (40–50 min)", "Servizi e trasporti limitati", "Auto obbligatoria"],

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "@/components/AnimatedSection";
-import { MessageCircle, ArrowRight, Settings2, MapPin } from "lucide-react";
+import { MessageCircle, ArrowRight, BadgeCheck, ShieldCheck } from "lucide-react";
 
 
 export default function HeroSection() {
@@ -33,11 +33,11 @@ export default function HeroSection() {
               {/* Credibility badges */}
               <div className="flex flex-wrap gap-3 mb-8">
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/60 backdrop-blur-md border border-border/30 text-xs font-medium text-muted-foreground shadow-sm">
-                  <Settings2 className="w-3 h-3 text-primary" />
+                  <BadgeCheck className="w-3.5 h-3.5 text-primary" />
                   Travel planner specializzata sull'isola
                 </span>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/60 backdrop-blur-md border border-border/30 text-xs font-medium text-muted-foreground shadow-sm">
-                  <MapPin className="w-3 h-3 text-primary" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                   Collaborazioni attive con realtà turistiche locali
                 </span>
               </div>
@@ -63,7 +63,7 @@ export default function HeroSection() {
               <div className="flex flex-wrap gap-4">
                 <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
                   <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                    <ArrowRight className="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
                   </div>
                   <span className="text-sm font-bold tracking-wide">
                     Richiedi il tuo piano viaggio
