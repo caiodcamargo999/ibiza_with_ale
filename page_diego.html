@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Ibiza 2026 · Alessandra Ibiza Planner</title>
+    <meta name="description"
+        content="Calendário completo das festas em Ibiza temporada 2026. Mesa VIP reservada nos hyperclubs.">
+    <style>
+        /* ============================================
+   ALESSANDRA — IBIZA PLANNER
+   Editorial Mediterranean Luxury
+   ============================================ */
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=Italiana&display=swap');
+
+        :root {
+            --bg: #F2EBDF;
+            --bg-soft: #EFE5D2;
+            --bg-warm: #E8DCC4;
+            --bg-dark: #14110D;
+            --bg-dark-2: #211C16;
+            --ink: #1A1612;
+            --ink-soft: #3E342A;
+            --muted: #6B5D4F;
+            --line: #C8B89E;
+            --line-soft: #DCCFB6;
+
+            --terracotta: #B4513A;
+            --terracotta-deep: #8A3D2D;
+            --gold: #B89855;
+            --gold-soft: #D4B97A;
+            --olive: #5A6B3F;
+            --sea: #2E5A5C;
+            --white: #FAF6EE;
+
+            --display: 'Cormorant Garamond', Georgia, serif;
+            --display-tight: 'Italiana', serif;
+            --body: 'Outfit', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--body);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* ============================================
+   TYPOGRAPHY
+   ============================================ */
+        .display {
+            font-family: var(--display);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 0.92;
+        }
+
+        .display-italic {
+            font-family: var(--display);
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+        }
+
+        .eyebrow {
+            font-family: var(--body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+        }
+
+        .eyebrow-light {
+            color: var(--gold-soft);
+        }
+
+        .label {
+            font-family: var(--body);
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        /* ============================================
+   LAYOUT
+   ============================================ */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        @media (max-width: 768px) {
+
+            .container,
+            .container-narrow {
+                padding: 0 20px;
+            }
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        /* ============================================
+   NAVIGATION
+   ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(242, 235, 223, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 0.5px solid var(--line-soft);
+            transition: background 0.3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 32px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .nav-brand {
+            font-family: var(--display);
+            font-size: 22px;
+            font-style: italic;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+
+        .nav-brand strong {
+            font-weight: 500;
+        }
+
+        .nav-brand .dot {
+            color: var(--terracotta);
+            font-style: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--ink-soft);
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--terracotta);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--terracotta);
+        }
+
+        .nav-cta {
+            background: var(--ink);
+            color: var(--white);
+            padding: 12px 22px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: all 0.25s;
+            border-radius: 0;
+        }
+
+        .nav-cta:hover {
+            background: var(--terracotta);
+            color: var(--white);
+        }
+
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-burger span {
+            width: 22px;
+            height: 1.5px;
+            background: var(--ink);
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                flex-direction: column;
+                gap: 24px;
+                padding: 32px;
+                border-bottom: 0.5px solid var(--line);
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+        }
+
+        /* ============================================
+   BUTTONS
+   ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 32px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            border-radius: 0;
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--terracotta);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--ink);
+        }
+
+        .btn-outline:hover {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .btn-terracotta {
+            background: var(--terracotta);
+            color: var(--white);
+        }
+
+        .btn-terracotta:hover {
+            background: var(--terracotta-deep);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            color: var(--ink);
+            padding: 6px 0;
+            font-size: 12px;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .btn-ghost:hover {
+            color: var(--terracotta);
+            border-color: var(--terracotta);
+        }
+
+        .arrow-right::after {
+            content: '→';
+            font-size: 14px;
+        }
+
+        /* ============================================
+   FOOTER
+   ============================================ */
+        .footer {
+            background: var(--bg-dark);
+            color: var(--bg);
+            padding: 90px 0 40px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 800px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        .footer-brand {
+            font-family: var(--display);
+            font-size: 36px;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand .dot {
+            color: var(--terracotta);
+            font-style: normal;
+        }
+
+        .footer-tagline {
+            color: var(--gold-soft);
+            font-size: 14px;
+            max-width: 340px;
+            margin-bottom: 24px;
+        }
+
+        .footer h4 {
+            font-family: var(--body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul li a {
+            font-size: 13px;
+            color: var(--white);
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .footer ul li a:hover {
+            opacity: 1;
+            color: var(--gold-soft);
+        }
+
+        .footer-bottom {
+            border-top: 0.5px solid rgba(200, 168, 100, 0.2);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: rgba(250, 246, 238, 0.4);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* ============================================
+   WHATSAPP FLOATING
+   ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 90;
+            background: #25D366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            transition: transform 0.25s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+        }
+
+        .whatsapp-float svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* ============================================
+   PHOTO PLACEHOLDER (Alessandra)
+   ============================================ */
+        .alessandra-portrait {
+            position: relative;
+            background: linear-gradient(155deg, var(--gold-soft) 0%, var(--terracotta) 55%, var(--terracotta-deep) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .alessandra-portrait::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255, 230, 180, 0.35) 0%, transparent 35%),
+                radial-gradient(circle at 70% 80%, rgba(40, 20, 10, 0.4) 0%, transparent 50%);
+        }
+
+        .alessandra-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 3px);
+            pointer-events: none;
+        }
+
+        .alessandra-portrait .silhouette {
+            width: 78%;
+            height: 92%;
+            background: linear-gradient(180deg, rgba(20, 17, 13, 0.25) 0%, rgba(20, 17, 13, 0.75) 100%);
+            border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alessandra-portrait .silhouette::before {
+            content: '';
+            position: absolute;
+            top: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35%;
+            aspect-ratio: 1;
+            background: linear-gradient(180deg, rgba(20, 17, 13, 0.4) 0%, rgba(20, 17, 13, 0.9) 100%);
+            border-radius: 50%;
+        }
+
+        .alessandra-portrait .label-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            z-index: 3;
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            color: rgba(250, 246, 238, 0.7);
+            text-transform: uppercase;
+            font-family: var(--body);
+        }
+
+        /* ============================================
+   GRAIN OVERLAY
+   ============================================ */
+        .grain-overlay {
+            position: relative;
+        }
+
+        .grain-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.35;
+            mix-blend-mode: multiply;
+        }
+
+        /* ============================================
+   MARQUEE
+   ============================================ */
+        .marquee {
+            background: var(--ink);
+            color: var(--bg);
+            padding: 18px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            animation: scroll 38s linear infinite;
+            gap: 60px;
+        }
+
+        .marquee span {
+            font-family: var(--display);
+            font-style: italic;
+            font-size: 22px;
+            color: var(--gold-soft);
+            letter-spacing: -0.01em;
+            display: inline-flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .marquee span::after {
+            content: '✦';
+            font-size: 12px;
+            color: var(--terracotta);
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ============================================
+   ANIMATIONS
+   ============================================ */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.15s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: 0.45s;
+            opacity: 0;
+        }
+
+        .delay-4 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+    </style>
+    <style>
+        /* Calendar-specific styles */
+        .filter-bar {
+            background: var(--bg-warm);
+            border-top: 0.5px solid var(--line);
+            border-bottom: 0.5px solid var(--line);
+            padding: 22px 0;
+            position: sticky;
+            top: 64px;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-right: 6px;
+        }
+
+        .filter-chip {
+            padding: 8px 14px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            background: transparent;
+            border: 0.5px solid var(--line);
+            color: var(--ink);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--body);
+        }
+
+        .filter-chip:hover {
+            border-color: var(--terracotta);
+            color: var(--terracotta);
+        }
+
+        .filter-chip.active {
+            background: var(--ink);
+            color: var(--white);
+            border-color: var(--ink);
+        }
+
+        .month-block {
+            margin-bottom: 80px;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+            padding-bottom: 24px;
+            margin-bottom: 36px;
+            border-bottom: 0.5px solid var(--line);
+        }
+
+        .month-title {
+            font-family: var(--display);
+            font-style: italic;
+            font-size: clamp(48px, 6.5vw, 88px);
+            line-height: 0.9;
+            color: var(--ink);
+        }
+
+        .month-count {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            align-self: flex-end;
+            padding-bottom: 12px;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1px;
+            background: var(--line-soft);
+        }
+
+        .event-card {
+            background: var(--bg);
+            padding: 28px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .event-card:hover {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .event-card:hover .event-date,
+        .event-card:hover .event-title {
+            color: var(--gold-soft);
+        }
+
+        .event-card:hover .event-venue,
+        .event-card:hover .event-price {
+            color: rgba(250, 246, 238, 0.7);
+        }
+
+        .event-card:hover .event-badge {
+            border-color: var(--terracotta);
+            color: var(--terracotta);
+        }
+
+        .event-card:hover .event-arrow {
+            color: var(--terracotta);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .event-date {
+            font-family: var(--display);
+            font-style: italic;
+            font-size: 52px;
+            line-height: 1;
+            color: var(--terracotta);
+            transition: color 0.3s;
+        }
+
+        .event-weekday {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .event-badge {
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            border: 0.5px solid var(--line);
+            padding: 4px 10px;
+            transition: all 0.3s;
+        }
+
+        .event-title {
+            font-family: var(--display);
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--ink);
+            transition: color 0.3s;
+        }
+
+        .event-venue {
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            transition: color 0.3s;
+        }
+
+        .event-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 16px;
+            margin-top: auto;
+            border-top: 0.5px solid var(--line-soft);
+        }
+
+        .event-price {
+            font-size: 12px;
+            color: var(--ink-soft);
+            transition: color 0.3s;
+        }
+
+        .event-price strong {
+            font-family: var(--display);
+            font-style: italic;
+            font-size: 18px;
+            color: var(--terracotta);
+            margin-left: 4px;
+        }
+
+        .event-arrow {
+            font-size: 18px;
+            color: var(--ink-soft);
+            transition: color 0.3s;
+        }
+
+        .event-card.sold-out {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .event-card.sold-out::after {
+            content: 'SOLD OUT';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--terracotta);
+            color: var(--white);
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            padding: 4px 10px;
+        }
+
+        /* ============================================
+     MODAL
+     ============================================ */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 17, 13, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-backdrop.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: var(--bg);
+            max-width: 720px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .modal-backdrop.open .modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ink);
+            color: var(--white);
+            font-size: 18px;
+            z-index: 3;
+        }
+
+        .modal-hero {
+            background: var(--ink);
+            color: var(--white);
+            padding: 50px 44px 40px;
+            position: relative;
+        }
+
+        .modal-hero .event-date {
+            color: var(--gold-soft);
+            font-size: 64px;
+        }
+
+        .modal-hero .event-title {
+            color: var(--white);
+            font-size: 40px;
+            margin-top: 8px;
+        }
+
+        .modal-hero .event-venue {
+            color: var(--gold-soft);
+        }
+
+        .modal-body {
+            padding: 36px 44px 44px;
+        }
+
+        .modal-body h4 {
+            font-size: 11px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 14px;
+        }
+
+        .pkg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .pkg-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-hero,
+            .modal-body {
+                padding-left: 28px;
+                padding-right: 28px;
+            }
+        }
+
+        .pkg-card {
+            background: var(--bg-warm);
+            padding: 20px 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1.5px solid transparent;
+        }
+
+        .pkg-card:hover,
+        .pkg-card.selected {
+            border-color: var(--terracotta);
+            background: var(--white);
+        }
+
+        .pkg-card.featured {
+            background: var(--ink);
+            color: var(--white);
+            position: relative;
+        }
+
+        .pkg-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--terracotta);
+            color: var(--white);
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            padding: 3px 10px;
+        }
+
+        .pkg-name {
+            font-family: var(--display);
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .pkg-features {
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+        }
+
+        .pkg-card.featured .pkg-features {
+            color: rgba(250, 246, 238, 0.7);
+        }
+
+        .pkg-price {
+            font-family: var(--display);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--terracotta);
+        }
+
+        .pkg-card.featured .pkg-price {
+            color: var(--gold-soft);
+        }
+
+        .pkg-price small {
+            font-family: var(--body);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .pkg-card.featured .pkg-price small {
+            color: rgba(250, 246, 238, 0.5);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-warm);
+            border: 0.5px solid var(--line);
+            font-family: var(--body);
+            font-size: 14px;
+            color: var(--ink);
+            border-radius: 0;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--terracotta);
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        /* Empty state for filters */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =================== NAV =================== -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand"><strong>alessandra</strong><span class="dot">.</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Início</a>
+                <a href="calendario.html" class="active">Calendário</a>
+                <a href="experiencias.html">Experiências</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="plan-my-ibiza.html" class="nav-cta">Plan My Ibiza</a>
+            </div>
+            <div class="nav-burger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =================== HEADER =================== -->
+    <section style="padding: 120px 0 60px;">
+        <div class="container">
+            <p class="eyebrow fade-up" style="margin-bottom: 24px;">Temporada 2026 · Junho — Setembro</p>
+            <h1 class="display fade-up delay-1"
+                style="font-size: clamp(54px, 8vw, 120px); line-height: 0.9; margin-bottom: 32px;">
+                Calendário<br>
+                <em class="display-italic" style="color: var(--terracotta);">hyperclubs</em>.
+            </h1>
+            <p class="fade-up delay-2"
+                style="font-size: 18px; color: var(--ink-soft); max-width: 600px; line-height: 1.6;">
+                Todas as residências e datas confirmadas dos 5 hyperclubs de Ibiza. Mesa VIP garantida em todas. Reserve
+                antes que feche.
+            </p>
+        </div>
+    </section>
+
+    <!-- =================== FILTERS =================== -->
+    <div class="filter-bar">
+        <div class="container">
+            <div class="filter-row">
+                <span class="filter-label">Mês</span>
+                <div class="filter-group">
+                    <button class="filter-chip active" data-month="all">Todos</button>
+                    <button class="filter-chip" data-month="06">Jun</button>
+                    <button class="filter-chip" data-month="07">Jul</button>
+                    <button class="filter-chip" data-month="08">Ago</button>
+                    <button class="filter-chip" data-month="09">Set</button>
+                </div>
+                <span class="filter-label" style="margin-left: 16px;">Clube</span>
+                <div class="filter-group">
+                    <button class="filter-chip active" data-club="all">Todos</button>
+                    <button class="filter-chip" data-club="Pacha">Pacha</button>
+                    <button class="filter-chip" data-club="Hï">Hï</button>
+                    <button class="filter-chip" data-club="Ushuaïa">Ushuaïa</button>
+                    <button class="filter-chip" data-club="UNVRS">UNVRS</button>
+                    <button class="filter-chip" data-club="Amnesia">Amnesia</button>
+                    <button class="filter-chip" data-club="DC-10">DC-10</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== CALENDAR =================== -->
+    <section style="padding-top: 60px;">
+        <div class="container">
+
+            <!-- JUNHO -->
+            <div class="month-block" data-month="06">
+                <div class="month-header">
+                    <h2 class="month-title">Giugno <em style="color: var(--terracotta);">2026</em></h2>
+                    <p class="month-count" data-counter="06">9 eventos</p>
+                </div>
+                <div class="event-grid">
+
+                    <div class="event-card" data-club="Pacha" data-month="06"
+                        onclick="openModal('Solomun +1', 'Pacha', '06', '06', 'Sex', '1500', 'Residência semanal · sexta-feira')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">06</div>
+                                <div class="event-weekday">Sex · 23:00</div>
+                            </div>
+                            <span class="event-badge">Residência</span>
+                        </div>
+                        <h3 class="event-title">Solomun +1</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.500</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="06"
+                        onclick="openModal('Calvin Harris', 'Ushuaïa', '12', '06', 'Sex', '1800', 'Opening party · headliner')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">12</div>
+                                <div class="event-weekday">Sex · Day</div>
+                            </div>
+                            <span class="event-badge">Opening</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.800</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="06"
+                        onclick="openModal('ANTS', 'Ushuaïa', '13', '06', 'Sáb', '900', 'ANTS · opening Saturday')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">13</div>
+                                <div class="event-weekday">Sáb · Day</div>
+                            </div>
+                            <span class="event-badge">Opening</span>
+                        </div>
+                        <h3 class="event-title">ANTS</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€900</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="06"
+                        onclick="openModal('Music On · Marco Carola', 'Amnesia', '14', '06', 'Dom', '2100', 'Marco Carola · headliner residente')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">14</div>
+                                <div class="event-weekday">Dom · 23:30</div>
+                            </div>
+                            <span class="event-badge">Opening</span>
+                        </div>
+                        <h3 class="event-title">Music On<br>Marco Carola</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.100</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="06"
+                        onclick="openModal('Cocoon · Sven Väth', 'Amnesia', '20', '06', 'Sáb', '1200', 'Cocoon · Sven Väth residency')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">20</div>
+                                <div class="event-weekday">Sáb · 23:30</div>
+                            </div>
+                            <span class="event-badge">Cocoon</span>
+                        </div>
+                        <h3 class="event-title">Sven Väth</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.200</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="06"
+                        onclick="openModal('Black Coffee', 'Hï', '21', '06', 'Dom', '1700', 'Black Coffee · residência domingo')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">21</div>
+                                <div class="event-weekday">Dom · 23:00</div>
+                            </div>
+                            <span class="event-badge">Opening</span>
+                        </div>
+                        <h3 class="event-title">Black Coffee</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.700</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="DC-10" data-month="06"
+                        onclick="openModal('Circoloco', 'DC-10', '22', '06', 'Seg', '1300', 'Circoloco Monday · DC-10')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">22</div>
+                                <div class="event-weekday">Seg · Day</div>
+                            </div>
+                            <span class="event-badge">Circoloco</span>
+                        </div>
+                        <h3 class="event-title">Circoloco</h3>
+                        <p class="event-venue">DC-10</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.300</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="06"
+                        onclick="openModal('Eric Prydz · HOLO', 'Hï', '27', '06', 'Sáb', '1900', 'Eric Prydz HOLO production')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">27</div>
+                                <div class="event-weekday">Sáb · 23:00</div>
+                            </div>
+                            <span class="event-badge">HOLO</span>
+                        </div>
+                        <h3 class="event-title">Eric Prydz</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.900</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="UNVRS" data-month="06"
+                        onclick="openModal('Afterlife · Anyma + Tale of Us', 'UNVRS', '28', '06', 'Dom', '2400', 'Afterlife · Anyma + Tale of Us')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">28</div>
+                                <div class="event-weekday">Dom · 22:00</div>
+                            </div>
+                            <span class="event-badge">Afterlife</span>
+                        </div>
+                        <h3 class="event-title">Anyma<br>+ Tale of Us</h3>
+                        <p class="event-venue">UNVRS</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.400</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- JULHO -->
+            <div class="month-block" data-month="07">
+                <div class="month-header">
+                    <h2 class="month-title">Luglio <em style="color: var(--terracotta);">2026</em></h2>
+                    <p class="month-count" data-counter="07">11 eventos</p>
+                </div>
+                <div class="event-grid">
+
+                    <div class="event-card" data-club="Pacha" data-month="07"
+                        onclick="openModal('Solomun +1', 'Pacha', '04', '07', 'Sáb', '1500', 'Residência semanal · sábado')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">04</div>
+                                <div class="event-weekday">Sáb · 23:00</div>
+                            </div>
+                            <span class="event-badge">Residência</span>
+                        </div>
+                        <h3 class="event-title">Solomun +1</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.500</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="07"
+                        onclick="openModal('ANTS', 'Ushuaïa', '05', '07', 'Dom', '950', 'ANTS Saturday · residência')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">05</div>
+                                <div class="event-weekday">Dom · Day</div>
+                            </div>
+                            <span class="event-badge">ANTS</span>
+                        </div>
+                        <h3 class="event-title">ANTS</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€950</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="07"
+                        onclick="openModal('Music On · Marco Carola', 'Amnesia', '06', '07', 'Seg', '2100', 'Music On · residência italiana')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">06</div>
+                                <div class="event-weekday">Seg · 23:30</div>
+                            </div>
+                            <span class="event-badge">Music On</span>
+                        </div>
+                        <h3 class="event-title">Marco Carola</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.100</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="07"
+                        onclick="openModal('Calvin Harris', 'Ushuaïa', '11', '07', 'Sáb', '1850', 'Calvin Harris · residência sábado')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">11</div>
+                                <div class="event-weekday">Sáb · Day</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.850</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="07"
+                        onclick="openModal('Black Coffee', 'Hï', '12', '07', 'Dom', '1750', 'Black Coffee · headliner')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">12</div>
+                                <div class="event-weekday">Dom · 23:00</div>
+                            </div>
+                            <span class="event-badge">Domingo</span>
+                        </div>
+                        <h3 class="event-title">Black Coffee</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.750</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Pacha" data-month="07"
+                        onclick="openModal('Solomun +1', 'Pacha', '18', '07', 'Sáb', '1500', 'Solomun · residência semanal')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">18</div>
+                                <div class="event-weekday">Sáb · 23:00</div>
+                            </div>
+                            <span class="event-badge">Residência</span>
+                        </div>
+                        <h3 class="event-title">Solomun +1</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.500</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card sold-out" data-club="Ushuaïa" data-month="07"
+                        onclick="openModal('Calvin Harris', 'Ushuaïa', '19', '07', 'Dom', '2100', 'Calvin Harris · esgotado')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">19</div>
+                                <div class="event-weekday">Dom · Day</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Esgotado</p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="UNVRS" data-month="07"
+                        onclick="openModal('Marco Carola', 'UNVRS', '25', '07', 'Sáb', '2200', 'Marco Carola · UNVRS')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">25</div>
+                                <div class="event-weekday">Sáb · 22:00</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Marco Carola</h3>
+                        <p class="event-venue">UNVRS</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.200</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="07"
+                        onclick="openModal('Eric Prydz · HOLO', 'Hï', '26', '07', 'Dom', '1950', 'Eric Prydz · HOLO production')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">26</div>
+                                <div class="event-weekday">Dom · 23:00</div>
+                            </div>
+                            <span class="event-badge">HOLO</span>
+                        </div>
+                        <h3 class="event-title">Eric Prydz</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.950</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="UNVRS" data-month="07"
+                        onclick="openModal('Afterlife', 'UNVRS', '31', '07', 'Sex', '2500', 'Afterlife · Anyma + Tale of Us')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">31</div>
+                                <div class="event-weekday">Sex · 22:00</div>
+                            </div>
+                            <span class="event-badge">Afterlife</span>
+                        </div>
+                        <h3 class="event-title">Anyma<br>+ Tale of Us</h3>
+                        <p class="event-venue">UNVRS</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.500</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="DC-10" data-month="07"
+                        onclick="openModal('Circoloco', 'DC-10', '20', '07', 'Seg', '1300', 'Circoloco Monday')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">20</div>
+                                <div class="event-weekday">Seg · Day</div>
+                            </div>
+                            <span class="event-badge">Circoloco</span>
+                        </div>
+                        <h3 class="event-title">Circoloco</h3>
+                        <p class="event-venue">DC-10</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.300</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- AGOSTO -->
+            <div class="month-block" data-month="08">
+                <div class="month-header">
+                    <h2 class="month-title">Agosto <em style="color: var(--terracotta);">2026</em></h2>
+                    <p class="month-count" data-counter="08">12 eventos · pico</p>
+                </div>
+                <div class="event-grid">
+
+                    <div class="event-card sold-out" data-club="Ushuaïa" data-month="08"
+                        onclick="openModal('Calvin Harris', 'Ushuaïa', '01', '08', 'Sáb', '2200', 'Calvin Harris · esgotado')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">01</div>
+                                <div class="event-weekday">Sáb · Day</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Esgotado</p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="08"
+                        onclick="openModal('Music On · Marco Carola', 'Amnesia', '02', '08', 'Dom', '2300', 'Music On · Marco Carola pico')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">02</div>
+                                <div class="event-weekday">Dom · 23:30</div>
+                            </div>
+                            <span class="event-badge">Music On</span>
+                        </div>
+                        <h3 class="event-title">Marco Carola</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.300</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Pacha" data-month="08"
+                        onclick="openModal('Solomun +1', 'Pacha', '07', '08', 'Sex', '1700', 'Solomun · pico de temporada')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">07</div>
+                                <div class="event-weekday">Sex · 23:00</div>
+                            </div>
+                            <span class="event-badge">Residência</span>
+                        </div>
+                        <h3 class="event-title">Solomun +1</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.700</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="08"
+                        onclick="openModal('ANTS', 'Ushuaïa', '08', '08', 'Sáb', '1100', 'ANTS · alta temporada')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">08</div>
+                                <div class="event-weekday">Sáb · Day</div>
+                            </div>
+                            <span class="event-badge">ANTS</span>
+                        </div>
+                        <h3 class="event-title">ANTS</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.100</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="08"
+                        onclick="openModal('Black Coffee', 'Hï', '09', '08', 'Dom', '1950', 'Black Coffee · pico')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">09</div>
+                                <div class="event-weekday">Dom · 23:00</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Black Coffee</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.950</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="UNVRS" data-month="08"
+                        onclick="openModal('Afterlife · Anyma', 'UNVRS', '12', '08', 'Qua', '2600', 'Anyma · headline night')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">12</div>
+                                <div class="event-weekday">Qua · 22:00</div>
+                            </div>
+                            <span class="event-badge">Afterlife</span>
+                        </div>
+                        <h3 class="event-title">Anyma</h3>
+                        <p class="event-venue">UNVRS</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.600</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card sold-out" data-club="Ushuaïa" data-month="08"
+                        onclick="openModal('Calvin Harris', 'Ushuaïa', '15', '08', 'Sáb', '2500', 'Calvin Harris · esgotado')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">15</div>
+                                <div class="event-weekday">Sáb · Day</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Esgotado</p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="08"
+                        onclick="openModal('Music On · Marco Carola', 'Amnesia', '16', '08', 'Dom', '2400', 'Marco Carola · headline')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">16</div>
+                                <div class="event-weekday">Dom · 23:30</div>
+                            </div>
+                            <span class="event-badge">Music On</span>
+                        </div>
+                        <h3 class="event-title">Marco Carola</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.400</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Pacha" data-month="08"
+                        onclick="openModal('Solomun +1', 'Pacha', '21', '08', 'Sex', '1700', 'Solomun · alta temporada')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">21</div>
+                                <div class="event-weekday">Sex · 23:00</div>
+                            </div>
+                            <span class="event-badge">Residência</span>
+                        </div>
+                        <h3 class="event-title">Solomun +1</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.700</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="08"
+                        onclick="openModal('Cocoon', 'Amnesia', '22', '08', 'Sáb', '1300', 'Cocoon · pico temporada')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">22</div>
+                                <div class="event-weekday">Sáb · 23:30</div>
+                            </div>
+                            <span class="event-badge">Cocoon</span>
+                        </div>
+                        <h3 class="event-title">Sven Väth</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.300</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="08"
+                        onclick="openModal('Eric Prydz · HOLO', 'Hï', '28', '08', 'Sex', '2100', 'Eric Prydz · alta temporada')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">28</div>
+                                <div class="event-weekday">Sex · 23:00</div>
+                            </div>
+                            <span class="event-badge">HOLO</span>
+                        </div>
+                        <h3 class="event-title">Eric Prydz</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.100</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="UNVRS" data-month="08"
+                        onclick="openModal('Afterlife · Tale of Us', 'UNVRS', '29', '08', 'Sáb', '2600', 'Tale of Us · headline')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">29</div>
+                                <div class="event-weekday">Sáb · 22:00</div>
+                            </div>
+                            <span class="event-badge">Afterlife</span>
+                        </div>
+                        <h3 class="event-title">Tale of Us</h3>
+                        <p class="event-venue">UNVRS</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.600</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SETEMBRO -->
+            <div class="month-block" data-month="09">
+                <div class="month-header">
+                    <h2 class="month-title">Settembre <em style="color: var(--terracotta);">2026</em></h2>
+                    <p class="month-count" data-counter="09">8 eventos · closings</p>
+                </div>
+                <div class="event-grid">
+
+                    <div class="event-card" data-club="Pacha" data-month="09"
+                        onclick="openModal('Solomun +1', 'Pacha', '04', '09', 'Sex', '1500', 'Solomun · setembro')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">04</div>
+                                <div class="event-weekday">Sex · 23:00</div>
+                            </div>
+                            <span class="event-badge">Residência</span>
+                        </div>
+                        <h3 class="event-title">Solomun +1</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.500</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="09"
+                        onclick="openModal('Calvin Harris', 'Ushuaïa', '05', '09', 'Sáb', '1850', 'Calvin Harris · setembro')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">05</div>
+                                <div class="event-weekday">Sáb · Day</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.850</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="09"
+                        onclick="openModal('Music On · Marco Carola', 'Amnesia', '06', '09', 'Dom', '2100', 'Marco Carola · setembro')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">06</div>
+                                <div class="event-weekday">Dom · 23:30</div>
+                            </div>
+                            <span class="event-badge">Music On</span>
+                        </div>
+                        <h3 class="event-title">Marco Carola</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.100</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="09"
+                        onclick="openModal('Black Coffee', 'Hï', '11', '09', 'Sex', '1750', 'Black Coffee · setembro')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">11</div>
+                                <div class="event-weekday">Sex · 23:00</div>
+                            </div>
+                            <span class="event-badge">Headliner</span>
+                        </div>
+                        <h3 class="event-title">Black Coffee</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.750</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Amnesia" data-month="09"
+                        onclick="openModal('Cocoon Closing', 'Amnesia', '13', '09', 'Dom', '1700', 'Cocoon · festa de encerramento')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">13</div>
+                                <div class="event-weekday">Dom · 23:30</div>
+                            </div>
+                            <span class="event-badge">Closing</span>
+                        </div>
+                        <h3 class="event-title">Cocoon<br>Closing</h3>
+                        <p class="event-venue">Amnesia</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€1.700</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Pacha" data-month="09"
+                        onclick="openModal('Solomun +1 Closing', 'Pacha', '19', '09', 'Sáb', '2200', 'Solomun · festa de encerramento')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">19</div>
+                                <div class="event-weekday">Sáb · 23:00</div>
+                            </div>
+                            <span class="event-badge">Closing</span>
+                        </div>
+                        <h3 class="event-title">Solomun<br>Closing</h3>
+                        <p class="event-venue">Pacha</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.200</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Hï" data-month="09"
+                        onclick="openModal('Eric Prydz Closing', 'Hï', '26', '09', 'Sáb', '2400', 'Eric Prydz · closing party')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">26</div>
+                                <div class="event-weekday">Sáb · 23:00</div>
+                            </div>
+                            <span class="event-badge">Closing</span>
+                        </div>
+                        <h3 class="event-title">Eric Prydz<br>Closing</h3>
+                        <p class="event-venue">Hï</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.400</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <div class="event-card" data-club="Ushuaïa" data-month="09"
+                        onclick="openModal('Calvin Harris Closing', 'Ushuaïa', '27', '09', 'Dom', '2500', 'Calvin Harris · closing temporada')">
+                        <div class="event-header">
+                            <div>
+                                <div class="event-date">27</div>
+                                <div class="event-weekday">Dom · Day</div>
+                            </div>
+                            <span class="event-badge">Closing</span>
+                        </div>
+                        <h3 class="event-title">Calvin Harris<br>Closing</h3>
+                        <p class="event-venue">Ushuaïa</p>
+                        <div class="event-footer">
+                            <p class="event-price">Mesa VIP a partir de <strong>€2.500</strong></p>
+                            <span class="event-arrow">→</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =================== CTA FINAL =================== -->
+    <section style="background: var(--ink); color: var(--white); padding: 100px 0; text-align: center;">
+        <div class="container-narrow">
+            <p class="eyebrow" style="color: var(--gold-soft); margin-bottom: 24px;">Quer organizar tudo de uma vez?</p>
+            <h2 class="display"
+                style="font-size: clamp(36px, 5vw, 64px); line-height: 1; margin-bottom: 32px; color: var(--white);">
+                Não escolha noite por noite.<br>
+                <em class="display-italic" style="color: var(--terracotta);">Eu desenho sua semana.</em>
+            </h2>
+            <a href="plan-my-ibiza.html" class="btn btn-terracotta arrow-right">Plan My Ibiza</a>
+        </div>
+    </section>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">alessandra<span class="dot">.</span></div>
+                    <p class="footer-tagline">Luxury Ibiza Planner.<br>Italiana basata a Ibiza.</p>
+                </div>
+                <div>
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="calendario.html">Calendário</a></li>
+                        <li><a href="experiencias.html">Experiências</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="plan-my-ibiza.html">Plan My Ibiza</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="experiencias.html#clubes">Mesa VIP Clubs</a></li>
+                        <li><a href="experiencias.html#boat">Boat Parties</a></li>
+                        <li><a href="experiencias.html#villa">Villas &amp; Hotéis</a></li>
+                        <li><a href="experiencias.html#gastronomia">Restaurantes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/34600000000">WhatsApp 24h</a></li>
+                        <li><a href="mailto:hello@alessandraibiza.com">hello@alessandraibiza.com</a></li>
+                        <li><a href="https://instagram.com/alessandra_ibizaplanner">@alessandra_ibizaplanner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Alessandra · Ibiza Planner</p>
+                <p>Made with ✦ in Ibiza</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =================== MODAL =================== -->
+    <div class="modal-backdrop" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-hero">
+                <div class="event-header">
+                    <div>
+                        <div class="event-date" id="m-date">12</div>
+                        <div class="event-weekday" id="m-weekday" style="color: var(--gold-soft);">Junho · Sex</div>
+                    </div>
+                    <span class="event-badge" id="m-badge"
+                        style="border-color: var(--terracotta); color: var(--terracotta);">Opening</span>
+                </div>
+                <h3 class="event-title" id="m-title" style="margin-top: 20px;">Calvin Harris</h3>
+                <p class="event-venue" id="m-venue" style="margin-top: 8px;">Ushuaïa · Playa d'en Bossa</p>
+            </div>
+
+            <div class="modal-body">
+
+                <h4>Escolha o pacote</h4>
+                <div class="pkg-grid">
+                    <div class="pkg-card" onclick="selectPkg(this)">
+                        <p class="pkg-name">Essenziale</p>
+                        <p class="pkg-features">Entrada VIP · bottle inclusa · área comum</p>
+                        <p class="pkg-price"><span id="pkg-1">€1.800</span><small>por pessoa</small></p>
+                    </div>
+                    <div class="pkg-card featured" onclick="selectPkg(this)">
+                        <p class="pkg-name">Premium</p>
+                        <p class="pkg-features">Mesa VIP exclusiva · 2 garrafas · sem fila · pista privilegiada</p>
+                        <p class="pkg-price"><span id="pkg-2">€2.600</span><small>por pessoa</small></p>
+                    </div>
+                    <div class="pkg-card" onclick="selectPkg(this)">
+                        <p class="pkg-name">Black</p>
+                        <p class="pkg-features">Mesa Black · 4 garrafas · serviço dedicado · vista pista premium</p>
+                        <p class="pkg-price"><span id="pkg-3">€4.200</span><small>por pessoa</small></p>
+                    </div>
+                </div>
+
+                <div
+                    style="background: var(--bg-warm); padding: 18px 20px; margin-bottom: 24px; border-left: 2px solid var(--terracotta);">
+                    <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.6;">
+                        <strong style="color: var(--terracotta);">Benefício parceiro Cilex:</strong> reservas via
+                        Alessandra incluem transfer privativo até o club, atendimento em português/italiano e mesa
+                        garantida mesmo em datas sold-out.
+                    </p>
+                </div>
+
+                <h4>Reserve agora</h4>
+                <div class="form-row">
+                    <div class="form-field"><label>Nome</label><input type="text" placeholder="Seu nome completo"></div>
+                    <div class="form-field"><label>WhatsApp</label><input type="tel" placeholder="+39 ou +55..."></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label>Quantas pessoas</label>
+                        <select>
+                            <option>2</option>
+                            <option>3-5</option>
+                            <option>6-10</option>
+                            <option>10+</option>
+                        </select>
+                    </div>
+                    <div class="form-field"><label>E-mail</label><input type="email" placeholder="email@dominio.com">
+                    </div>
+                </div>
+                <div class="form-field" style="margin-bottom: 24px;"><label>Observações</label><textarea rows="2"
+                        placeholder="Aniversário, despedida, preferências..."></textarea></div>
+
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <button class="btn btn-primary" style="flex: 1;" onclick="submitReservation()">Reservar
+                        mesa</button>
+                    <a href="https://wa.me/34600000000" target="_blank" class="btn btn-outline">WhatsApp</a>
+                </div>
+                <p style="font-size: 11px; color: var(--muted); margin-top: 14px; text-align: center;">
+                    Resposta em até 1 hora · atendimento em PT, IT, EN, ES
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== WHATSAPP FLOAT =================== -->
+    <a href="https://wa.me/34600000000" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488" />
+        </svg>
+    </a>
+
+    <script>
+        // =====================================================
+        // FILTERS
+        // =====================================================
+        const monthChips = document.querySelectorAll('[data-month].filter-chip');
+        const clubChips = document.querySelectorAll('[data-club].filter-chip');
+        const eventCards = document.querySelectorAll('.event-card');
+        const monthBlocks = document.querySelectorAll('.month-block');
+
+        let activeMonth = 'all';
+        let activeClub = 'all';
+
+        monthChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                monthChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeMonth = chip.dataset.month;
+                applyFilters();
+            });
+        });
+
+        clubChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                clubChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeClub = chip.dataset.club;
+                applyFilters();
+            });
+        });
+
+        function applyFilters() {
+            eventCards.forEach(card => {
+                const matchMonth = activeMonth === 'all' || card.dataset.month === activeMonth;
+                const matchClub = activeClub === 'all' || card.dataset.club === activeClub;
+                card.style.display = (matchMonth && matchClub) ? '' : 'none';
+            });
+
+            monthBlocks.forEach(block => {
+                const visibleCards = block.querySelectorAll('.event-card:not([style*="none"])');
+                block.style.display = (activeMonth === 'all' || block.dataset.month === activeMonth)
+                    ? (visibleCards.length > 0 ? '' : 'none')
+                    : 'none';
+            });
+        }
+
+        // =====================================================
+        // MODAL
+        // =====================================================
+        const modal = document.getElementById('modal');
+
+        const monthNames = { '06': 'Junho', '07': 'Julho', '08': 'Agosto', '09': 'Setembro' };
+        const venueDetails = {
+            'Pacha': 'Pacha  ·  Ibiza Town',
+            'Hï': 'Hï Ibiza  ·  Playa d\'en Bossa',
+            'Ushuaïa': 'Ushuaïa  ·  Playa d\'en Bossa',
+            'UNVRS': 'UNVRS  ·  Playa d\'en Bossa',
+            'Amnesia': 'Amnesia  ·  San Rafael',
+            'DC-10': 'DC-10  ·  San José',
+        };
+
+        function openModal(title, venue, day, month, weekday, basePrice, badge) {
+            document.getElementById('m-title').innerHTML = title;
+            document.getElementById('m-venue').textContent = venueDetails[venue] || venue;
+            document.getElementById('m-date').textContent = day;
+            document.getElementById('m-weekday').textContent = `${monthNames[month]}  ·  ${weekday}`;
+            document.getElementById('m-badge').textContent = badge;
+
+            const base = parseInt(basePrice);
+            document.getElementById('pkg-1').textContent = `€${base.toLocaleString('pt-BR')}`;
+            document.getElementById('pkg-2').textContent = `€${Math.round(base * 1.4).toLocaleString('pt-BR')}`;
+            document.getElementById('pkg-3').textContent = `€${Math.round(base * 2.3).toLocaleString('pt-BR')}`;
+
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        function selectPkg(el) {
+            document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        function submitReservation() {
+            alert('Reserva enviada! Alessandra vai te chamar no WhatsApp em até 1 hora.');
+            closeModal();
+        }
+    </script>
+
+</body>
+
+</html>
