@@ -1,4 +1,93 @@
 import { NextResponse } from 'next/server';
+import crypto from 'crypto';
+
+function sha256(text: string): string {
+  if (!text) return '';
+  return crypto.createHash('sha256').update(text.trim().toLowerCase()).digest('hex');
+}
+
+function normalizePhone(phone: string): string {
+  return phone.replace(/\D/g, '');
+}
+
+function normalizeName(name: string): string {
+  return name.trim().toLowerCase();
+}
+
+async function sendMetaCAPIEvent(
+  pixelId: string,
+  accessToken: string,
+  eventData: {
+    phone: string;
+    name: string;
+    isQualified: boolean;
+    ipAddress: string;
+    userAgent: string;
+    referer: string;
+  }
+) {
+  const { phone, name, isQualified, ipAddress, userAgent, referer } = eventData;
+
+  const normalizedPhone = normalizePhone(phone);
+  const normalizedName = normalizeName(name);
+
+  // Split name into first and last name if possible
+  const nameParts = normalizedName.split(/\s+/);
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ') || '';
+
+  const payload = {
+    data: [
+      {
+        event_name: 'Lead',
+        event_time: Math.floor(Date.now() / 1000),
+        action_source: 'website',
+        event_source_url: referer || 'https://cilexibiza.com',
+        user_data: {
+          ph: normalizedPhone ? [sha256(normalizedPhone)] : [],
+          fn: firstName ? [sha256(firstName)] : [],
+          ln: lastName ? [sha256(lastName)] : [],
+          client_ip_address: ipAddress || undefined,
+          client_user_agent: userAgent || undefined
+        },
+        custom_data: {
+          lead_status: isQualified ? 'Qualified' : 'Normal',
+          value: isQualified ? 100.00 : 30.00,
+          currency: 'EUR'
+        }
+      }
+    ]
+  };
+
+  const requestBody: any = {
+    ...payload,
+    access_token: accessToken
+  };
+
+  if (process.env.META_TEST_EVENT_CODE) {
+    requestBody.test_event_code = process.env.META_TEST_EVENT_CODE;
+  }
+
+  try {
+    const response = await fetch(`https://graph.facebook.com/v19.0/${pixelId}/events`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Meta CAPI Error:', errorText);
+    } else {
+      const resData = await response.json();
+      console.log('Meta CAPI Success:', resData);
+    }
+  } catch (error) {
+    console.error('Meta CAPI Exception:', error);
+  }
+}
 
 export async function POST(req: Request) {
   try {
@@ -11,14 +100,36 @@ export async function POST(req: Request) {
     const statusEntry = process.env.KOMMO_STATUS_ENTRY;
     const statusQualified = process.env.KOMMO_STATUS_QUALIFIED;
 
+    const metaPixelId = process.env.META_PIXEL_ID;
+    const metaAccessToken = process.env.META_ACCESS_TOKEN;
+
+    // Determine status based on score
+    // >= 120 means qualified (as per our previous WhatsApp logic)
+    const isQualified = score >= 120;
+
+    // Trigger Meta Conversions API event in the background (non-blocking)
+    if (metaPixelId && metaAccessToken && contact) {
+      const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || req.headers.get('x-real-ip') || '';
+      const userAgent = req.headers.get('user-agent') || '';
+      const referer = req.headers.get('referer') || '';
+
+      sendMetaCAPIEvent(metaPixelId, metaAccessToken, {
+        phone: contact.phone || '',
+        name: contact.name || '',
+        isQualified,
+        ipAddress,
+        userAgent,
+        referer
+      }).catch(err => {
+        console.error('Unhandled background Meta CAPI Error:', err);
+      });
+    }
+
     if (!subdomain || !accessToken || !pipelineId || !statusEntry || !statusQualified) {
       console.warn('Kommo integration is missing environment variables. Lead was not sent to CRM.');
       return NextResponse.json({ success: true, message: 'Simulated success (missing env vars)' });
     }
 
-    // Determine status based on score
-    // >= 120 means qualified (as per our previous WhatsApp logic)
-    const isQualified = score >= 120;
     const targetStatusId = isQualified ? parseInt(statusQualified) : parseInt(statusEntry);
 
     const payload = [
@@ -128,3 +239,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 });
   }
 }
+
