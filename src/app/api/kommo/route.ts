@@ -27,6 +27,11 @@ export async function POST(req: Request) {
         pipeline_id: parseInt(pipelineId),
         status_id: targetStatusId,
         _embedded: {
+          tags: [
+            {
+              name: "website-ale"
+            }
+          ],
           contacts: [
             {
               first_name: contact.name,
@@ -63,7 +68,7 @@ export async function POST(req: Request) {
     }
 
     const data = await response.json();
-    const leadId = data?._embedded?.leads?.[0]?.id;
+    const leadId = data?.[0]?.id;
 
     // Attach questionnaire answers as a note to the created lead
     if (leadId) {
