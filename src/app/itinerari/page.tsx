@@ -1,4 +1,5 @@
 "use client";
+import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Link from "next/link";
@@ -377,14 +378,7 @@ function ItineraryCard({ itin, index }: { itin: typeof itineraries[0]; index: nu
         {/* CTA */}
         <div className="px-6 md:px-8 pb-6">
           <div className="flex flex-wrap gap-3">
-            <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }), "flex-1 sm:flex-none")}>
-              <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <ArrowRight className="w-3.5 h-3.5 text-white animate-arrow-slide" />
-              </div>
-              <span className="text-sm font-bold tracking-wide">
-                Richiedi questo itinerario
-              </span>
-            </Link>
+            <CtaButton text="Richiedi questo itinerario" className="flex-1 sm:flex-none" />
             
           </div>
         </div>
@@ -396,7 +390,7 @@ function ItineraryCard({ itin, index }: { itin: typeof itineraries[0]; index: nu
 export default function ItinerariPage() {
   return (
     <>
-      <section className="relative py-24 pt-32 overflow-hidden">
+      <section className="relative py-16 md:py-24 pt-24 md:pt-32 overflow-hidden">
         <div className="absolute inset-0 bg-dark-section" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(253,126,5,0.1),transparent_70%)]" />
 
@@ -425,14 +419,7 @@ export default function ItinerariPage() {
               Ogni viaggio è unico. Raccontami cosa cerchi, le tue date e il tuo budget: creerò un itinerario personalizzato al 100% per le tue esigenze.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
-                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
-                </div>
-                <span className="text-sm font-bold tracking-wide">
-                  Richiedi il tuo itinerario
-                </span>
-              </Link>
+              <CtaButton text="Richiedi il tuo itinerario" />
             </div>
           </AnimatedSection>
         </div>

@@ -29,11 +29,11 @@ const groupSizes = [
 ];
 
 const zones = [
-  { id: "playa-den-bossa", name: "Playa d'en Bossa", desc: "Nightlife + spiaggia + Ushuaïa/Hï", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80", vibe: "Party & Lifestyle" },
-  { id: "ibiza-town", name: "Ibiza Town", desc: "Cultura + Pacha + vita notturna", image: "https://images.unsplash.com/photo-1573576695691-1b498085cf50?w=400&q=80", vibe: "Charme & Cultura" },
-  { id: "san-antonio", name: "San Antonio", desc: "Tramonti + budget smart + Eden/Es Paradis", image: "https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?w=400&q=80", vibe: "Sunset & Fun" },
-  { id: "santa-eulalia", name: "Santa Eulalia", desc: "Relax + ristoranti + nord facile", image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&q=80", vibe: "Tranquillità" },
-  { id: "san-jose", name: "San José", desc: "Spiagge top + natura + villa privata", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&q=80", vibe: "Natura & Luxury" },
+  { id: "playa-den-bossa", name: "Playa d'en Bossa", desc: "Nightlife + spiaggia + Ushuaïa/Hï", image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400&q=80", vibe: "Party & Lifestyle" },
+  { id: "ibiza-town", name: "Ibiza Town", desc: "Cultura + Pacha + vita notturna", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&q=80", vibe: "Charme & Cultura" },
+  { id: "san-antonio", name: "San Antonio", desc: "Tramonti + budget smart + Eden/Es Paradis", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80", vibe: "Sunset & Fun" },
+  { id: "santa-eulalia", name: "Santa Eulalia", desc: "Relax + ristoranti + nord facile", image: "https://images.unsplash.com/photo-1520454974749-611b7248ffdb?w=400&q=80", vibe: "Tranquillità" },
+  { id: "san-jose", name: "San José", desc: "Spiagge top + natura + villa privata", image: "https://images.unsplash.com/photo-1569470128243-d343461b17b5?w=400&q=80", vibe: "Natura & Luxury" },
 ];
 
 const experiences = [
@@ -47,11 +47,11 @@ const experiences = [
 
 const nightlifeOptions = [
   { id: "ushuaia", name: "Ushuaïa", desc: "Pool party open-air", image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80" },
-  { id: "hi", name: "Hï Ibiza", desc: "Mega club, due sale", image: "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=300&q=80" },
+  { id: "hi", name: "Hï Ibiza", desc: "Mega club, due sale", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&q=80" },
   { id: "pacha", name: "Pacha", desc: "Leggenda dal 1973", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=300&q=80" },
-  { id: "amnesia", name: "Amnesia", desc: "Terrace + Main Room", image: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=300&q=80" },
-  { id: "dc10", name: "DC-10", desc: "Underground puro", image: "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=300&q=80" },
-  { id: "club-chinois", name: "Club Chinois", desc: "Elegante & sofisticato", image: "https://images.unsplash.com/photo-1545128485-c400e7702796?w=300&q=80" },
+  { id: "amnesia", name: "Amnesia", desc: "Terrace + Main Room", image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=300&q=80" },
+  { id: "dc10", name: "DC-10", desc: "Underground puro", image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=300&q=80" },
+  { id: "club-chinois", name: "Club Chinois", desc: "Elegante & sofisticato", image: "https://images.unsplash.com/photo-1511180598565-be22158750c8?w=300&q=80" },
 ];
 
 const extras = [
@@ -114,7 +114,7 @@ export default function CreaViaggio() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80"
@@ -138,7 +138,7 @@ export default function CreaViaggio() {
       </section>
 
       {/* Trip Builder */}
-      <section className="bg-dark-section py-12 md:py-16">
+      <section className="bg-dark-section py-8 md:py-12">
         <div className="container max-w-4xl">
           {/* Step indicator */}
           <div className="flex items-center justify-center gap-1 md:gap-2 mb-12 overflow-x-auto pb-2">
@@ -481,14 +481,16 @@ export default function CreaViaggio() {
 
                   {/* CTA */}
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href={summaryWhatsApp()} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "hero" })}>
-                      <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                        <Send className="w-4 h-4 text-white animate-send-slide" />
-                      </div>
-                      <span className="text-sm font-bold tracking-wide">
-                        Richiedi preventivo per questo pacchetto
-                      </span>
-                    </a>
+                    <Button asChild variant="hero">
+                      <a href={summaryWhatsApp()} target="_blank" rel="noopener noreferrer">
+                        <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                          <Send className="w-4 h-4 text-white animate-send-slide" />
+                        </div>
+                        <span className="text-sm font-bold tracking-wide">
+                          Richiedi preventivo per questo pacchetto
+                        </span>
+                      </a>
+                    </Button>
                     
                   </div>
                 </div>

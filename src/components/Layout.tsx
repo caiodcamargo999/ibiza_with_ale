@@ -2,25 +2,64 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle, Instagram, ChevronDown } from "lucide-react";
+import { Menu, X, MessageCircle, Instagram, ChevronDown, ArrowRight } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useFormStore } from "@/store/useFormStore";
+import TypeformPopup from "@/components/TypeformPopup";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
-    fill="currentColor"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}
+    className={cn("w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110", props.className)}
   >
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .8.11v-3.5a6.39 6.39 0 0 0-3.11-.8 6.39 6.39 0 0 0-6.39 6.39 6.39 6.39 0 0 0 6.39 6.39 6.39 6.39 0 0 0 6.39-6.39V7.51a8.31 8.31 0 0 0 5.68 2.2V6.28a4.82 4.82 0 0 1-3-.12z" />
+    <defs>
+      <linearGradient id="tiktok-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#00F2FE" />
+        <stop offset="50%" stopColor="#FFFFFF" />
+        <stop offset="100%" stopColor="#FE0979" />
+      </linearGradient>
+    </defs>
+    <path 
+      d="M12.525.02c1.31-.03 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.74-3.99-1.72-.72-.65-1.29-1.47-1.63-2.38v8.64a6.41 6.41 0 0 1-1.28 3.86 6.3 6.3 0 0 1-8.52 1.34 6.22 6.22 0 0 1-2.9-4.8 6.31 6.31 0 0 1 4.79-6.38c.84-.23 1.72-.25 2.58-.1v3.53a3.42 3.42 0 0 0-3.37 2.92 3.39 3.39 0 0 0 2.54 3.65c1.47.41 3.12-.34 3.73-1.78.23-.5.33-1.05.32-1.6V0h-3.9v.02z" 
+      fill="url(#tiktok-grad)"
+    />
+  </svg>
+);
+
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    className={cn("w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110", props.className)}
+  >
+    <defs>
+      <linearGradient id="instagram-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#405DE6" />
+        <stop offset="15%" stopColor="#5851DB" />
+        <stop offset="30%" stopColor="#833AB4" />
+        <stop offset="45%" stopColor="#C13584" />
+        <stop offset="60%" stopColor="#E1306C" />
+        <stop offset="75%" stopColor="#FD1D1D" />
+        <stop offset="90%" stopColor="#F56040" />
+        <stop offset="100%" stopColor="#FCAF45" />
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#instagram-grad)" strokeWidth="2" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="url(#instagram-grad)" strokeWidth="2" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="url(#instagram-grad)" strokeWidth="2" />
   </svg>
 );
 
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Chi sono", path: "/chi-sono" },
-  { label: "Come funziona", path: "/come-funziona" },
 ];
 
 const guideItems = [
@@ -31,7 +70,6 @@ const guideItems = [
   { label: "Itinerari", path: "/itinerari" },
   { label: "Pacchetti esperienze", path: "/pacchetti" },
   { label: "Calendario party 2026", path: "/calendario-party" },
-  { label: "🧭 Crea il tuo viaggio", path: "/crea-viaggio" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/393XXXXXXXXX?text=Ciao%20Alessandra!%20Vorrei%20info%20su%20Ibiza";
@@ -59,18 +97,20 @@ function GuideDropdown() {
             transition={{ duration: 0.15 }}
             className="absolute top-full right-0 mt-1 w-56 bg-card/95 backdrop-blur-xl border border-border/30 rounded-xl shadow-elevated overflow-hidden"
           >
-            {guideItems.map((item) => (
-              <Link key={item.path} href={item.path}
-                onClick={() => setOpen(false)}
-                className={`block px-4 py-2.5 text-sm transition-colors ${
-                  location.pathname === item.path
-                    ? "text-foreground bg-card"
-                    : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {guideItems.map((item) => {
+              return (
+                <Link key={item.path} href={item.path}
+                  onClick={() => setOpen(false)}
+                  className={`block px-4 py-2.5 text-sm transition-colors ${
+                    location.pathname === item.path
+                      ? "text-foreground bg-card"
+                      : "text-muted-foreground hover:text-foreground hover:bg-card/50"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>
@@ -81,6 +121,7 @@ function GuideDropdown() {
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = usePathname();
+  const { openForm } = useFormStore();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/30">
@@ -106,14 +147,14 @@ function Header() {
             </Link>
           ))}
           <GuideDropdown />
-          <Link href="/crea-viaggio" className={cn(buttonVariants({ variant: "hero" }), "ml-3")}>
+          <Button onClick={openForm} variant="hero" className="ml-3">
             <div className="w-7 h-7 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-              <ChevronDown className="w-3.5 h-3.5 text-white -rotate-90 animate-arrow-slide" />
+              <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
             </div>
             <span className="text-xs font-bold tracking-wide">
               Richiedi piano viaggio
             </span>
-          </Link>
+          </Button>
         </nav>
 
         <button
@@ -147,26 +188,42 @@ function Header() {
                 </Link>
               ))}
               <p className="px-4 pt-3 pb-1 text-xs uppercase tracking-widest text-muted-foreground/40 font-semibold">Guide</p>
-              {guideItems.map((item) => (
-                <Link key={item.path} href={item.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    location.pathname === item.path
-                      ? "text-foreground bg-card"
-                      : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link href="/crea-viaggio" onClick={() => setMobileOpen(false)} className={cn(buttonVariants({ variant: "hero" }), "mt-2 justify-center")}>
+              {guideItems.map((item) => {
+                if (item.path === "#crea-viaggio") {
+                  return (
+                    <button key={item.path}
+                      onClick={() => { setMobileOpen(false); useFormStore.getState().openForm(); }}
+                      className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                        location.pathname === item.path
+                          ? "text-foreground bg-card"
+                          : "text-muted-foreground hover:text-foreground hover:bg-card/50"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                }
+                return (
+                  <Link key={item.path} href={item.path}
+                    onClick={() => setMobileOpen(false)}
+                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                      location.pathname === item.path
+                        ? "text-foreground bg-card"
+                        : "text-muted-foreground hover:text-foreground hover:bg-card/50"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <Button onClick={() => { setMobileOpen(false); openForm(); }} variant="hero" className="mt-2 justify-center">
                 <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ChevronDown className="w-4 h-4 text-white -rotate-90 animate-arrow-slide" />
+                  <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
                 <span className="text-sm font-bold tracking-wide">
                   Richiedi piano viaggio
                 </span>
-              </Link>
+              </Button>
             </nav>
           </motion.div>
         )}
@@ -231,13 +288,13 @@ function Footer() {
               <h4 className="font-display font-semibold mb-4 text-xs uppercase tracking-widest text-muted-foreground">Socials</h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="https://instagram.com/allaboutibiza_ale" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sunset-purple transition-colors flex items-center gap-2">
-                    <Instagram className="w-4 h-4" /> Instagram
+                  <a href="https://instagram.com/allaboutibiza_ale" target="_blank" rel="noopener noreferrer" className="group text-muted-foreground hover:text-foreground transition-all duration-300 flex items-center gap-2">
+                    <InstagramIcon className="opacity-75 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(225,48,108,0.5)]" /> Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.tiktok.com/@alessandra_ibizaplanner" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sunset-purple transition-colors flex items-center gap-2">
-                    <TiktokIcon className="w-4 h-4" /> TikTok
+                  <a href="https://www.tiktok.com/@alessandra_ibizaplanner" target="_blank" rel="noopener noreferrer" className="group text-muted-foreground hover:text-foreground transition-all duration-300 flex items-center gap-2">
+                    <TiktokIcon className="opacity-75 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(0,242,254,0.5)]" /> TikTok
                   </a>
                 </li>
               </ul>
@@ -261,6 +318,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
       <main className="flex-1 pt-16">{children}</main>
       <Footer />
+      <TypeformPopup />
     </div>
   );
 }

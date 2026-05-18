@@ -1,4 +1,5 @@
 "use client";
+import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -76,7 +77,7 @@ export default function Pacchetti() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80" alt="Ibiza boat" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
@@ -96,7 +97,7 @@ export default function Pacchetti() {
       </section>
 
       {/* Packages */}
-      <section className="bg-dark-section py-20">
+      <section className="bg-dark-section py-12 md:py-20">
         <div className="container">
           <div className="grid gap-8">
             {packages.map((pkg, idx) => (
@@ -148,8 +149,9 @@ export default function Pacchetti() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
@@ -159,14 +161,7 @@ export default function Pacchetti() {
               Dimmi cosa ti piacerebbe fare a Ibiza e creo il pacchetto su misura per te.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
-                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
-                </div>
-                <span className="text-sm font-bold tracking-wide">
-                  Richiedi il tuo pacchetto
-                </span>
-              </Link>
+              <CtaButton text="Richiedi il tuo pacchetto" />
             </div>
           </AnimatedSection>
         </div>

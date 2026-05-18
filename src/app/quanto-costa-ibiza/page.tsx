@@ -1,4 +1,5 @@
 "use client";
+import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -105,7 +106,7 @@ export default function QuantoCostaIbiza() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1520454974749-611b7248ffdb?w=1920&q=80" alt="Ibiza beach" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/75 to-background" />
@@ -126,7 +127,7 @@ export default function QuantoCostaIbiza() {
       </section>
 
       {/* Cost categories */}
-      <section className="py-20 bg-dark-section">
+      <section className="py-12 md:py-20 bg-dark-section">
         <div className="container">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -169,7 +170,7 @@ export default function QuantoCostaIbiza() {
       </section>
 
       {/* Budget examples */}
-      <section className="py-20 bg-dark-alt">
+      <section className="py-12 md:py-20 bg-dark-alt">
         <div className="container">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -209,8 +210,9 @@ export default function QuantoCostaIbiza() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground mb-6">
@@ -220,14 +222,7 @@ export default function QuantoCostaIbiza() {
               Ti aiuto a costruire il viaggio migliore per il tuo budget, senza sprechi e senza sorprese.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
-                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
-                </div>
-                <span className="text-sm font-bold tracking-wide">
-                  Richiedi il tuo piano viaggio
-                </span>
-              </Link>
+              <CtaButton />
             </div>
           </AnimatedSection>
         </div>

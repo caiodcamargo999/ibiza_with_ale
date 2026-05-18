@@ -1,4 +1,5 @@
 "use client";
+import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Link from "next/link";
@@ -30,7 +31,7 @@ const clubs: Club[] = [
     location: "Playa d'en Bossa",
     vibe: "Open-air pool party, mega produzioni, main stage spettacolare",
     season: "Maggio – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80",
+    image: "/images/ushuaia.jpg",
     schedule: {
       "Lunedì": [{ party: "Ants", genre: "Tech house / Techno" }],
       "Martedì": [{ party: "ONGX", genre: "Urban / Reggaeton" }],
@@ -46,7 +47,7 @@ const clubs: Club[] = [
     location: "Playa d'en Bossa",
     vibe: "Indoor club premium, sound system di livello mondiale, due sale",
     season: "Maggio – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=600&q=80",
+    image: "/images/hi_ibiza.jpg",
     schedule: {
       "Lunedì": [{ party: "Glitterbox", genre: "Disco / House" }],
       "Martedì": [{ party: "Black Coffee", genre: "Afro house / Deep" }],
@@ -57,11 +58,23 @@ const clubs: Club[] = [
     },
   },
   {
+    name: "UNVRS",
+    location: "San Rafael",
+    vibe: "Il primo hyperclub al mondo, nato sulle ceneri dello storico Privilege. Produzioni colossali ed eventi esclusivi.",
+    season: "Maggio – Ottobre 2026",
+    image: "/images/cilex_in_unvrs.jpg",
+    schedule: {
+      "Lunedì": [{ party: "Keinemusik", genre: "Afro house / Tech house", highlight: true }],
+      "Venerdì": [{ party: "Afterlife", genre: "Melodic techno / Progressive", highlight: true }],
+      "Sabato": [{ party: "Solid Grooves", genre: "Tech house / Minimal", highlight: true }],
+    },
+  },
+  {
     name: "Pacha",
     location: "Ibiza Town (porto)",
     vibe: "Il club più iconico di Ibiza dal 1973, eleganza e tradizione",
     season: "Tutto l'anno",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80",
+    image: "/images/pacha.jpg",
     schedule: {
       "Lunedì": [{ party: "Hot Since 82", genre: "Deep house" }],
       "Mercoledì": [{ party: "Solomun +1", genre: "Deep / Melodic house", highlight: true }],
@@ -74,7 +87,7 @@ const clubs: Club[] = [
     location: "San Rafael",
     vibe: "Due sale leggendarie, terrace e main room. Atmosfera underground",
     season: "Giugno – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=600&q=80",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Amnesia_ibiza.jpeg/960px-Amnesia_ibiza.jpeg",
     schedule: {
       "Martedì": [{ party: "Together", genre: "House / Tech house" }],
       "Giovedì": [{ party: "Pyramid", genre: "Techno / House" }],
@@ -86,7 +99,7 @@ const clubs: Club[] = [
     location: "Ses Salines",
     vibe: "Underground puro, il club dei veri appassionati. Zero fronzoli",
     season: "Giugno – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=600&q=80",
+    image: "/images/dc10.jpg",
     schedule: {
       "Lunedì": [{ party: "Circoloco", genre: "Techno / Minimal", highlight: true }],
       "Venerdì": [{ party: "Paradise – Jamie Jones", genre: "House / Tech house" }],
@@ -97,7 +110,7 @@ const clubs: Club[] = [
     location: "San Rafael",
     vibe: "Nuovo club di lusso con estetica orientale, sound house e deep tech",
     season: "Maggio – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1545128485-c400e7702796?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&q=80",
     schedule: {
       "Mercoledì": [{ party: "Luciano & Friends", genre: "House / Minimal" }],
       "Sabato": [{ party: "Ritual", genre: "House / Tech house" }],
@@ -108,7 +121,7 @@ const clubs: Club[] = [
     location: "San Antonio",
     vibe: "Day club con pool party, show e atmosfera festosa",
     season: "Maggio – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=600&q=80",
+    image: "/images/obeach.jpg",
     schedule: {
       "Venerdì": [{ party: "Ibiza Anthems", genre: "Commercial house" }],
       "Sabato": [{ party: "Pool Party Show", genre: "Commercial / House" }],
@@ -120,7 +133,7 @@ const clubs: Club[] = [
     location: "San Antonio",
     vibe: "Hotel-club all'aperto, concerti live e pool party diurne",
     season: "Giugno – Settembre 2026",
-    image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&q=80",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ibiza_Rocks_Hotel_2019.jpg/960px-Ibiza_Rocks_Hotel_2019.jpg",
     schedule: {
       "Mercoledì": [{ party: "Craig David TS5", genre: "R&B / Garage / House" }],
       "Giovedì": [{ party: "Pool party", genre: "Vari" }],
@@ -142,7 +155,7 @@ const clubs: Club[] = [
     location: "San Antonio",
     vibe: "Piramide di vetro iconica, water party leggendarie",
     season: "Giugno – Settembre 2026",
-    image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80",
     schedule: {
       "Lunedì": [{ party: "Water Party", genre: "House / Commercial", highlight: true }],
       "Mercoledì": [{ party: "Ibiza Classics", genre: "Dance classics" }],
@@ -282,7 +295,7 @@ export default function CalendarioParty() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=80"
@@ -306,7 +319,7 @@ export default function CalendarioParty() {
       </section>
 
       {/* Weekly Schedule */}
-      <section className="bg-dark-section py-16">
+      <section className="bg-dark-section py-12 md:py-16">
         <div className="container">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-8">
@@ -319,7 +332,7 @@ export default function CalendarioParty() {
       </section>
 
       {/* Special Events */}
-      <section className="bg-dark-alt py-16">
+      <section className="bg-dark-alt py-12 md:py-16">
         <div className="container">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-10">
@@ -361,8 +374,9 @@ export default function CalendarioParty() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
@@ -372,14 +386,7 @@ export default function CalendarioParty() {
               Dimmi i tuoi gusti musicali e le date del viaggio, e ti consiglio le serate migliori.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
-                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
-                </div>
-                <span className="text-sm font-bold tracking-wide">
-                  Pianifica le tue serate
-                </span>
-              </Link>
+              <CtaButton text="Pianifica le tue serate" />
             </div>
           </AnimatedSection>
         </div>

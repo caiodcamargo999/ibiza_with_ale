@@ -1,4 +1,5 @@
 "use client";
+import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -115,7 +116,7 @@ const beaches = [
 export default function SpiaggeIbiza() {
   return (
     <>
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80"
@@ -139,7 +140,7 @@ export default function SpiaggeIbiza() {
         </div>
       </section>
 
-      <section className="py-16 bg-dark-section">
+      <section className="py-12 md:py-16 bg-dark-section">
         <div className="container">
           <div className="space-y-8">
             {beaches.map((beach, i) => (
@@ -225,8 +226,9 @@ export default function SpiaggeIbiza() {
         </div>
       </section>
 
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground mb-6">
@@ -236,14 +238,7 @@ export default function SpiaggeIbiza() {
               Ti aiuto a scegliere le spiagge migliori in base alla tua zona, al tuo stile e al tuo itinerario.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/crea-viaggio" className={buttonVariants({ variant: "hero" })}>
-                <div className="w-9 h-9 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-white animate-arrow-slide" />
-                </div>
-                <span className="text-sm font-bold tracking-wide">
-                  Richiedi il tuo piano viaggio
-                </span>
-              </Link>
+              <CtaButton />
             </div>
           </AnimatedSection>
         </div>

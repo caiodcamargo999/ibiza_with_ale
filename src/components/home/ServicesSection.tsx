@@ -3,6 +3,7 @@ import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight, ClipboardList, Home, Car, Compass, Music, Handshake } from "lucide-react";
 import sunsetImg from "@/assets/ibiza-sunset.jpg";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 const services = [
   {
@@ -43,6 +44,14 @@ export default function ServicesSection() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-sunset opacity-20" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-sunset-red/5 rounded-full blur-[150px]" />
       
+      {/* Premium Notio Grid Pattern Background */}
+      <GridPattern
+        width={40}
+        height={40}
+        strokeDasharray="2 2"
+        className="absolute inset-0 opacity-[0.06] stroke-white/10 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]"
+      />
+      
       <div className="container relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
@@ -68,7 +77,7 @@ export default function ServicesSection() {
                   </div>
                   <h3 className="text-lg font-display font-bold mb-3 text-foreground">{s.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5">{s.desc}</p>
-                  <Link href="/crea-viaggio" className="text-sm font-medium text-sunset-orange inline-flex items-center gap-1.5 transition-all group-hover:text-sunset-gold">
+                  <Link href="#" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-typeform')); }} className="text-sm font-medium text-sunset-orange inline-flex items-center gap-1.5 transition-all group-hover:text-sunset-gold">
                     Richiedi questo servizio <ArrowRight className="w-3.5 h-3.5 animate-arrow-slide" />
                   </Link>
                 </div>
