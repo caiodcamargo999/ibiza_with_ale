@@ -114,7 +114,7 @@ export default function CreaViaggio() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-12 md:py-20 overflow-hidden">
+      <section className="relative pt-24 pb-10 md:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80"

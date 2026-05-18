@@ -116,7 +116,7 @@ const beaches = [
 export default function SpiaggeIbiza() {
   return (
     <>
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80"

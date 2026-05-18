@@ -26,7 +26,7 @@ export default function ChiSonoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 md:py-40 overflow-hidden">
+      <section className="relative pt-24 pb-16 md:py-40 overflow-hidden">
         <div className="absolute inset-0">
           <img src={townImg.src} alt="Ibiza old town" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />

@@ -36,33 +36,33 @@ export default function HeroSection() {
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[120px] animate-glow-pulse" />
       <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-primary/10 rounded-full blur-[100px] animate-glow-pulse" style={{ animationDelay: '1.5s' }} />
 
-      <div className="container relative z-10 pt-20 pb-6 md:py-24">
+      <div className="container relative z-10 pt-24 pb-4 md:py-24">
         <AnimatedSection className="max-w-3xl">
             <div className="relative z-10">
               {/* Credibility badges */}
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-4 md:mb-8">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-3 md:mb-8">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/60 backdrop-blur-md border border-border/30 text-[10px] sm:text-xs font-medium text-muted-foreground shadow-sm w-fit">
                   <BadgeCheck className="w-3.5 h-3.5 text-primary" />
                   Travel planner specializzata sull'isola
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/60 backdrop-blur-md border border-border/30 text-[10px] sm:text-xs font-medium text-muted-foreground shadow-sm w-fit">
                   <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                  Collaborazioni attive con realtà turistiche locali
+                  Collaborazioni active con realtà turistiche locali
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black leading-[0.9] mb-4 md:mb-6 tracking-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black leading-[0.9] mb-2 md:mb-6 tracking-tight">
                 <span className="text-gradient-warm">IBIZA</span>
                 <br />
                 <span className="text-foreground/50 font-light text-2xl md:text-4xl lg:text-5xl">WITH</span>
                 <span className="text-foreground ml-2 text-2xl md:text-4xl lg:text-5xl">ALE</span>
               </h1>
 
-              <p className="text-base sm:text-xl lg:text-2xl font-display font-medium text-foreground/90 mb-3 md:mb-6 leading-snug max-w-2xl drop-shadow-md">
+              <p className="text-base sm:text-xl lg:text-2xl font-display font-medium text-foreground/90 mb-2 md:mb-6 leading-snug max-w-2xl drop-shadow-md">
                 La tua Ibiza la organizzo nella vacanza perfetta.
               </p>
 
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-3 leading-relaxed max-w-xl drop-shadow-md">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-2 leading-relaxed max-w-xl drop-shadow-md">
                 Organizzo viaggi, alloggi ed esperienze a Ibiza e Formentera.
               </p>
               <p className="text-xs text-muted-foreground/70 mb-4 md:mb-10 leading-relaxed max-w-xl drop-shadow-md hidden sm:block">
@@ -83,7 +83,7 @@ export default function HeroSection() {
               </div>
 
               {/* Authority line */}
-              <p className="mt-4 md:mt-8 pl-3 text-xs md:text-sm text-muted-foreground/80 leading-relaxed max-w-2xl border-l-2 border-primary/40 pl-4 italic">
+              <p className="mt-3 md:mt-8 pl-4 text-[10px] sm:text-xs md:text-sm text-muted-foreground/80 leading-relaxed max-w-2xl border-l-2 border-primary/40 italic">
                 Ogni anno centinaia di viaggiatori organizzano Ibiza con il mio supporto, grazie alla mia esperienza diretta sull'isola e alle collaborazioni con partner turistici locali.
               </p>
             </div>

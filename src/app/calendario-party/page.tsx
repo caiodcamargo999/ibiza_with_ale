@@ -295,7 +295,7 @@ export default function CalendarioParty() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=80"

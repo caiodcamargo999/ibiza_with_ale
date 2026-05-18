@@ -106,7 +106,7 @@ export default function QuantoCostaIbiza() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1520454974749-611b7248ffdb?w=1920&q=80" alt="Ibiza beach" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/75 to-background" />

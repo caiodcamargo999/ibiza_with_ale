@@ -390,7 +390,7 @@ function ItineraryCard({ itin, index }: { itin: typeof itineraries[0]; index: nu
 export default function ItinerariPage() {
   return (
     <>
-      <section className="relative py-16 md:py-24 pt-24 md:pt-32 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:py-24 md:pt-32 overflow-hidden">
         <div className="absolute inset-0 bg-dark-section" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(253,126,5,0.1),transparent_70%)]" />
 
