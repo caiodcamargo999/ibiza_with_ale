@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronRight, Check, ChevronDown } from "lucide-react";
+import { X, ChevronRight, Check, ChevronDown, ChevronLeft } from "lucide-react";
 import { useFormStore } from "@/store/useFormStore";
 
 interface Option {
@@ -161,6 +161,20 @@ const countries = [
   { code: "+1", flag: "🇺🇸", name: "USA" },
 ];
 
+const calculateScore = (currentAnswers: Record<string, string>) => {
+  let totalScore = 0;
+  questions.forEach(q => {
+    const selectedAnswerLabel = currentAnswers[q.id];
+    if (selectedAnswerLabel && q.options) {
+      const option = q.options.find(opt => opt.label === selectedAnswerLabel);
+      if (option && option.points) {
+        totalScore += option.points;
+      }
+    }
+  });
+  return totalScore;
+};
+
 export default function TypeformPopup() {
   const { isOpen, closeForm } = useFormStore();
   const [currentStep, setCurrentStep] = useState(0);
@@ -211,15 +225,33 @@ export default function TypeformPopup() {
       return;
     }
 
-    setAnswers(prev => ({ ...prev, [questions[currentStep].id]: option.label }));
-    setScore(prev => prev + (option.points || 0));
+    setAnswers(prev => {
+      const updated = { ...prev, [questions[currentStep].id]: option.label };
+      const newScore = calculateScore(updated);
+      setScore(newScore);
+      return updated;
+    });
     nextStep();
   };
 
   const handleTextSubmit = () => {
-    setAnswers(prev => ({ ...prev, [questions[currentStep].id]: textInput }));
+    setAnswers(prev => {
+      const updated = { ...prev, [questions[currentStep].id]: textInput };
+      const newScore = calculateScore(updated);
+      setScore(newScore);
+      return updated;
+    });
     setTextInput("");
     nextStep();
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      const prevStepIndex = currentStep - 1;
+      setCurrentStep(prevStepIndex);
+      const prevQuestion = questions[prevStepIndex];
+      setTextInput(prevQuestion.type === "text" ? (answers[prevQuestion.id] || "") : "");
+    }
   };
 
   const nextStep = async () => {
@@ -283,18 +315,15 @@ export default function TypeformPopup() {
     const consulenza = answers.q11 ? `Per la consulenza gratuita di 20 minuti, sarei disponibile ${answers.q11.toLowerCase()}` : "";
 
     let message = `Ciao Alessandra! Sono *${nome}*.\n\n`;
-    message += `Ho appena completato il questionario sul sito perché sto organizzando il mio viaggio a Ibiza ${periodo}! 🌴\n\n`;
+    message += `Ho appena completato il questionario sul sito perché sto organizzando il mio viaggio a Ibiza ${periodo}!\n\n`;
     message += `Ecco un riepilogo della mia idea di viaggio:\n`;
     message += `• *Dettagli:* ${volo} e ${gruppo}.\n`;
     message += `• *Musica & Feste:* ${musica}${feste}.\n`;
     message += `• *Notti fuori:* ${notti}.\n`;
     message += `• *Alloggio & Budget:* ${alloggio}. ${budget}.\n`;
     message += `• *Trasporti:* ${trasporto}.${yacht}\n\n`;
-    message += `📞 ${consulenza}.\n\n`;
-    message += `Non vedo l'ora di ricevere la tua proposta personalizzata per vivere l'isola al massimo! ✨\n\n`;
-    
-    // Add MQLead status invisibly/subtly at the bottom
-    message += `_(Lead Score: ${score} - ${score >= 120 ? 'HOT LEAD 🔥' : 'WARM LEAD'})_`;
+    message += `${consulenza}.\n\n`;
+    message += `Non vedo l'ora di ricevere la tua proposta personalizzata per vivere l'isola al massimo!\n\n`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
@@ -302,6 +331,16 @@ export default function TypeformPopup() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-xl">
+      {currentStep > 0 && currentStep < questions.length && !isDescarte && (
+        <button 
+          onClick={prevStep}
+          className="absolute top-6 left-6 p-2 bg-card border border-border/40 rounded-full text-muted-foreground hover:text-foreground hover:bg-card/80 transition-colors z-[101] flex items-center justify-center hover:scale-105 active:scale-95"
+          aria-label="Indietro"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+      )}
+
       <button 
         onClick={closeForm}
         className="absolute top-6 right-6 p-2 bg-card border border-border/40 rounded-full text-muted-foreground hover:text-foreground hover:bg-card/80 transition-colors z-[101]"
