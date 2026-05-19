@@ -248,16 +248,54 @@ export default function TypeformPopup() {
   };
 
   const sendWhatsApp = () => {
-    let message = "Ciao Alessandra! Ho compilato il questionario per il mio viaggio a Ibiza:\n\n";
-    questions.forEach((q) => {
-      if (answers[q.id]) {
-        message += `*${q.question}*\n${answers[q.id]}\n\n`;
-      }
-    });
+    const nome = contactData.name || "Cliente";
     
-    // Add MQLead status invisibly for Ale
-    message += `(Lead Score: ${score} - ${score >= 120 ? 'HOT LEAD 🔥' : 'WARM LEAD'})`;
+    // Customize text based on answers
+    const volo = answers.q1 === "Sì, già comprato" 
+      ? "Ho già prenotato i voli" 
+      : (answers.q1 === "Abbiamo deciso di andare, manca solo comprare il volo" ? "Abbiamo già deciso di andare e ci manca solo prendere i voli" : "Stiamo ancora valutando le date dei voli");
+      
+    const periodo = answers.q2 ? `per ${answers.q2}` : "";
     
+    const gruppo = answers.q3 === "Coppia, 2 persone"
+      ? "saremo in coppia (2 persone)"
+      : (answers.q3 ? `saremo un gruppo di ${answers.q3.toLowerCase()}` : "saremo da soli");
+      
+    const musica = answers.q4 ? `Ci piace la musica ${answers.q4.toLowerCase()}` : "";
+    const feste = answers.q5 && answers.q5.trim() ? ` e abbiamo in mente feste come: "${answers.q5.trim()}"` : "";
+    
+    const notti = answers.q6 === "Tutte le notti"
+      ? "Vorremmo fare serata tutte le notti"
+      : (answers.q6 === "3 a 4 notti" ? "Pensiamo di uscire per 3 o 4 notti" : `Usciremo per ${answers.q6 ? answers.q6.toLowerCase() : "alcune notti"}`);
+      
+    const yacht = answers.q7 && answers.q7.trim() ? `\n• *Esperienze:* Riguardo al party in yacht: "${answers.q7.trim()}"` : "";
+    
+    const trasporto = answers.q8 === "Auto premium / supercar"
+      ? "Avremo assolutamente bisogno di un'auto premium o supercar"
+      : (answers.q8 === "Auto" ? "Avremo bisogno di noleggiare un'auto" : (answers.q8 === "Scooter" ? "Preferiremmo noleggiare uno scooter" : "Per i trasporti ci sposteremo in taxi o transfer"));
+      
+    const alloggio = answers.q9 === "Villa con piscina"
+      ? "Cerchiamo una villa con piscina"
+      : (answers.q9 === "Casa con piscina" ? "Cerchiamo una casa con piscina" : (answers.q9 === "Appartamento" ? "Cerchiamo un appartamento" : (answers.q9 === "Camera in hotel" ? "Cerchiamo una camera in hotel" : "Siamo aperti a suggerimenti per l'alloggio")));
+      
+    const budget = answers.q10 ? `Il nostro budget indicativo a persona è di ${answers.q10.toLowerCase()}` : "";
+    
+    const consulenza = answers.q11 ? `Per la consulenza gratuita di 20 minuti, sarei disponibile ${answers.q11.toLowerCase()}` : "";
+
+    let message = `Ciao Alessandra! Sono *${nome}*.\n\n`;
+    message += `Ho appena completato il questionario sul sito perché sto organizzando il mio viaggio a Ibiza ${periodo}! 🌴\n\n`;
+    message += `Ecco un riepilogo della mia idea di viaggio:\n`;
+    message += `• *Dettagli:* ${volo} e ${gruppo}.\n`;
+    message += `• *Musica & Feste:* ${musica}${feste}.\n`;
+    message += `• *Notti fuori:* ${notti}.\n`;
+    message += `• *Alloggio & Budget:* ${alloggio}. ${budget}.\n`;
+    message += `• *Trasporti:* ${trasporto}.${yacht}\n\n`;
+    message += `📞 ${consulenza}.\n\n`;
+    message += `Non vedo l'ora di ricevere la tua proposta personalizzata per vivere l'isola al massimo! ✨\n\n`;
+    
+    // Add MQLead status invisibly/subtly at the bottom
+    message += `_(Lead Score: ${score} - ${score >= 120 ? 'HOT LEAD 🔥' : 'WARM LEAD'})_`;
+
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
   };
