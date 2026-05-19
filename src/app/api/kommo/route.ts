@@ -155,7 +155,18 @@ export async function POST(req: Request) {
                       enum_code: "MOB"
                     }
                   ]
-                }
+                },
+                ...(contact.email ? [
+                  {
+                    field_code: "EMAIL",
+                    values: [
+                      {
+                        value: contact.email,
+                        enum_code: "PRIV"
+                      }
+                    ]
+                  }
+                ] : [])
               ]
             }
           ]
@@ -181,6 +192,49 @@ export async function POST(req: Request) {
     const data = await response.json();
     const leadId = data?.[0]?.id;
 
+    // Trigger transactional email via Resend in the background (non-blocking)
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendFrom = process.env.RESEND_FROM || 'onboarding@resend.dev';
+    if (resendApiKey && contact?.email) {
+      fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: resendFrom,
+          to: contact.email,
+          subject: 'Grazie per la tua richiesta - Alessandra Ibiza Planner',
+          html: `
+            <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #eef2f6; border-radius: 16px; background-color: #ffffff; color: #1e293b; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);">
+              <div style="text-align: center; margin-bottom: 24px;">
+                <span style="font-size: 40px;">🌴</span>
+              </div>
+              <h2 style="color: #EA580C; font-size: 24px; font-weight: 700; text-align: center; margin-top: 0; margin-bottom: 16px; font-family: system-ui, -apple-system, sans-serif;">Richiesta Ricevuta con Successo!</h2>
+              <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">Ciao <strong>${contact.name}</strong>,</p>
+              <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">Grazie mille per aver compilato il questionario per pianificare il tuo viaggio a Ibiza sul mio sito.</p>
+              <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">Ho ricevuto tutti i dettagli del tuo profilo e sto già lavorando per creare una proposta esclusiva, su misura per te e per le tue preferenze.</p>
+              <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">A breve mi metterò in contatto con te direttamente su <strong>WhatsApp</strong> per presentarti l'itinerario perfetto e definire gli ultimi dettagli.</p>
+              <div style="border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 24px;">
+                <p style="font-size: 15px; line-height: 1.5; color: #64748b; margin: 0;">A presto,</p>
+                <p style="font-size: 16px; font-weight: 700; color: #0f172a; margin: 4px 0 0 0;">Alessandra</p>
+                <p style="font-size: 14px; color: #94a3b8; margin: 2px 0 0 0;">Ibiza Luxury Planner</p>
+              </div>
+            </div>
+          `
+        })
+      }).then(res => {
+        if (!res.ok) {
+          res.text().then(err => console.error('Resend API Error:', err));
+        } else {
+          console.log('Resend email sent successfully to:', contact.email);
+        }
+      }).catch(err => {
+        console.error('Unhandled background Resend Error:', err);
+      });
+    }
+
     // Attach questionnaire answers as a note to the created lead
     if (leadId) {
       try {
@@ -201,6 +255,9 @@ export async function POST(req: Request) {
         let noteText = `=== DETTAGLI QUESTIONARIO IBIZA ===\n\n`;
         noteText += `Nome: ${contact.name}\n`;
         noteText += `Telefono: ${contact.phone}\n`;
+        if (contact.email) {
+          noteText += `Email: ${contact.email}\n`;
+        }
         noteText += `Lead Score: ${score} points (${score >= 120 ? 'QUALIFIED / HOT 🔥' : 'ENTRY / WARM'})\n\n`;
 
         for (const [qId, answer] of Object.entries(answers || {})) {

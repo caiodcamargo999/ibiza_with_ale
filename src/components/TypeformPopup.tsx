@@ -168,7 +168,7 @@ export default function TypeformPopup() {
   const [score, setScore] = useState(0);
   const [isDescarte, setIsDescarte] = useState(false);
   const [textInput, setTextInput] = useState("");
-  const [contactData, setContactData] = useState({ name: "", phone: "" });
+  const [contactData, setContactData] = useState({ name: "", phone: "", email: "" });
   const [selectedCountryCode, setSelectedCountryCode] = useState("+39");
   const [phoneInput, setPhoneInput] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -186,7 +186,7 @@ export default function TypeformPopup() {
         setScore(0);
         setIsDescarte(false);
         setTextInput("");
-        setContactData({ name: "", phone: "" });
+        setContactData({ name: "", phone: "", email: "" });
         setSelectedCountryCode("+39");
         setPhoneInput("");
         setIsDropdownOpen(false);
@@ -437,19 +437,27 @@ export default function TypeformPopup() {
                         value={phoneInput}
                         onChange={(e) => setPhoneInput(e.target.value.replace(/\D/g, ""))}
                         className="flex-1 p-4 rounded-xl bg-card border border-border/30 focus:border-[#EA580C]/50 focus:outline-none focus:ring-1 focus:ring-[#EA580C]/50 text-foreground"
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" && contactData.name && phoneInput) {
-                            e.preventDefault();
-                            nextStep();
-                          }
-                        }}
                       />
                     </div>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Il tuo indirizzo email"
+                      value={contactData.email}
+                      onChange={(e) => setContactData(p => ({ ...p, email: e.target.value }))}
+                      className="w-full p-4 rounded-xl bg-card border border-border/30 focus:border-[#EA580C]/50 focus:outline-none focus:ring-1 focus:ring-[#EA580C]/50 text-foreground"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && contactData.name && phoneInput && contactData.email) {
+                          e.preventDefault();
+                          nextStep();
+                        }
+                      }}
+                    />
                   </div>
                   <div className="flex justify-center mt-4">
                     <button
                       onClick={nextStep}
-                      disabled={!contactData.name || !phoneInput || isSubmitting}
+                      disabled={!contactData.name || !phoneInput || !contactData.email || isSubmitting}
                       className="inline-flex w-full items-center justify-center gap-2 px-6 py-4 bg-[#EA580C] disabled:bg-card disabled:text-muted-foreground disabled:cursor-not-allowed hover:bg-[#c24100] text-white rounded-full font-bold transition-all"
                     >
                       {isSubmitting ? "Invio in corso..." : "Invia e scopri la tua proposta"} <ChevronRight className="w-5 h-5" />
