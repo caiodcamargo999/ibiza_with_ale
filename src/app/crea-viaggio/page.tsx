@@ -1,23 +1,20 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
-import {
-  MessageCircle, Calendar, MapPin, Settings2, Music, Ship,
-  Check, ChevronRight, ChevronLeft, Palmtree, Sun, Waves, Award, Send,
-  Globe, Home, Car, PartyPopper, Wine, Umbrella
-} from "lucide-react";
+import { ChatBubbleIcon, CalendarIcon, SewingPinIcon, MixerHorizontalIcon, SpeakerLoudIcon, CheckIcon, ChevronRightIcon, ChevronLeftIcon, PalmtreeIcon, SunIcon, ActivityLogIcon, StarIcon, PaperPlaneIcon, GlobeIcon, HomeIcon, LightningBoltIcon, PartyPopperIcon, WineIcon, ShadowIcon, ImageIcon, Component1Icon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "framer-motion";
 
 const steps = [
-  { label: "Date", icon: Calendar },
-  { label: "Gruppo", icon: Globe },
-  { label: "Zona", icon: MapPin },
-  { label: "Esperienze", icon: Settings2 },
-  { label: "Nightlife", icon: Music },
-  { label: "Extra", icon: Ship },
-  { label: "Riepilogo", icon: Check },
+  { label: "Date", icon: CalendarIcon },
+  { label: "Gruppo", icon: GlobeIcon },
+  { label: "Zona", icon: SewingPinIcon },
+  { label: "Esperienze", icon: MixerHorizontalIcon },
+  { label: "Nightlife", icon: SpeakerLoudIcon },
+  { label: "Extra", icon: PaperPlaneIcon },
+  { label: "Riepilogo", icon: CheckIcon },
 ];
 
 const groupSizes = [
@@ -37,12 +34,12 @@ const zones = [
 ];
 
 const experiences = [
-  { id: "beach-day", name: "Giornata spiagge", icon: Waves, desc: "Cala Comte, Ses Salines, Cala Bassa..." },
-  { id: "beach-club", name: "Beach club", icon: Sun, desc: "Blue Marlin, Nikki Beach, Cotton..." },
-  { id: "sunset", name: "Sunset experience", icon: Settings2, desc: "Es Vedrà, Café del Mar, Hostal La Torre" },
-  { id: "snorkeling", name: "Snorkeling & mare", icon: Waves, desc: "Cala Salada, Cala d'Hort, Cala Vadella" },
-  { id: "mercati", name: "Mercati hippie", icon: Palmtree, desc: "Las Dalias, Sant Joan, Punta Arabí" },
-  { id: "ristoranti", name: "Ristoranti top", icon: Award, desc: "La Paloma, Es Torrent, Casa Maca..." },
+  { id: "beach-day", name: "Giornata spiagge", icon: ActivityLogIcon, desc: "Cala Comte, Ses Salines, Cala Bassa..." },
+  { id: "beach-club", name: "Beach club", icon: SunIcon, desc: "Blue Marlin, Nikki Beach, Cotton..." },
+  { id: "sunset", name: "Sunset experience", icon: MixerHorizontalIcon, desc: "Es Vedrà, Café del Mar, Hostal La Torre" },
+  { id: "snorkeling", name: "Snorkeling & mare", icon: ActivityLogIcon, desc: "Cala Salada, Cala d'Hort, Cala Vadella" },
+  { id: "mercati", name: "Mercati hippie", icon: ImageIcon, desc: "Las Dalias, Sant Joan, Punta Arabí" },
+  { id: "ristoranti", name: "Ristoranti top", icon: StarIcon, desc: "La Paloma, Es Torrent, Casa Maca..." },
 ];
 
 const nightlifeOptions = [
@@ -55,13 +52,13 @@ const nightlifeOptions = [
 ];
 
 const extras = [
-  { id: "alloggio", name: "Alloggio", desc: "Hotel, appartamento o villa", icon: Home },
-  { id: "auto-scooter", name: "Auto o scooter", desc: "Noleggio per muoversi sull'isola", icon: Car },
-  { id: "formentera", name: "Escursione Formentera", desc: "Giornata sull'isola sorella", icon: Ship },
-  { id: "boat-party", name: "Boat Party", desc: "DJ + open bar in barca", icon: PartyPopper },
-  { id: "open-bar", name: "Open bar", desc: "Pre-party o serata open bar", icon: Wine },
-  { id: "guest-list", name: "Guest list club", desc: "Ingresso gratuito o ridotto", icon: Award },
-  { id: "beach-club-exp", name: "Beach club experiences", desc: "Tavoli, letti e VIP in spiaggia", icon: Umbrella },
+  { id: "alloggio", name: "Alloggio", desc: "Hotel, appartamento o villa", icon: HomeIcon },
+  { id: "auto-scooter", name: "Auto o scooter", desc: "Noleggio per muoversi sull'isola", icon: LightningBoltIcon },
+  { id: "formentera", name: "Escursione Formentera", desc: "Giornata sull'isola sorella", icon: PaperPlaneIcon },
+  { id: "boat-party", name: "Boat Party", desc: "DJ + open bar in barca", icon: StarIcon },
+  { id: "open-bar", name: "Open bar", desc: "Pre-party o serata open bar", icon: Component1Icon },
+  { id: "guest-list", name: "Guest list club", desc: "Ingresso gratuito o ridotto", icon: StarIcon },
+  { id: "beach-club-exp", name: "Beach club experiences", desc: "Tavoli, letti e VIP in spiaggia", icon: ShadowIcon },
 ];
 
 export default function CreaViaggio() {
@@ -116,7 +113,7 @@ export default function CreaViaggio() {
       {/* Hero */}
       <section className="relative pt-24 pb-10 md:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image fill sizes="100vw"
             src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80"
             alt="Ibiza landscape"
             className="w-full h-full object-cover"
@@ -125,10 +122,10 @@ export default function CreaViaggio() {
         </div>
         <div className="container relative z-10 text-center">
           <AnimatedSection>
-            <p className="text-sm uppercase tracking-widest text-sunset-orange font-semibold mb-4">Strumento interattivo</p>
+            <p className="text-sm uppercase tracking-widest text-primary font-semibold mb-4">Strumento interattivo</p>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">
               Crea il tuo pacchetto{" "}
-              <span className="text-gradient-warm">Ibiza</span>
+              <span className="text-primary">Ibiza</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               Costruisci il tuo viaggio ideale passo dopo passo e richiedi un preventivo personalizzato.
@@ -154,15 +151,15 @@ export default function CreaViaggio() {
                       isActive
                         ? "bg-sunset-orange text-primary-foreground shadow-glow-orange"
                         : isDone
-                        ? "bg-sunset-orange/20 text-sunset-orange"
+                        ? "bg-sunset-orange/20 text-primary"
                         : "bg-card/40 text-muted-foreground/50"
                     }`}
                   >
-                    {isDone ? <Check className="w-3 h-3" /> : <Icon className="w-3 h-3" />}
+                    {isDone ? <CheckIcon className="w-3 h-3" /> : <Icon className="w-3 h-3" />}
                     <span className="hidden sm:inline">{step.label}</span>
                   </button>
                   {i < steps.length - 1 && (
-                    <ChevronRight className={`w-4 h-4 mx-1 ${i < currentStep ? "text-sunset-orange" : "text-border"}`} />
+                    <ChevronRightIcon className={`w-4 h-4 mx-1 ${i < currentStep ? "text-primary" : "text-border"}`} />
                   )}
                 </div>
               );
@@ -251,16 +248,16 @@ export default function CreaViaggio() {
                         }`}
                       >
                         <div className="relative h-36 overflow-hidden">
-                          <img src={zone.image} alt={zone.name} className="w-full h-full object-cover" loading="lazy" />
+                          <Image fill sizes="100vw" src={zone.image} alt={zone.name} className="w-full h-full object-cover" loading="lazy" />
                           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
                           {selectedZone === zone.id && (
                             <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-sunset-orange flex items-center justify-center">
-                              <Check className="w-4 h-4 text-primary-foreground" />
+                              <CheckIcon className="w-4 h-4 text-primary-foreground" />
                             </div>
                           )}
                         </div>
                         <div className="p-4 bg-card/80">
-                          <p className="text-xs text-sunset-orange font-medium mb-1">{zone.vibe}</p>
+                          <p className="text-xs text-primary font-medium mb-1">{zone.vibe}</p>
                           <h3 className="font-display font-bold text-foreground">{zone.name}</h3>
                           <p className="text-xs text-muted-foreground mt-1">{zone.desc}</p>
                         </div>
@@ -293,7 +290,7 @@ export default function CreaViaggio() {
                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
                               selected ? "bg-sunset-orange/20" : "bg-muted/30"
                             }`}>
-                              <Icon className={`w-5 h-5 ${selected ? "text-sunset-orange" : "text-muted-foreground"}`} />
+                              <Icon className={`w-5 h-5 ${selected ? "text-primary" : "text-muted-foreground"}`} />
                             </div>
                             <div>
                               <h3 className="font-display font-bold text-sm">{exp.name}</h3>
@@ -324,11 +321,11 @@ export default function CreaViaggio() {
                           }`}
                         >
                           <div className="relative h-28 overflow-hidden">
-                            <img src={club.image} alt={club.name} className="w-full h-full object-cover" loading="lazy" />
+                            <Image fill sizes="100vw" src={club.image} alt={club.name} className="w-full h-full object-cover" loading="lazy" />
                             <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                             {selected && (
                               <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-sunset-orange flex items-center justify-center">
-                                <Check className="w-4 h-4 text-primary-foreground" />
+                                <CheckIcon className="w-4 h-4 text-primary-foreground" />
                               </div>
                             )}
                           </div>
@@ -366,7 +363,7 @@ export default function CreaViaggio() {
                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
                               selected ? "bg-sunset-orange/20" : "bg-muted/30"
                             }`}>
-                              <Icon className={`w-5 h-5 ${selected ? "text-sunset-orange" : "text-muted-foreground"}`} />
+                              <Icon className={`w-5 h-5 ${selected ? "text-primary" : "text-muted-foreground"}`} />
                             </div>
                             <div>
                               <h3 className="font-display font-bold text-sm">{extra.name}</h3>
@@ -384,14 +381,14 @@ export default function CreaViaggio() {
               {currentStep === 6 && (
                 <div>
                   <h2 className="text-2xl md:text-3xl font-display font-bold mb-2 text-center">
-                    Il tuo pacchetto <span className="text-gradient-warm">Ibiza</span>
+                    Il tuo pacchetto <span className="text-primary">Ibiza</span>
                   </h2>
                   <p className="text-muted-foreground mb-8 text-center">Ecco il riepilogo delle tue scelte</p>
 
                   <div className="bg-card/60 backdrop-blur-sm border border-border/30 rounded-2xl p-6 md:p-8 space-y-6">
                     {/* Dates */}
                     <div className="flex items-start gap-4">
-                      <Calendar className="w-5 h-5 text-sunset-orange mt-0.5 shrink-0" />
+                      <CalendarIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <div>
                         <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Date</p>
                         <p className="text-sm font-medium text-foreground">
@@ -402,7 +399,7 @@ export default function CreaViaggio() {
 
                     {/* Group */}
                     <div className="flex items-start gap-4">
-                      <Globe className="w-5 h-5 text-sunset-orange mt-0.5 shrink-0" />
+                      <GlobeIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <div>
                         <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Gruppo</p>
                         <p className="text-sm font-medium text-foreground">{selectedGroupData ? `${selectedGroupData.icon} ${selectedGroupData.label}` : "Non selezionato"}</p>
@@ -411,7 +408,7 @@ export default function CreaViaggio() {
 
                     {/* Zone */}
                     <div className="flex items-start gap-4">
-                      <MapPin className="w-5 h-5 text-sunset-orange mt-0.5 shrink-0" />
+                      <SewingPinIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <div>
                         <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Zona</p>
                         <p className="text-sm font-medium text-foreground">{selectedZoneData?.name || "Non selezionata"}</p>
@@ -421,14 +418,14 @@ export default function CreaViaggio() {
                     {/* Experiences */}
                     {selectedExperiences.size > 0 && (
                       <div className="flex items-start gap-4">
-                        <Settings2 className="w-5 h-5 text-sunset-orange mt-0.5 shrink-0" />
+                        <MixerHorizontalIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                         <div>
                           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Esperienze</p>
                           <div className="flex flex-wrap gap-2">
                             {[...selectedExperiences].map(id => {
                               const exp = experiences.find(e => e.id === id);
                               return exp && (
-                                <span key={id} className="px-3 py-1 rounded-full text-xs bg-sunset-orange/10 text-sunset-orange">
+                                <span key={id} className="px-3 py-1 rounded-full text-xs bg-sunset-orange/10 text-primary">
                                   {exp.name}
                                 </span>
                               );
@@ -441,7 +438,7 @@ export default function CreaViaggio() {
                     {/* Nightlife */}
                     {selectedNightlife.size > 0 && (
                       <div className="flex items-start gap-4">
-                        <Music className="w-5 h-5 text-sunset-orange mt-0.5 shrink-0" />
+                        <SpeakerLoudIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                         <div>
                           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Club</p>
                           <div className="flex flex-wrap gap-2">
@@ -461,7 +458,7 @@ export default function CreaViaggio() {
                     {/* Extras */}
                     {selectedExtras.size > 0 && (
                       <div className="flex items-start gap-4">
-                        <Ship className="w-5 h-5 text-sunset-orange mt-0.5 shrink-0" />
+                        <PaperPlaneIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                         <div>
                           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Extra</p>
                           <div className="flex flex-wrap gap-2">
@@ -483,8 +480,8 @@ export default function CreaViaggio() {
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
                     <Button asChild variant="hero">
                       <a href={summaryWhatsApp()} target="_blank" rel="noopener noreferrer">
-                        <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                          <Send className="w-4 h-4 text-white animate-send-slide" />
+                        <div className="w-10 h-10 rounded-full bg-[#d946ef] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                          <PaperPlaneIcon className="w-4 h-4 text-white animate-send-slide" />
                         </div>
                         <span className="text-sm font-bold tracking-wide">
                           Richiedi preventivo per questo pacchetto
@@ -507,15 +504,15 @@ export default function CreaViaggio() {
                 onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
                 disabled={currentStep === 0}
               >
-                <ChevronLeft className="w-4 h-4" /> Indietro
+                <ChevronLeftIcon className="w-4 h-4" /> Indietro
               </Button>
               <Button
                 variant="hero"
                 onClick={() => setCurrentStep(Math.min(6, currentStep + 1))}
                 disabled={!canProceed()}
               >
-                <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ChevronRight className="w-4 h-4 text-white animate-arrow-slide" />
+                <div className="w-8 h-8 rounded-full bg-[#d946ef] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+                  <ChevronRightIcon className="w-4 h-4 text-white animate-arrow-slide" />
                 </div>
                 <span className="text-sm font-bold tracking-wide">
                   Avanti
@@ -531,7 +528,7 @@ export default function CreaViaggio() {
                 size="lg"
                 onClick={() => setCurrentStep(0)}
               >
-                <ChevronLeft className="w-4 h-4" /> Ricomincia
+                <ChevronLeftIcon className="w-4 h-4" /> Ricomincia
               </Button>
             </div>
           )}

@@ -1,14 +1,15 @@
 "use client";
+import Image from "next/image";
 import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
-import { MessageCircle, ArrowRight, Music, Sun, Ship, Settings2, Globe, Award } from "lucide-react";
+import { ChatBubbleIcon, ArrowRightIcon, SpeakerLoudIcon, SunIcon, PaperPlaneIcon, MixerHorizontalIcon, GlobeIcon, StarIcon } from "@radix-ui/react-icons";
 
 const packages = [
   {
-    icon: Music,
+    icon: SpeakerLoudIcon,
     title: "Weekend Party Ibiza",
     tagline: "3 notti di pura energia",
     description: "Il pacchetto perfetto per chi vuole vivere la nightlife di Ibiza al massimo. Arrivi il venerdì, riparte il lunedì con ricordi indimenticabili.",
@@ -24,7 +25,7 @@ const packages = [
     color: "sunset-red",
   },
   {
-    icon: Ship,
+    icon: PaperPlaneIcon,
     title: "Ibiza + Formentera Experience",
     tagline: "Due isole, un'unica esperienza",
     description: "Combina l'energia di Ibiza con la tranquillità di Formentera. Il modo migliore per vivere entrambe le isole senza stress logistico.",
@@ -40,7 +41,7 @@ const packages = [
     color: "sunset-orange",
   },
   {
-    icon: Sun,
+    icon: SunIcon,
     title: "Beach Club Experience",
     tagline: "Lusso, sole e cocktail",
     description: "Giornate tra i beach club più esclusivi di Ibiza: lettini riservati, musica dal vivo, cucina gourmet e tramonti da cartolina.",
@@ -56,7 +57,7 @@ const packages = [
     color: "sunset-gold",
   },
   {
-    icon: Settings2,
+    icon: MixerHorizontalIcon,
     title: "Nightlife Experience",
     tagline: "Le notti migliori dell'isola",
     description: "Ogni sera nel club giusto, con la line-up giusta. Organizzo le tue notti in base ai tuoi gusti musicali e al calendario della stagione.",
@@ -79,15 +80,15 @@ export default function Pacchetti() {
       {/* Hero */}
       <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80" alt="Ibiza boat" className="w-full h-full object-cover" />
+          <Image fill sizes="100vw" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80" alt="Ibiza boat" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         </div>
         <div className="container relative z-10">
           <AnimatedSection>
-            <p className="text-sm uppercase tracking-widest text-sunset-orange font-semibold mb-4">Esperienze curate</p>
+            <p className="text-sm uppercase tracking-widest text-primary font-semibold mb-4">Esperienze curate</p>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">
               Pacchetti ed esperienze{" "}
-              <span className="text-gradient-warm">Ibiza</span>
+              <span className="text-primary">Ibiza</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
               Proposte pensate per diversi stili di viaggio. Ogni pacchetto è completamente personalizzabile in base alle tue date, al tuo budget e ai tuoi desideri.
@@ -123,7 +124,7 @@ export default function Pacchetti() {
                             <ul className="space-y-2">
                               {pkg.includes.map((item, i) => (
                                 <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
-                                  <Award className="w-3.5 h-3.5 mt-0.5 text-sunset-gold shrink-0" />
+                                  <StarIcon className="w-3.5 h-3.5 mt-0.5 text-sunset-gold shrink-0" />
                                   {item}
                                 </li>
                               ))}
@@ -133,7 +134,7 @@ export default function Pacchetti() {
                           <div>
                             <h3 className="text-sm uppercase tracking-widest text-muted-foreground/60 font-semibold mb-3">Ideale per</h3>
                             <div className="flex items-start gap-2 p-4 rounded-xl bg-muted/30">
-                              <Globe className="w-5 h-5 text-sunset-orange shrink-0 mt-0.5" />
+                              <GlobeIcon className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                               <p className="text-sm text-foreground/80">{pkg.ideal}</p>
                             </div>
                           </div>
@@ -151,7 +152,7 @@ export default function Pacchetti() {
       {/* CTA */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,70,239,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">

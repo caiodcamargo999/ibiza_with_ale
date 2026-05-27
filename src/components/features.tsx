@@ -1,7 +1,7 @@
 "use client";
 
 import { FeatureCardProps } from "@/types/components/feature";
-import { AudioLines, NotebookPen, Sparkle } from "lucide-react";
+import { SpeakerLoudIcon, Pencil1Icon, MagicWandIcon } from "@radix-ui/react-icons";
 import { motion } from "motion/react";
 import FeatureCard from "./feature-card";
 import ToolFeature from "./tool-feature";
@@ -12,19 +12,19 @@ export default function Features() {
       title: "Record your calls with ease",
       description:
         "Crystal-clear audio capture with automatic transcription. Never worry about missing details again.",
-      icon: AudioLines,
+      icon: SpeakerLoudIcon,
     },
     {
       title: "Take notes as you talk",
       description:
         "Add highlights, action items, and reminders without interrupting the flow of conversation.",
-      icon: NotebookPen,
+      icon: Pencil1Icon,
     },
     {
       title: "Find any call in seconds",
       description:
         "Search transcripts, replay key moments, and export notes to your team—all in seconds.",
-      icon: Sparkle,
+      icon: MagicWandIcon,
     },
   ];
 

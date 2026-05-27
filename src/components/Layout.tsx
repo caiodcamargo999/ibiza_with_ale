@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle, Instagram, ChevronDown, ArrowRight } from "lucide-react";
+import { HamburgerMenuIcon, Cross2Icon, ChatBubbleIcon, InstagramLogoIcon, ChevronDownIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -59,176 +59,128 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Chi sono", path: "/chi-sono" },
 ];
 
 const guideItems = [
-  { label: "Quanto costa Ibiza 2026", path: "/quanto-costa-ibiza" },
+  { label: "Pacchetti Ibiza 2026", path: "/ibiza-packages" },
   { label: "Errori da evitare", path: "/errori-ibiza" },
   { label: "Spiagge più belle", path: "/spiagge-ibiza" },
-  { label: "Zone dove dormire", path: "/zone-ibiza" },
-  { label: "Itinerari", path: "/itinerari" },
-  { label: "Pacchetti esperienze", path: "/pacchetti" },
   { label: "Calendario party 2026", path: "/calendario-party" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/393XXXXXXXXX?text=Ciao%20Alessandra!%20Vorrei%20info%20su%20Ibiza";
 
-function GuideDropdown() {
-  const [open, setOpen] = useState(false);
-  const location = usePathname();
-  const isGuide = guideItems.some(g => g.path === location.pathname);
 
-  return (
-    <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button
-        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
-          isGuide ? "text-foreground bg-card" : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-        }`}
-      >
-        Guide <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 4 }}
-            transition={{ duration: 0.15 }}
-            className="absolute top-full right-0 mt-1 w-56 bg-card/95 backdrop-blur-xl border border-border/30 rounded-xl shadow-elevated overflow-hidden"
-          >
-            {guideItems.map((item) => {
-              return (
-                <Link key={item.path} href={item.path}
-                  onClick={() => setOpen(false)}
-                  className={`block px-4 py-2.5 text-sm transition-colors ${
-                    location.pathname === item.path
-                      ? "text-foreground bg-card"
-                      : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = usePathname();
   const { openForm } = useFormStore();
 
+  // Disable body scroll when menu is open
+  React.useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [mobileOpen]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/30">
-      <div className="container flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-display font-bold tracking-tight">
-            <span className="text-gradient-warm">IBIZA</span>
-            <span className="text-foreground/60 font-light ml-1.5">WITH</span>
-            <span className="text-foreground ml-1.5">ALE</span>
-          </span>
-        </Link>
-
-        <nav className="hidden lg:flex items-center gap-1">
-          {navItems.map((item) => (
-            <Link key={item.path} href={item.path}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                location.pathname === item.path
-                  ? "text-foreground bg-card"
-                  : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <GuideDropdown />
-          <Button onClick={openForm} variant="hero" className="ml-3">
-            <div className="w-7 h-7 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-              <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
-            </div>
-            <span className="text-xs font-bold tracking-wide">
-              Richiedi piano viaggio
-            </span>
-          </Button>
-        </nav>
-
-        <button
-          className="lg:hidden p-2 text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+    <>
+      <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div 
+          className={cn(
+            "flex items-center gap-3 rounded-full px-5 py-2.5 shadow-lg transition-all duration-300 pointer-events-auto border",
+            mobileOpen 
+              ? "bg-black border-white/20" 
+              : "bg-[#e5e5e5] backdrop-blur-xl border-white/70"
+          )}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          <Link href="/" onClick={() => setMobileOpen(false)} className="tracking-tight whitespace-nowrap transition-colors duration-300 uppercase font-menu font-bold text-[1.1rem] flex items-center gap-1.5">
+            <span className="text-[#d946ef]">IBIZA</span>
+            <span className={cn("font-light", mobileOpen ? "text-white" : "text-black")}>WITH</span>
+            <span className={mobileOpen ? "text-white" : "text-black"}>ALE</span>
+          </Link>
+          
+          <button
+            className={cn(
+              "ml-2 flex items-center justify-center rounded-full transition-all duration-300 hover:opacity-80",
+              mobileOpen 
+                ? "bg-white text-black px-4 py-1.5 text-xs font-bold h-8"
+                : "w-8 h-8 bg-white/90 border border-white/50 text-black p-0"
+            )}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? (
+              "Close"
+            ) : (
+              <div className="flex flex-col gap-[3px] items-center justify-center">
+                <span className="block w-4 h-[2px] bg-black rounded-full"></span>
+                <span className="block w-4 h-[2px] bg-black rounded-full"></span>
+                <span className="block w-3 h-[2px] bg-black rounded-full self-start"></span>
+              </div>
+            )}
+          </button>
+        </div>
+      </header>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black border-b border-border/30 relative z-50 shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black z-40 overflow-y-auto"
           >
-            <nav className="container py-4 flex flex-col gap-1">
-              {navItems.map((item) => (
-                <Link key={item.path} href={item.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    location.pathname === item.path
-                      ? "text-foreground bg-card"
-                      : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <p className="px-4 pt-3 pb-1 text-xs uppercase tracking-widest text-muted-foreground/40 font-semibold">Guide</p>
-              {guideItems.map((item) => {
-                if (item.path === "#crea-viaggio") {
-                  return (
-                    <button key={item.path}
-                      onClick={() => { setMobileOpen(false); useFormStore.getState().openForm(); }}
-                      className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                        location.pathname === item.path
-                          ? "text-foreground bg-card"
-                          : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  );
-                }
-                return (
+            <div className="min-h-screen flex flex-col items-center justify-center py-32 px-4">
+              <nav className="flex flex-col items-center gap-6 md:gap-8 text-center">
+                {navItems.map((item) => (
                   <Link key={item.path} href={item.path}
                     onClick={() => setMobileOpen(false)}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                      location.pathname === item.path
-                        ? "text-foreground bg-card"
-                        : "text-muted-foreground hover:text-foreground hover:bg-card/50"
-                    }`}
+                    className={cn(
+                      "font-menu font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider transition-colors duration-300",
+                      location.pathname === item.path ? "text-white" : "text-white/40 hover:text-white"
+                    )}
                   >
                     {item.label}
                   </Link>
-                );
-              })}
-              <Button onClick={() => { setMobileOpen(false); openForm(); }} variant="hero" className="mt-2 justify-center">
-                <div className="w-8 h-8 rounded-full bg-[#EA580C] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-                <span className="text-sm font-bold tracking-wide">
-                  Richiedi piano viaggio
-                </span>
-              </Button>
-            </nav>
+                ))}
+                
+                {guideItems.map((item) => {
+                  if (item.path === "#crea-viaggio") {
+                    return (
+                      <button key={item.path}
+                        onClick={() => { setMobileOpen(false); useFormStore.getState().openForm(); }}
+                        className={cn(
+                          "font-menu font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider transition-colors duration-300",
+                          location.pathname === item.path ? "text-white" : "text-white/40 hover:text-white"
+                        )}
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  }
+                  return (
+                    <Link key={item.path} href={item.path}
+                      onClick={() => setMobileOpen(false)}
+                      className={cn(
+                        "font-menu font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider transition-colors duration-300",
+                        location.pathname === item.path ? "text-white" : "text-white/40 hover:text-white"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 
@@ -238,12 +190,12 @@ function Footer() {
       {/* Sunset glow top border */}
       <div className="glow-line" />
       
-      <div className="bg-dark-section py-16">
+      <div className="bg-dark-section py-24">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
               <p className="text-2xl font-display font-bold mb-2">
-                <span className="text-gradient-warm">IBIZA</span>
+                <span className="text-primary">IBIZA</span>
                 <span className="text-foreground/50 font-light ml-1.5">WITH</span>
                 <span className="text-foreground ml-1.5">ALE</span>
               </p>
@@ -251,24 +203,10 @@ function Footer() {
                 Travel planning Ibiza & Formentera
               </p>
               <p className="text-xs text-muted-foreground/70 leading-relaxed">
-                Manager <a href="https://instagram.com/realcilexibiza" target="_blank" rel="noopener noreferrer" className="text-sunset-orange hover:text-sunset-gold transition-colors">@realcilexibiza</a>
+                Manager <a href="https://instagram.com/realcilexibiza" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">@realcilexibiza</a>
                 <br />
                 Collaborazioni attive con CILEX Ibiza e partner locali.
               </p>
-            </div>
-            <div>
-              <h4 className="font-display font-semibold mb-4 text-xs uppercase tracking-widest text-muted-foreground">Menu</h4>
-              <ul className="space-y-2">
-                {navItems.map((item) => (
-                  <li key={item.path}>
-                    <Link href={item.path}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </div>
             <div>
               <h4 className="font-display font-semibold mb-4 text-xs uppercase tracking-widest text-muted-foreground">Guide Ibiza</h4>
@@ -316,7 +254,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 pt-0 lg:pt-16">{children}</main>
+      <main className="flex-1 pt-0">{children}</main>
       <Footer />
       <TypeformPopup />
     </div>

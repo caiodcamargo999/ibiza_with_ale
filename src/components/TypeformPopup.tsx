@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronRight, Check, ChevronDown, ChevronLeft } from "lucide-react";
+import { Cross2Icon, ChevronRightIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon } from "@radix-ui/react-icons";
 import { useFormStore } from "@/store/useFormStore";
 
 interface Option {
@@ -176,7 +176,7 @@ const calculateScore = (currentAnswers: Record<string, string>) => {
 };
 
 export default function TypeformPopup() {
-  const { isOpen, closeForm } = useFormStore();
+  const { isOpen, closeForm, selectedPackage } = useFormStore();
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [score, setScore] = useState(0);
@@ -268,7 +268,7 @@ export default function TypeformPopup() {
         await fetch('/api/kommo', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ answers, score, contact: updatedContact })
+          body: JSON.stringify({ answers, score, contact: updatedContact, package: selectedPackage })
         });
       } catch (err) {
         console.error(err);
@@ -315,7 +315,11 @@ export default function TypeformPopup() {
     const consulenza = answers.q11 ? `Per la consulenza gratuita di 20 minuti, sarei disponibile ${answers.q11.toLowerCase()}` : "";
 
     let message = `Ciao Alessandra! Sono *${nome}*.\n\n`;
-    message += `Ho appena completato il questionario sul sito perché sto organizzando il mio viaggio a Ibiza ${periodo}!\n\n`;
+    if (selectedPackage) {
+      message += `Ho visto il pacchetto *${selectedPackage}* sul sito e vorrei maggiori informazioni per il mio viaggio a Ibiza ${periodo}!\n\n`;
+    } else {
+      message += `Ho appena completato il questionario sul sito perché sto organizzando il mio viaggio a Ibiza ${periodo}!\n\n`;
+    }
     message += `Ecco un riepilogo della mia idea di viaggio:\n`;
     message += `• *Dettagli:* ${volo} e ${gruppo}.\n`;
     message += `• *Musica & Feste:* ${musica}${feste}.\n`;
@@ -337,7 +341,7 @@ export default function TypeformPopup() {
           className="absolute top-6 left-6 p-2 bg-card border border-border/40 rounded-full text-muted-foreground hover:text-foreground hover:bg-card/80 transition-colors z-[101] flex items-center justify-center hover:scale-105 active:scale-95"
           aria-label="Indietro"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeftIcon className="w-5 h-5" />
         </button>
       )}
 
@@ -345,7 +349,7 @@ export default function TypeformPopup() {
         onClick={closeForm}
         className="absolute top-6 right-6 p-2 bg-card border border-border/40 rounded-full text-muted-foreground hover:text-foreground hover:bg-card/80 transition-colors z-[101]"
       >
-        <X className="w-5 h-5" />
+        <Cross2Icon className="w-5 h-5" />
       </button>
 
       <div className="w-full max-w-xl px-6 relative h-full flex flex-col justify-center mx-auto">
@@ -354,7 +358,7 @@ export default function TypeformPopup() {
         {!isDescarte && currentStep < questions.length && (
           <div className="absolute top-8 left-6 right-20 h-1.5 bg-card rounded-full overflow-hidden">
             <div 
-              className="h-full bg-[#EA580C] transition-all duration-500 ease-out"
+              className="h-full bg-[#d946ef] transition-all duration-500 ease-out"
               style={{ width: `${(currentStep / questions.length) * 100}%` }}
             />
           </div>
@@ -379,7 +383,7 @@ export default function TypeformPopup() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EA580C] hover:bg-[#c24100] text-white rounded-full font-bold transition-all hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#d946ef] hover:bg-[#a21caf] text-white rounded-full font-bold transition-all hover:scale-105"
               >
                 Contatta Alessandra su WhatsApp
               </a>
@@ -392,7 +396,7 @@ export default function TypeformPopup() {
               className="text-center"
             >
               <div className="w-20 h-20 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-8 shadow-glow-orange">
-                <Check className="w-10 h-10 text-white" />
+                <CheckIcon className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-foreground">
                 Profilo Completato!
@@ -402,9 +406,9 @@ export default function TypeformPopup() {
               </p>
               <button 
                 onClick={sendWhatsApp}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EA580C] hover:bg-[#c24100] text-white rounded-full font-bold transition-all hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#d946ef] hover:bg-[#a21caf] text-white rounded-full font-bold transition-all hover:scale-105"
               >
-                Richiedi la tua Proposta su WhatsApp <ChevronRight className="w-5 h-5" />
+                Richiedi la tua Proposta su WhatsApp <ChevronRightIcon className="w-5 h-5" />
               </button>
             </motion.div>
           ) : (
@@ -417,7 +421,7 @@ export default function TypeformPopup() {
               className="w-full"
             >
               <div className="text-center mb-8">
-                <p className="text-[#EA580C] font-semibold mb-2">
+                <p className="text-[#d946ef] font-semibold mb-2">
                   {currentStep === questions.length - 1 ? "Quasi finito!" : `Domanda ${currentStep + 1} di ${questions.length - 1}`}
                 </p>
                 <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground leading-tight">
@@ -434,7 +438,7 @@ export default function TypeformPopup() {
                       placeholder="Il tuo nome"
                       value={contactData.name}
                       onChange={(e) => setContactData(p => ({ ...p, name: e.target.value }))}
-                      className="w-full p-4 rounded-xl bg-card border border-border/30 focus:border-[#EA580C]/50 focus:outline-none focus:ring-1 focus:ring-[#EA580C]/50 text-foreground"
+                      className="w-full p-4 rounded-xl bg-card border border-border/30 focus:border-[#d946ef]/50 focus:outline-none focus:ring-1 focus:ring-[#d946ef]/50 text-foreground"
                     />
                     <div className="flex gap-2 relative">
                       {/* Dropdown container */}
@@ -442,11 +446,11 @@ export default function TypeformPopup() {
                         <button
                           type="button"
                           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                          className="flex items-center gap-1.5 h-full px-3.5 rounded-xl bg-card border border-border/30 hover:border-[#EA580C]/30 text-foreground transition-all text-base font-medium"
+                          className="flex items-center gap-1.5 h-full px-3.5 rounded-xl bg-card border border-border/30 hover:border-[#d946ef]/30 text-foreground transition-all text-base font-medium"
                         >
                           <span>{countries.find(c => c.code === selectedCountryCode)?.flag}</span>
                           <span>{selectedCountryCode}</span>
-                          <ChevronDown className="w-4 h-4 opacity-50 shrink-0" />
+                          <ChevronDownIcon className="w-4 h-4 opacity-50 shrink-0" />
                         </button>
                         {isDropdownOpen && (
                           <div className="absolute left-0 top-full mt-2 w-48 max-h-60 overflow-y-auto rounded-xl bg-card border border-border/40 shadow-elevated z-50 p-1 flex flex-col scrollbar-thin">
@@ -458,7 +462,7 @@ export default function TypeformPopup() {
                                   setSelectedCountryCode(c.code);
                                   setIsDropdownOpen(false);
                                 }}
-                                className="flex items-center gap-2 w-full px-3 py-2 text-left rounded-lg hover:bg-[#EA580C]/10 hover:text-foreground text-foreground/80 transition-colors text-sm"
+                                className="flex items-center gap-2 w-full px-3 py-2 text-left rounded-lg hover:bg-[#d946ef]/10 hover:text-foreground text-foreground/80 transition-colors text-sm"
                               >
                                 <span className="text-base">{c.flag}</span>
                                 <span className="font-medium text-foreground">{c.code}</span>
@@ -475,7 +479,7 @@ export default function TypeformPopup() {
                         placeholder="Numero di WhatsApp"
                         value={phoneInput}
                         onChange={(e) => setPhoneInput(e.target.value.replace(/\D/g, ""))}
-                        className="flex-1 p-4 rounded-xl bg-card border border-border/30 focus:border-[#EA580C]/50 focus:outline-none focus:ring-1 focus:ring-[#EA580C]/50 text-foreground"
+                        className="flex-1 p-4 rounded-xl bg-card border border-border/30 focus:border-[#d946ef]/50 focus:outline-none focus:ring-1 focus:ring-[#d946ef]/50 text-foreground"
                       />
                     </div>
                     <input
@@ -484,7 +488,7 @@ export default function TypeformPopup() {
                       placeholder="Il tuo indirizzo email"
                       value={contactData.email}
                       onChange={(e) => setContactData(p => ({ ...p, email: e.target.value }))}
-                      className="w-full p-4 rounded-xl bg-card border border-border/30 focus:border-[#EA580C]/50 focus:outline-none focus:ring-1 focus:ring-[#EA580C]/50 text-foreground"
+                      className="w-full p-4 rounded-xl bg-card border border-border/30 focus:border-[#d946ef]/50 focus:outline-none focus:ring-1 focus:ring-[#d946ef]/50 text-foreground"
                       onKeyDown={(e) => {
                         if (e.key === "Enter" && contactData.name && phoneInput && contactData.email) {
                           e.preventDefault();
@@ -497,9 +501,9 @@ export default function TypeformPopup() {
                     <button
                       onClick={nextStep}
                       disabled={!contactData.name || !phoneInput || !contactData.email || isSubmitting}
-                      className="inline-flex w-full items-center justify-center gap-2 px-6 py-4 bg-[#EA580C] disabled:bg-card disabled:text-muted-foreground disabled:cursor-not-allowed hover:bg-[#c24100] text-white rounded-full font-bold transition-all"
+                      className="inline-flex w-full items-center justify-center gap-2 px-6 py-4 bg-[#d946ef] disabled:bg-card disabled:text-muted-foreground disabled:cursor-not-allowed hover:bg-[#a21caf] text-white rounded-full font-bold transition-all"
                     >
-                      {isSubmitting ? "Invio in corso..." : "Invia e scopri la tua proposta"} <ChevronRight className="w-5 h-5" />
+                      {isSubmitting ? "Invio in corso..." : "Invia e scopri la tua proposta"} <ChevronRightIcon className="w-5 h-5" />
                     </button>
                   </div>
                 </div>
@@ -509,13 +513,13 @@ export default function TypeformPopup() {
                     <button
                       key={idx}
                       onClick={() => handleOptionSelect(option)}
-                      className="group flex items-center justify-between p-3.5 md:p-4 rounded-2xl bg-card border border-border/30 hover:border-[#EA580C]/50 hover:bg-[#EA580C]/10 transition-all text-left w-full"
+                      className="group flex items-center justify-between p-3.5 md:p-4 rounded-2xl bg-card border border-border/30 hover:border-[#d946ef]/50 hover:bg-[#d946ef]/10 transition-all text-left w-full"
                     >
                       <span className="text-sm md:text-base font-medium text-foreground/90 group-hover:text-foreground pr-4">
                         {option.label}
                       </span>
-                      <div className="w-6 h-6 rounded-full border border-border/50 group-hover:border-[#EA580C] flex items-center justify-center bg-background/50 group-hover:bg-[#EA580C]/20 transition-colors">
-                        <div className="w-2.5 h-2.5 rounded-full bg-transparent group-hover:bg-[#EA580C] transition-colors" />
+                      <div className="w-6 h-6 rounded-full border border-border/50 group-hover:border-[#d946ef] flex items-center justify-center bg-background/50 group-hover:bg-[#d946ef]/20 transition-colors">
+                        <div className="w-2.5 h-2.5 rounded-full bg-transparent group-hover:bg-[#d946ef] transition-colors" />
                       </div>
                     </button>
                   ))}
@@ -527,7 +531,7 @@ export default function TypeformPopup() {
                     value={textInput}
                     onChange={(e) => setTextInput(e.target.value)}
                     placeholder="Scrivi la tua risposta qui..."
-                    className="w-full min-h-[150px] p-5 rounded-2xl bg-card border border-border/30 focus:border-[#EA580C]/50 focus:outline-none focus:ring-1 focus:ring-[#EA580C]/50 text-foreground resize-none text-lg"
+                    className="w-full min-h-[150px] p-5 rounded-2xl bg-card border border-border/30 focus:border-[#d946ef]/50 focus:outline-none focus:ring-1 focus:ring-[#d946ef]/50 text-foreground resize-none text-lg"
                     onKeyDown={(e) => {
                       if (e.key === "Enter" && !e.shiftKey) {
                         e.preventDefault();
@@ -539,9 +543,9 @@ export default function TypeformPopup() {
                     <button
                       onClick={handleTextSubmit}
                       disabled={!textInput.trim()}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#EA580C] disabled:bg-card disabled:text-muted-foreground disabled:cursor-not-allowed hover:bg-[#c24100] text-white rounded-full font-bold transition-all"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#d946ef] disabled:bg-card disabled:text-muted-foreground disabled:cursor-not-allowed hover:bg-[#a21caf] text-white rounded-full font-bold transition-all"
                     >
-                      Continua <ChevronRight className="w-5 h-5" />
+                      Continua <ChevronRightIcon className="w-5 h-5" />
                     </button>
                   </div>
                 </div>

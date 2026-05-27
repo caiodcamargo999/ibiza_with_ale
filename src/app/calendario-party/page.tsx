@@ -2,170 +2,216 @@
 import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
-import { MessageCircle, ArrowRight, Music, Calendar, Award, Zap, Settings2, MapPin, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { 
+  CalendarIcon, 
+  StarIcon, 
+  LightningBoltIcon, 
+  MixerHorizontalIcon, 
+  SewingPinIcon, 
+  MagicWandIcon
+} from "@radix-ui/react-icons";
+import { useFormStore } from "@/store/useFormStore";
 
 const daysOfWeek = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
 
-interface ClubEvent {
+interface Residency {
+  club: string;
   party: string;
+  dj: string;
   genre: string;
+  image: string;
   highlight?: boolean;
 }
 
-interface Club {
-  name: string;
-  location: string;
-  vibe: string;
-  season: string;
-  image: string;
-  schedule: Record<string, ClubEvent[]>;
-}
-
-const clubs: Club[] = [
-  {
-    name: "Ushuaïa",
-    location: "Playa d'en Bossa",
-    vibe: "Open-air pool party, mega produzioni, main stage spettacolare",
-    season: "Maggio – Ottobre 2026",
-    image: "/images/ushuaia.jpg",
-    schedule: {
-      "Lunedì": [{ party: "Ants", genre: "Tech house / Techno" }],
-      "Martedì": [{ party: "ONGX", genre: "Urban / Reggaeton" }],
-      "Mercoledì": [{ party: "Tomorrowland presents", genre: "EDM / House" }],
-      "Giovedì": [{ party: "Calvin Harris", genre: "House / Pop", highlight: true }],
-      "Venerdì": [{ party: "David Guetta – F*** Me I'm Famous", genre: "House / EDM", highlight: true }],
-      "Sabato": [{ party: "Martin Garrix", genre: "EDM / Future bass", highlight: true }],
-      "Domenica": [{ party: "Kygo – Palm Tree Music Festival", genre: "Tropical house" }],
+const residenciesByDay: Record<string, Residency[]> = {
+  "Lunedì": [
+    {
+      club: "Ushuaïa",
+      party: "F*** Me I'm Famous!",
+      dj: "David Guetta",
+      genre: "EDM / Pop Dance",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1574156854199-0a905a5a1e74?w=800&q=80",
     },
-  },
-  {
-    name: "Hï Ibiza",
-    location: "Playa d'en Bossa",
-    vibe: "Indoor club premium, sound system di livello mondiale, due sale",
-    season: "Maggio – Ottobre 2026",
-    image: "/images/hi_ibiza.jpg",
-    schedule: {
-      "Lunedì": [{ party: "Glitterbox", genre: "Disco / House" }],
-      "Martedì": [{ party: "Black Coffee", genre: "Afro house / Deep" }],
-      "Mercoledì": [{ party: "Fisher", genre: "Tech house" }],
-      "Giovedì": [{ party: "The Martinez Brothers", genre: "House / Tech house" }],
-      "Venerdì": [{ party: "Tale of Us – Afterlife", genre: "Melodic techno", highlight: true }],
-      "Sabato": [{ party: "Eric Prydz – HOLO", genre: "Progressive / Techno", highlight: true }],
+    {
+      club: "Hï Ibiza",
+      party: "Eric Prydz Presents [CELL]",
+      dj: "Eric Prydz",
+      genre: "Progressive / Techno",
+      image: "https://images.unsplash.com/photo-1549834125-82d3c48159a3?w=800&q=80",
     },
-  },
-  {
-    name: "UNVRS",
-    location: "San Rafael",
-    vibe: "Il primo hyperclub al mondo, nato sulle ceneri dello storico Privilege. Produzioni colossali ed eventi esclusivi.",
-    season: "Maggio – Ottobre 2026",
-    image: "/images/cilex_in_unvrs.jpg",
-    schedule: {
-      "Lunedì": [{ party: "Keinemusik", genre: "Afro house / Tech house", highlight: true }],
-      "Venerdì": [{ party: "Afterlife", genre: "Melodic techno / Progressive", highlight: true }],
-      "Sabato": [{ party: "Solid Grooves", genre: "Tech house / Minimal", highlight: true }],
+    {
+      club: "DC-10",
+      party: "Circoloco",
+      dj: "Various Artists",
+      genre: "Underground / Minimal",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
     },
-  },
-  {
-    name: "Pacha",
-    location: "Ibiza Town (porto)",
-    vibe: "Il club più iconico di Ibiza dal 1973, eleganza e tradizione",
-    season: "Tutto l'anno",
-    image: "/images/pacha.jpg",
-    schedule: {
-      "Lunedì": [{ party: "Hot Since 82", genre: "Deep house" }],
-      "Mercoledì": [{ party: "Solomun +1", genre: "Deep / Melodic house", highlight: true }],
-      "Venerdì": [{ party: "Marco Carola – Music On", genre: "Techno", highlight: true }],
-      "Sabato": [{ party: "Flower Power", genre: "Disco / Retro" }],
+    {
+      club: "Amnesia",
+      party: "Amnesia Presents",
+      dj: "Sonny Fodera & Gorgon City",
+      genre: "Tech House",
+      image: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80",
+    }
+  ],
+  "Martedì": [
+    {
+      club: "Hï Ibiza",
+      party: "The Martinez Brothers",
+      dj: "The Martinez Brothers",
+      genre: "Tech House / NYC House",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1621644787968-3f114677764d?w=800&q=80",
     },
-  },
-  {
-    name: "Amnesia",
-    location: "San Rafael",
-    vibe: "Due sale leggendarie, terrace e main room. Atmosfera underground",
-    season: "Giugno – Ottobre 2026",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Amnesia_ibiza.jpeg/960px-Amnesia_ibiza.jpeg",
-    schedule: {
-      "Martedì": [{ party: "Together", genre: "House / Tech house" }],
-      "Giovedì": [{ party: "Pyramid", genre: "Techno / House" }],
-      "Sabato": [{ party: "Elrow", genre: "Tech house / Party", highlight: true }],
+    {
+      club: "Ushuaïa",
+      party: "Defected",
+      dj: "Various Artists",
+      genre: "Classic House / Deep",
+      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
     },
-  },
-  {
-    name: "DC-10",
-    location: "Ses Salines",
-    vibe: "Underground puro, il club dei veri appassionati. Zero fronzoli",
-    season: "Giugno – Ottobre 2026",
-    image: "/images/dc10.jpg",
-    schedule: {
-      "Lunedì": [{ party: "Circoloco", genre: "Techno / Minimal", highlight: true }],
-      "Venerdì": [{ party: "Paradise – Jamie Jones", genre: "House / Tech house" }],
+    {
+      club: "Pacha",
+      party: "Camelphat",
+      dj: "Camelphat",
+      genre: "Melodic Techno",
+      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+    }
+  ],
+  "Mercoledì": [
+    {
+      club: "Ushuaïa",
+      party: "Tomorrowland Presents",
+      dj: "Dimitri Vegas & Like Mike",
+      genre: "EDM / Mainstage",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     },
-  },
-  {
-    name: "Club Chinois",
-    location: "San Rafael",
-    vibe: "Nuovo club di lusso con estetica orientale, sound house e deep tech",
-    season: "Maggio – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&q=80",
-    schedule: {
-      "Mercoledì": [{ party: "Luciano & Friends", genre: "House / Minimal" }],
-      "Sabato": [{ party: "Ritual", genre: "House / Tech house" }],
+    {
+      club: "Hï Ibiza",
+      party: "Fisher",
+      dj: "Fisher",
+      genre: "Tech House",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
     },
-  },
-  {
-    name: "O Beach",
-    location: "San Antonio",
-    vibe: "Day club con pool party, show e atmosfera festosa",
-    season: "Maggio – Ottobre 2026",
-    image: "/images/obeach.jpg",
-    schedule: {
-      "Venerdì": [{ party: "Ibiza Anthems", genre: "Commercial house" }],
-      "Sabato": [{ party: "Pool Party Show", genre: "Commercial / House" }],
-      "Domenica": [{ party: "Sunday Session", genre: "House" }],
+    {
+      club: "Pacha",
+      party: "Bedouin Saga",
+      dj: "Bedouin",
+      genre: "Deep / Desert House",
+      image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
+    }
+  ],
+  "Giovedì": [
+    {
+      club: "Hï Ibiza",
+      party: "Afterlife",
+      dj: "Tale Of Us",
+      genre: "Melodic Techno",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1574156854199-0a905a5a1e74?w=800&q=80",
     },
-  },
-  {
-    name: "Ibiza Rocks",
-    location: "San Antonio",
-    vibe: "Hotel-club all'aperto, concerti live e pool party diurne",
-    season: "Giugno – Settembre 2026",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ibiza_Rocks_Hotel_2019.jpg/960px-Ibiza_Rocks_Hotel_2019.jpg",
-    schedule: {
-      "Mercoledì": [{ party: "Craig David TS5", genre: "R&B / Garage / House" }],
-      "Giovedì": [{ party: "Pool party", genre: "Vari" }],
+    {
+      club: "Ushuaïa",
+      party: "Martin Garrix",
+      dj: "Martin Garrix",
+      genre: "EDM / Future Bass",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1549834125-82d3c48159a3?w=800&q=80",
     },
-  },
-  {
-    name: "Eden",
-    location: "San Antonio",
-    vibe: "Club rinnovato con line-up underground di qualità",
-    season: "Giugno – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&q=80",
-    schedule: {
-      "Giovedì": [{ party: "Defected", genre: "House / Deep" }],
-      "Sabato": [{ party: "Toolroom", genre: "Tech house" }],
+    {
+      club: "Amnesia",
+      party: "Bresh / Do Not Sleep",
+      dj: "Various Artists",
+      genre: "Reggaeton / Tech House",
+      image: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
+    }
+  ],
+  "Venerdì": [
+    {
+      club: "Ushuaïa",
+      party: "Calvin Harris",
+      dj: "Calvin Harris",
+      genre: "EDM / Pop Dance",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1621644787968-3f114677764d?w=800&q=80",
     },
-  },
-  {
-    name: "Es Paradis",
-    location: "San Antonio",
-    vibe: "Piramide di vetro iconica, water party leggendarie",
-    season: "Giugno – Settembre 2026",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80",
-    schedule: {
-      "Lunedì": [{ party: "Water Party", genre: "House / Commercial", highlight: true }],
-      "Mercoledì": [{ party: "Ibiza Classics", genre: "Dance classics" }],
+    {
+      club: "Pacha",
+      party: "Music On",
+      dj: "Marco Carola",
+      genre: "Techno / Tech House",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
     },
-  },
-];
+    {
+      club: "Hï Ibiza",
+      party: "Future Rave",
+      dj: "David Guetta & MORTEN",
+      genre: "Future Rave / EDM",
+      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+    }
+  ],
+  "Sabato": [
+    {
+      club: "Ushuaïa",
+      party: "ANTS",
+      dj: "Andrea Oliva & Guests",
+      genre: "Tech House / Minimal",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    },
+    {
+      club: "Hï Ibiza",
+      party: "Black Coffee",
+      dj: "Black Coffee",
+      genre: "Afro House / Deep",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
+    },
+    {
+      club: "Amnesia",
+      party: "Elrow",
+      dj: "Various Artists",
+      genre: "Tech House / Party",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
+    }
+  ],
+  "Domenica": [
+    {
+      club: "Pacha",
+      party: "Solomun +1",
+      dj: "Solomun",
+      genre: "Deep / Melodic House",
+      highlight: true,
+      image: "https://images.unsplash.com/photo-1574156854199-0a905a5a1e74?w=800&q=80",
+    },
+    {
+      club: "Hï Ibiza",
+      party: "Glitterbox",
+      dj: "Defected",
+      genre: "Disco / Classic House",
+      image: "https://images.unsplash.com/photo-1549834125-82d3c48159a3?w=800&q=80",
+    },
+    {
+      club: "Ushuaïa",
+      party: "Swedish House Mafia",
+      dj: "Swedish House Mafia",
+      genre: "EDM",
+      image: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
+    }
+  ]
+};
 
 const specialEvents = [
   {
-    icon: Zap,
+    icon: LightningBoltIcon,
     title: "Opening Parties",
     period: "Maggio – Giugno 2026",
     image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80",
@@ -173,7 +219,7 @@ const specialEvents = [
     events: ["Ushuaïa Opening – Fine maggio", "Hï Ibiza Opening – Inizio giugno", "Amnesia Opening – Giugno", "Pacha Opening – Fine maggio", "DC-10 Circoloco Opening – Giugno"],
   },
   {
-    icon: Award,
+    icon: StarIcon,
     title: "Closing Parties",
     period: "Settembre – Ottobre 2026",
     image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80",
@@ -181,7 +227,7 @@ const specialEvents = [
     events: ["Ushuaïa Closing – Fine settembre", "Hï Ibiza Closing – Ottobre", "Amnesia Closing – Ottobre", "DC-10 Closing – Prima settimana ottobre", "Pacha Closing – Ultimo weekend ottobre"],
   },
   {
-    icon: Settings2,
+    icon: MixerHorizontalIcon,
     title: "Eventi Speciali 2026",
     period: "Tutta la stagione",
     image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80",
@@ -191,26 +237,26 @@ const specialEvents = [
 ];
 
 function WeeklySchedule() {
-  const [selectedDay, setSelectedDay] = useState<string | null>(null);
+  const [selectedDay, setSelectedDay] = useState<string>("Giovedì"); // Default day just for show
+  const { openForm, setPackage } = useFormStore();
+
+  const handleRequestParty = (partyName: string, club: string) => {
+    setPackage(`Info Party: ${partyName} @ ${club}`);
+    openForm();
+  };
 
   return (
     <div>
       {/* Day selector */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        <button
-          onClick={() => setSelectedDay(null)}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-            !selectedDay ? "bg-sunset-orange text-primary-foreground shadow-glow-orange" : "bg-card/60 text-muted-foreground hover:text-foreground border border-border/30"
-          }`}
-        >
-          Tutti i giorni
-        </button>
+      <div className="flex flex-nowrap md:flex-wrap overflow-x-auto gap-2 mb-10 pb-2 md:pb-0 scrollbar-hide">
         {daysOfWeek.map((day) => (
           <button
             key={day}
-            onClick={() => setSelectedDay(day === selectedDay ? null : day)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              selectedDay === day ? "bg-sunset-orange text-primary-foreground shadow-glow-orange" : "bg-card/60 text-muted-foreground hover:text-foreground border border-border/30"
+            onClick={() => setSelectedDay(day)}
+            className={`shrink-0 px-6 py-3 rounded-full text-sm font-bold transition-all ${
+              selectedDay === day 
+                ? "bg-sunset-orange text-white shadow-glow-orange scale-105" 
+                : "bg-card/60 text-muted-foreground hover:text-foreground border border-border/30"
             }`}
           >
             {day}
@@ -218,74 +264,65 @@ function WeeklySchedule() {
         ))}
       </div>
 
-      {/* Schedule grid */}
-      <div className="grid gap-4">
-        {clubs.map((club) => {
-          const relevantDays = selectedDay
-            ? club.schedule[selectedDay] ? { [selectedDay]: club.schedule[selectedDay] } : {}
-            : club.schedule;
-
-          if (Object.keys(relevantDays).length === 0) return null;
-
-          return (
-            <AnimatedSection key={club.name}>
-              <div className="bg-card/60 backdrop-blur-sm border border-border/30 rounded-2xl overflow-hidden hover:border-sunset-orange/20 transition-all">
-                <div className="flex flex-col md:flex-row">
-                  {/* Club image */}
-                  <div className="md:w-48 h-32 md:h-auto relative overflow-hidden shrink-0">
-                    <img src={club.image} alt={club.name} className="w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden md:block" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-card/80 md:hidden" />
+      {/* Grid of Parties for the selected day */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {residenciesByDay[selectedDay]?.map((residency, idx) => (
+          <AnimatedSection key={idx} delay={idx * 0.1}>
+            <div className="group bg-[#0B0C0E] border border-white/5 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-white/10 hover:shadow-glow-purple h-full flex flex-col">
+              {/* Poster Image */}
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image 
+                  src={residency.image} 
+                  alt={residency.party} 
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/40 to-transparent opacity-90" />
+                
+                {/* Badges */}
+                <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                  <div className="bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+                    <SewingPinIcon className="w-3.5 h-3.5 text-white/70" />
+                    <span className="text-xs font-bold text-white tracking-wider">{residency.club}</span>
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1 p-5 md:p-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <Music className="w-4 h-4 text-sunset-red" />
-                          <h3 className="text-xl font-display font-bold">{club.name}</h3>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <MapPin className="w-3 h-3" /> {club.location}
-                        </div>
+                  {residency.highlight && (
+                    <div className="bg-gradient-to-r from-sunset-orange to-pink-500 p-[1px] rounded-full">
+                      <div className="bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                        <StarIcon className="w-3.5 h-3.5 text-sunset-gold" />
+                        <span className="text-xs font-bold text-white">Top Pick</span>
                       </div>
-                      <span className="shrink-0 px-3 py-1 rounded-full text-xs font-semibold bg-muted text-muted-foreground">
-                        {club.season}
-                      </span>
                     </div>
-                    <p className="text-xs text-muted-foreground/70 mb-4">{club.vibe}</p>
+                  )}
+                </div>
 
-                    {/* Events */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                      {Object.entries(relevantDays).map(([day, events]) =>
-                        events.map((event, eIdx) => (
-                          <div
-                            key={`${day}-${eIdx}`}
-                            className={`p-3 rounded-xl transition-colors ${
-                              event.highlight
-                                ? "bg-sunset-orange/10 border border-sunset-orange/20"
-                                : "bg-muted/30 hover:bg-muted/50"
-                            }`}
-                          >
-                            <p className="text-xs font-semibold text-sunset-gold mb-0.5">{day}</p>
-                            <p className="text-sm font-semibold text-foreground">{event.party}</p>
-                            <p className="text-xs text-muted-foreground">{event.genre}</p>
-                            {event.highlight && (
-                              <span className="inline-flex items-center gap-1 text-[10px] text-sunset-orange mt-1">
-                                <Award className="w-2.5 h-2.5" /> Top pick
-                              </span>
-                            )}
-                          </div>
-                        ))
-                      )}
-                    </div>
-                  </div>
+                {/* Content over image */}
+                <div className="absolute bottom-4 left-4 right-4 text-left z-10">
+                  <p className="text-sunset-gold font-bold text-xs uppercase tracking-widest mb-1">
+                    {residency.genre}
+                  </p>
+                  <h3 className="text-2xl font-display font-bold text-white leading-tight mb-1">
+                    {residency.party}
+                  </h3>
+                  <p className="text-white/70 text-sm flex items-center gap-2">
+                    <MagicWandIcon className="w-4 h-4 text-sunset-purple" />
+                    {residency.dj}
+                  </p>
                 </div>
               </div>
-            </AnimatedSection>
-          );
-        })}
+
+              {/* Action */}
+              <div className="p-4 mt-auto">
+                <button 
+                  onClick={() => handleRequestParty(residency.party, residency.club)}
+                  className="w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 rounded-xl transition-all hover:border-sunset-purple/50 group-hover:bg-gradient-to-r group-hover:from-sunset-purple/20 group-hover:to-sunset-orange/20"
+                >
+                  Richiedi Info
+                </button>
+              </div>
+            </div>
+          </AnimatedSection>
+        ))}
       </div>
     </div>
   );
@@ -297,22 +334,24 @@ export default function CalendarioParty() {
       {/* Hero */}
       <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=80"
+          <Image
+            src="/images/clubs/imgi_7_Buona_Festa.png"
             alt="Ibiza nightlife"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         </div>
         <div className="container relative z-10">
           <AnimatedSection>
-            <p className="text-sm uppercase tracking-widest text-sunset-orange font-semibold mb-4">Stagione 2026</p>
+            <p className="text-sm uppercase tracking-widest text-primary font-semibold mb-4">Stagione 2026</p>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">
               Calendario Party{" "}
-              <span className="text-gradient-warm">Ibiza 2026</span>
+              <span className="text-primary">Ibiza 2026</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
-              Tutte le serate, i club e gli eventi speciali della stagione 2026. Filtra per giorno della settimana e scopri chi suona e dove.
+              Scopri i residency e le serate confermate per l'estate. Usa il calendario settimanale per trovare i top event ogni giorno!
             </p>
           </AnimatedSection>
         </div>
@@ -323,8 +362,8 @@ export default function CalendarioParty() {
         <div className="container">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-8">
-              <Calendar className="w-6 h-6 text-sunset-orange" />
-              <h2 className="text-3xl font-display font-bold">Programma Settimanale</h2>
+              <CalendarIcon className="w-6 h-6 text-primary" />
+              <h2 className="text-3xl font-display font-bold">Calendario Settimanale (Giugno)</h2>
             </div>
           </AnimatedSection>
           <WeeklySchedule />
@@ -336,7 +375,7 @@ export default function CalendarioParty() {
         <div className="container">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-10">
-              <Settings2 className="w-6 h-6 text-sunset-gold" />
+              <MixerHorizontalIcon className="w-6 h-6 text-sunset-gold" />
               <h2 className="text-3xl font-display font-bold">Eventi Speciali 2026</h2>
             </div>
           </AnimatedSection>
@@ -345,12 +384,17 @@ export default function CalendarioParty() {
             {specialEvents.map((event, idx) => (
               <AnimatedSection key={idx}>
                 <div className="bg-card/60 backdrop-blur-sm border border-border/30 rounded-2xl overflow-hidden h-full flex flex-col hover:border-sunset-orange/20 transition-all">
-                  <div className="relative h-40 overflow-hidden">
-                    <img src={event.image} alt={event.title} className="w-full h-full object-cover" loading="lazy" />
+                  <div className="relative h-48 overflow-hidden">
+                    <Image 
+                      src={event.image} 
+                      alt={event.title} 
+                      fill
+                      className="object-cover"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                     <div className="absolute bottom-3 left-4">
                       <div className="w-10 h-10 rounded-xl bg-sunset-orange/20 backdrop-blur-sm flex items-center justify-center">
-                        <event.icon className="w-5 h-5 text-sunset-orange" />
+                        <event.icon className="w-5 h-5 text-primary" />
                       </div>
                     </div>
                   </div>
@@ -361,7 +405,7 @@ export default function CalendarioParty() {
                     <ul className="space-y-2 mt-auto">
                       {event.events.map((e, eIdx) => (
                         <li key={eIdx} className="flex items-start gap-2 text-sm text-foreground/80">
-                          <Award className="w-3 h-3 mt-1 text-sunset-gold shrink-0" /> {e}
+                          <StarIcon className="w-3 h-3 mt-1 text-sunset-gold shrink-0" /> {e}
                         </li>
                       ))}
                     </ul>
@@ -376,17 +420,17 @@ export default function CalendarioParty() {
       {/* CTA */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,70,239,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
-              Vuoi sapere quali serate fanno per te?
+              Cerchi un pass VIP o prevendite?
             </h2>
             <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">
-              Dimmi i tuoi gusti musicali e le date del viaggio, e ti consiglio le serate migliori.
+              Contattaci e ti garantiamo gli accessi per i party più esclusivi di Ibiza senza fila.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <CtaButton text="Pianifica le tue serate" />
+              <CtaButton text="Richiedi Prevendite" />
             </div>
           </AnimatedSection>
         </div>

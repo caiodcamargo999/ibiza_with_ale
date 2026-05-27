@@ -92,7 +92,7 @@ async function sendMetaCAPIEvent(
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { answers, score, contact } = body;
+    const { answers, score, contact, package: selectedPackage } = body;
 
     const subdomain = process.env.KOMMO_SUBDOMAIN;
     const accessToken = process.env.KOMMO_ACCESS_TOKEN;
@@ -211,7 +211,7 @@ export async function POST(req: Request) {
               <div style="text-align: center; margin-bottom: 24px;">
                 <span style="font-size: 40px;">🌴</span>
               </div>
-              <h2 style="color: #EA580C; font-size: 24px; font-weight: 700; text-align: center; margin-top: 0; margin-bottom: 16px; font-family: system-ui, -apple-system, sans-serif;">Richiesta Ricevuta con Successo!</h2>
+              <h2 style="color: #d946ef; font-size: 24px; font-weight: 700; text-align: center; margin-top: 0; margin-bottom: 16px; font-family: system-ui, -apple-system, sans-serif;">Richiesta Ricevuta con Successo!</h2>
               <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">Ciao <strong>${contact.name}</strong>,</p>
               <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">Grazie mille per aver compilato il questionario per pianificare il tuo viaggio a Ibiza sul mio sito.</p>
               <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">Ho ricevuto tutti i dettagli del tuo profilo e sto già lavorando per creare una proposta esclusiva, su misura per te e per le tue preferenze.</p>
@@ -259,6 +259,9 @@ export async function POST(req: Request) {
           noteText += `Email: ${contact.email}\n`;
         }
         noteText += `Lead Score: ${score} points (${score >= 120 ? 'QUALIFIED / HOT 🔥' : 'ENTRY / WARM'})\n\n`;
+        if (selectedPackage) {
+          noteText += `🎯 PACCHETTO SELEZIONATO DAL SITO: ${selectedPackage}\n\n`;
+        }
 
         for (const [qId, answer] of Object.entries(answers || {})) {
           const qText = questionMap[qId] || qId;

@@ -1,25 +1,25 @@
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ClipboardList, Send, CheckCircle, PhoneCall } from "lucide-react";
+import { ReaderIcon, PaperPlaneIcon, CheckCircledIcon, MobileIcon } from "@radix-ui/react-icons";
 
 const steps = [
   {
-    icon: ClipboardList,
+    icon: ReaderIcon,
     title: "Raccolta informazioni viaggio",
     desc: "Compili il form con date, budget, composizione del gruppo, zona e obiettivi. In pochi minuti ho tutto il necessario per iniziare a lavorare sulla tua proposta.",
   },
   {
-    icon: Send,
+    icon: PaperPlaneIcon,
     title: "Analisi e proposta personalizzata",
     desc: "Studio le tue esigenze, analizzo le opzioni disponibili e ti invio una proposta dettagliata con soluzioni, alternative e consigli ragionati.",
   },
   {
-    icon: CheckCircle,
+    icon: CheckCircledIcon,
     title: "Organizzazione e coordinamento",
     desc: "Una volta confermato, coordino tutto: alloggi, trasporti, esperienze, prenotazioni. Tu non devi pensare a nulla.",
   },
   {
-    icon: PhoneCall,
+    icon: MobileIcon,
     title: "Supporto prima e durante il soggiorno",
     desc: "Ti seguo dalla fase di pianificazione fino alla fine del viaggio. Qualsiasi dubbio o imprevisto, ci sono.",
   },
@@ -33,7 +33,7 @@ export default function ProcessSection() {
       <div className="container max-w-4xl relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            <span className="text-gradient-sunset">Come funziona</span>
+            <span className="text-primary">Come funziona</span>
           </h2>
           <p className="text-muted-foreground mb-16 text-lg">
             Quattro step. Zero stress. Risultato concreto.
@@ -48,8 +48,8 @@ export default function ProcessSection() {
             {steps.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.12}>
                 <div className="flex items-start gap-6">
-                  <div className="relative z-10 w-12 h-12 rounded-xl bg-gradient-warm flex items-center justify-center flex-shrink-0 shadow-glow-orange">
-                    <s.icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="relative z-10 w-12 flex items-center justify-center flex-shrink-0 pt-1">
+                    <s.icon className="w-8 h-8 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-display font-bold mb-2">

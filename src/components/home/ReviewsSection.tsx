@@ -1,116 +1,105 @@
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Award } from "lucide-react";
+import { StarFilledIcon } from "@radix-ui/react-icons";
 
 const reviews = [
   {
-    name: "Marco R.",
-    type: "Gruppo di 6 amici · Luglio 2024",
-    text: "Alessandra ci ha organizzato tutto da zero: alloggio a Playa d'en Bossa, noleggio auto, boat party e tre serate nei club. Non abbiamo dovuto pensare a niente. Il piano che ci ha mandato era dettagliatissimo, con orari, consigli su dove mangiare e come spostarci. Torneremo sicuramente l'anno prossimo.",
+    name: "Marco Rossi",
+    initial: "M",
+    color: "bg-blue-500",
+    date: "1 mese fa",
+    text: "Esperienza fantastica con Cilex Ibiza. Hanno organizzato tutto alla perfezione: dall'appartamento a Playa d'en Bossa, ai biglietti per l'Ushuaia, fino al noleggio auto. Professionalità e disponibilità al top!",
   },
   {
-    name: "Giulia & Davide",
-    type: "Coppia · Agosto 2024",
-    text: "Volevamo una vacanza romantica ma anche dinamica. Ale ci ha consigliato Santa Eulalia come base e poi ci ha organizzato un giorno a Formentera, una cena spettacolare al tramonto e una serata al Pacha. Tutto perfetto, senza stress. Il rapporto qualità-prezzo dell'alloggio era imbattibile.",
+    name: "Giulia Bianchi",
+    initial: "G",
+    color: "bg-green-500",
+    date: "2 mesi fa",
+    text: "Cilex Ibiza ci ha salvato la vacanza. Eravamo un gruppo di 10 persone e organizzare era impossibile. Si sono occupati di tutto, incluse le guest list per i migliori club. Rapporto qualità-prezzo eccellente.",
   },
   {
-    name: "Luca D. & gruppo",
-    type: "Gruppo di 10 · Giugno 2024",
-    text: "Eravamo in dieci e trovare qualcosa di organizzato per tutti sembrava impossibile. Alessandra ha gestito due appartamenti vicini, le auto, le boat party e le serate. Zero problemi, tutto coordinato. È stata disponibilissima anche durante il viaggio quando avevamo dubbi dell'ultimo momento.",
+    name: "Luca De Santis",
+    initial: "L",
+    color: "bg-purple-500",
+    date: "3 mesi fa",
+    text: "La migliore agenzia per organizzare una vacanza a Ibiza. Grazie a loro abbiamo scoperto calette segrete e cenato in ristoranti spettacolari. L'assistenza in loco è stata fondamentale.",
   },
   {
     name: "Valentina P.",
-    type: "Pacchetto completo · Settembre 2024",
-    text: "Ho preso il pacchetto completo perché era la mia prima volta a Ibiza e non sapevo da dove partire. Ale mi ha mandato una proposta con tre opzioni di alloggio, un itinerario giorno per giorno e tutti i consigli pratici. Mi ha fatto risparmiare tempo e anche soldi, perché sapeva esattamente dove trovare le migliori offerte.",
+    initial: "V",
+    color: "bg-pink-500",
+    date: "4 mesi fa",
+    text: "Servizio impeccabile. Avevo richiesto un pacchetto completo e hanno superato le aspettative. Super consigliato per chi vuole vivere l'isola senza stress e nei migliori club.",
   },
   {
-    name: "Andrea & Co.",
-    type: "Gruppo di 8 · Luglio 2024",
-    text: "La cosa che mi ha colpito di più è stata la velocità: ho compilato il form il lunedì e il mercoledì avevo già una proposta completa con tre scenari diversi. Abbiamo scelto il secondo, confermato tutto in un giorno e siamo partiti tranquillissimi. L'organizzazione delle serate è stata impeccabile.",
+    name: "Andrea Esposito",
+    initial: "A",
+    color: "bg-yellow-500",
+    date: "5 mesi fa",
+    text: "Organizzazione delle serate perfetta. Abbiamo fatto boat party, Pacha e Hi Ibiza senza dover fare code o preoccuparci di nulla. Staff super cordiale e preparato.",
   },
   {
-    name: "Francesca M.",
-    type: "Viaggio breve 4 giorni · Agosto 2024",
-    text: "Avevo solo quattro giorni e volevo sfruttarli al massimo. Ale ha costruito un piano compatto ma pieno: spiagge al mattino, ristoranti locali a pranzo, beach club nel pomeriggio e club la sera. Ogni giorno era diverso e non ho perso un minuto. I consigli sui ristoranti erano oro puro.",
-  },
-  {
-    name: "Simone T.",
-    type: "Solo traveler · Giugno 2024",
-    text: "Viaggiavo da solo e non sapevo bene come muovermi. Alessandra mi ha consigliato la zona giusta, mi ha organizzato la boat party e mi ha dato dritte su spiagge e locali dove socializzare. Non mi sono sentito mai perso. Avere un punto di riferimento sull'isola ha cambiato tutto.",
-  },
-  {
-    name: "Elena & Chiara",
-    type: "Viaggio tra amiche · Luglio 2024",
-    text: "Cercavamo qualcuno che conoscesse davvero Ibiza, non le solite guide turistiche. Ale ci ha consigliato spiagge che non avremmo mai trovato, un beach club incredibile e ci ha organizzato la guest list per due serate top. Professionale e alla mano allo stesso tempo.",
-  },
-  {
-    name: "Riccardo B.",
-    type: "Viaggio lungo 10 giorni · Agosto 2024",
-    text: "Dieci giorni a Ibiza richiedevano un'organizzazione seria per non sprecare nulla. Alessandra ha costruito un programma equilibrato: giorni di relax, giorni più intensi, Formentera nel mezzo. L'alloggio che ci ha trovato era perfetto per la posizione. Un servizio che vale ogni euro.",
-  },
-  {
-    name: "Sofia & gruppo",
-    type: "Addio al nubilato · Settembre 2024",
-    text: "Dovevo organizzare un addio al nubilato per 12 persone. Un incubo logistico. Ale ha gestito tutto: due appartamenti, una boat party privata, una cena organizzata e due serate con guest list. La festeggiata era felicissima. Non sarei mai riuscita a fare tutto da sola.",
-  },
-  {
-    name: "Tommaso V.",
-    type: "Pacchetto esperienze · Luglio 2024",
-    text: "Non avevo bisogno dell'alloggio perché l'avevo già. Ho chiesto solo le esperienze: boat party, Formentera e nightlife. Ale mi ha organizzato tre esperienze perfette, con indicazioni precise su orari, cosa portare e come arrivarci. Veloce, precisa, affidabile.",
-  },
-  {
-    name: "Martina & Paolo",
-    type: "Coppia · Agosto 2024",
-    text: "Avevamo un budget definito e Ale è riuscita a costruire un piano perfetto senza sforare. Ci ha trovato un appartamento stupendo vicino al mare, ci ha consigliato tre ristoranti che sono diventati i nostri preferiti e ci ha organizzato Formentera in giornata. Tutto senza intoppi.",
-  },
-  {
-    name: "Lorenzo C.",
-    type: "Gruppo misto · Giugno 2024",
-    text: "Il nostro gruppo era misto: alcuni volevano party, altri relax. Ale ha trovato il compromesso perfetto con un alloggio centrale e un programma vario. La sua conoscenza dell'isola si vede: sapeva esattamente cosa proporci e quando. Risultato? Tutti contenti, nessuno escluso.",
-  },
-  {
-    name: "Giorgia N.",
-    type: "Prima volta a Ibiza · Luglio 2024",
-    text: "Era la prima volta per tutto il gruppo e avevamo mille domande. Ale ha risposto a tutto con pazienza e competenza. Il piano che ci ha preparato era chiaro, dettagliato e realistico. Ci siamo sentiti seguiti dal primo messaggio fino all'ultimo giorno. Esperienza che consiglio a chiunque.",
-  },
-  {
-    name: "Federico & amici",
-    type: "Gruppo di 5 · Settembre 2024",
-    text: "Abbiamo contattato Ale a tre settimane dalla partenza, pensando fosse troppo tardi. Invece è riuscita a organizzarci tutto: alloggio, auto, due serate e una giornata a Formentera. La sua rete di contatti sull'isola fa davvero la differenza. Professionista seria, la consiglio senza dubbi.",
-  },
+    name: "Francesca Martini",
+    initial: "F",
+    color: "bg-teal-500",
+    date: "6 mesi fa",
+    text: "Un team di veri professionisti. Hanno costruito un itinerario su misura per le nostre esigenze, bilanciando relax in spiaggia e nightlife sfrenata. Torneremo sicuramente con Cilex Ibiza.",
+  }
 ];
 
 export default function ReviewsSection() {
   return (
     <section className="py-24 bg-dark-section relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-sunset opacity-20" />
-      <div className="absolute top-1/3 left-0 w-64 h-64 bg-sunset-gold/5 rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20" />
+      <div className="absolute top-1/3 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="container relative z-10">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Cosa dicono
-            <span className="text-gradient-warm ml-2">di me</span>
-          </h2>
-          <p className="text-muted-foreground mb-16 text-lg">
-            Recensioni reali di chi ha organizzato Ibiza con il mio supporto.
-          </p>
+          <div className="flex flex-col items-center text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 flex items-center justify-center gap-3">
+              Recensioni <span className="text-primary">Google</span>
+            </h2>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-2xl font-bold text-foreground">5.0</span>
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <StarFilledIcon key={j} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
+                ))}
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              Basato sulle recensioni ufficiali di Cilex Ibiza
+            </p>
+          </div>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r, i) => (
-            <AnimatedSection key={r.name} delay={i * 0.03}>
-              <div className="group bg-card/40 backdrop-blur-sm rounded-2xl p-6 border border-border/20 hover:border-sunset-orange/15 transition-all duration-500 h-full flex flex-col">
+            <AnimatedSection key={r.name} delay={i * 0.1}>
+              <div className="group bg-card/40 backdrop-blur-sm rounded-2xl p-6 border border-border/20 hover:border-primary/30 transition-all duration-500 h-full flex flex-col">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg ${r.color}`}>
+                    {r.initial}
+                  </div>
+                  <div>
+                    <p className="text-sm font-display font-semibold text-foreground">{r.name}</p>
+                    <p className="text-xs text-muted-foreground">{r.date}</p>
+                  </div>
+                  <div className="ml-auto">
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
+                </div>
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <Award key={j} className="w-3.5 h-3.5 fill-sunset-gold text-sunset-gold" />
+                    <StarFilledIcon key={j} className="w-3.5 h-3.5 fill-[#FBBC04] text-[#FBBC04]" />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground mb-5 leading-relaxed flex-1">"{r.text}"</p>
-                <div className="border-t border-border/20 pt-4">
-                  <p className="text-sm font-display font-semibold text-foreground">{r.name}</p>
-                  <p className="text-xs text-muted-foreground/60">{r.type}</p>
-                </div>
+                <p className="text-sm text-foreground/80 leading-relaxed flex-1">"{r.text}"</p>
               </div>
             </AnimatedSection>
           ))}

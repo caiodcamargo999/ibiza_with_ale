@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
+import { ChevronDownIconIcon, HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -116,7 +116,7 @@ export default function Navbar() {
                   exit={{ opacity: 0, rotate: 90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <XIcon className="w-6 h-6" />
+                  <Cross2Icon className="w-6 h-6" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -126,7 +126,7 @@ export default function Navbar() {
                   exit={{ opacity: 0, rotate: -90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <MenuIcon className="w-6 h-6" />
+                  <HamburgerMenuIcon className="w-6 h-6" />
                 </motion.div>
               )}
             </AnimatePresence>

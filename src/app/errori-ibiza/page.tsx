@@ -1,10 +1,11 @@
 "use client";
+import Image from "next/image";
 import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, MessageCircle, AlertTriangle, XCircle, CheckCircle } from "lucide-react";
+import { ArrowRightIcon, ChatBubbleIcon, ExclamationTriangleIcon, CrossCircledIcon, CheckCircledIcon } from "@radix-ui/react-icons";
 
 const errors = [
   {
@@ -64,16 +65,16 @@ export default function ErroriIbiza() {
     <>
       <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1920&q=80" alt="Ibiza landscape" className="w-full h-full object-cover" />
+          <Image fill sizes="100vw" src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1920&q=80" alt="Ibiza landscape" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/75 to-background" />
         </div>
         <div className="container relative z-10">
           <AnimatedSection>
-            <p className="text-sm font-medium text-sunset-orange uppercase tracking-widest mb-4">Guida pratica</p>
+            <p className="text-sm font-medium text-primary uppercase tracking-widest mb-4">Guida pratica</p>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-black leading-[0.9] mb-6">
               Errori da evitare
               <br />
-              <span className="text-gradient-warm">alla prima Ibiza</span>
+              <span className="text-primary">alla prima Ibiza</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
               Gli sbagli più comuni che rovinano la vacanza — e come evitarli con una pianificazione intelligente.
@@ -90,17 +91,17 @@ export default function ErroriIbiza() {
                 <div className="bg-card/40 backdrop-blur-sm rounded-2xl p-8 border border-border/20 hover:border-sunset-red/20 transition-all duration-500">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-8 h-8 rounded-lg bg-sunset-red/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <AlertTriangle className="w-4 h-4 text-sunset-red" />
+                      <ExclamationTriangleIcon className="w-4 h-4 text-sunset-red" />
                     </div>
                     <h3 className="text-lg font-display font-bold text-foreground">{err.title}</h3>
                   </div>
                   <div className="ml-12 space-y-4">
                     <div className="flex gap-3">
-                      <XCircle className="w-4 h-4 text-sunset-red/60 mt-1 flex-shrink-0" />
+                      <CrossCircledIcon className="w-4 h-4 text-sunset-red/60 mt-1 flex-shrink-0" />
                       <p className="text-sm text-muted-foreground leading-relaxed">{err.problem}</p>
                     </div>
                     <div className="flex gap-3 bg-sunset-gold/5 rounded-xl p-4">
-                      <CheckCircle className="w-4 h-4 text-sunset-gold mt-0.5 flex-shrink-0" />
+                      <CheckCircledIcon className="w-4 h-4 text-sunset-gold mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-sunset-gold/90 leading-relaxed font-medium">{err.tip}</p>
                     </div>
                   </div>
@@ -113,7 +114,7 @@ export default function ErroriIbiza() {
 
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,70,239,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground mb-6">

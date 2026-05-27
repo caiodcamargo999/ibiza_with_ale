@@ -1,10 +1,11 @@
 "use client";
+import Image from "next/image";
 import { CtaButton } from "@/components/CtaButton";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, MessageCircle, MapPin, Award, Music, Waves } from "lucide-react";
+import { ArrowRightIcon, ChatBubbleIcon, SewingPinIcon, StarIcon, SpeakerLoudIcon, ActivityLogIcon } from "@radix-ui/react-icons";
 
 const zones = [
   {
@@ -87,7 +88,7 @@ export default function ZoneIbiza() {
     <>
       <section className="relative pt-24 pb-12 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image fill sizes="100vw"
             src="https://images.unsplash.com/photo-1555992336-03a23c7b20eb?w=1920&q=80"
             alt="Ibiza panorama"
             className="w-full h-full object-cover"
@@ -96,11 +97,11 @@ export default function ZoneIbiza() {
         </div>
         <div className="container relative z-10">
           <AnimatedSection>
-            <p className="text-sm font-medium text-sunset-orange uppercase tracking-widest mb-4">Guida zone 2026</p>
+            <p className="text-sm font-medium text-primary uppercase tracking-widest mb-4">Guida zone 2026</p>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-black leading-[0.9] mb-6">
               Le zone migliori
               <br />
-              <span className="text-gradient-warm">dove dormire a Ibiza</span>
+              <span className="text-primary">dove dormire a Ibiza</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
               Ogni zona di Ibiza ha la sua identità. Scegliere quella giusta cambia l'intera esperienza.
@@ -118,7 +119,7 @@ export default function ZoneIbiza() {
                   <div className="flex flex-col lg:flex-row">
                     {/* Image */}
                     <div className="lg:w-80 h-48 lg:h-auto relative overflow-hidden shrink-0">
-                      <img
+                      <Image fill sizes="100vw"
                         src={zone.image}
                         alt={zone.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -133,7 +134,7 @@ export default function ZoneIbiza() {
                       <div className="flex flex-col lg:flex-row gap-6">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <MapPin className="w-5 h-5 text-sunset-orange" />
+                            <SewingPinIcon className="w-5 h-5 text-primary" />
                             <h3 className="text-2xl font-display font-bold text-foreground">{zone.name}</h3>
                           </div>
                           <p className="text-sm text-sunset-gold font-medium mb-4">{zone.tagline}</p>
@@ -145,7 +146,7 @@ export default function ZoneIbiza() {
                               <ul className="space-y-2">
                                 {zone.pros.map((pro) => (
                                   <li key={pro} className="text-xs text-muted-foreground flex gap-2">
-                                    <Award className="w-3 h-3 text-sunset-gold mt-0.5 flex-shrink-0" /> {pro}
+                                    <StarIcon className="w-3 h-3 text-sunset-gold mt-0.5 flex-shrink-0" /> {pro}
                                   </li>
                                 ))}
                               </ul>
@@ -164,7 +165,7 @@ export default function ZoneIbiza() {
 
                           <div className="bg-sunset-gold/5 rounded-xl p-4">
                             <p className="text-xs text-sunset-gold/90 font-medium">
-                              <span className="text-sunset-orange">Ideale per:</span> {zone.bestFor}
+                              <span className="text-primary">Ideale per:</span> {zone.bestFor}
                             </p>
                           </div>
                         </div>
@@ -187,7 +188,7 @@ export default function ZoneIbiza() {
 
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.15),transparent_60%)] border-t border-white/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,70,239,0.15),transparent_60%)] border-t border-white/5" />
         <div className="container relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground mb-6">

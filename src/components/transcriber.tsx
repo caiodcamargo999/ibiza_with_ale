@@ -1,13 +1,7 @@
 "use client";
 
 import useCountdown from "@/hooks/use-countdown";
-import {
-  BatteryFullIcon,
-  RotateCcwIcon,
-  SignalHighIcon,
-  WifiIcon,
-  XIcon,
-} from "lucide-react";
+import { BatteryFullIconIcon, RotateCcwIconIcon, SignalHighIconIcon, WifiIconIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -186,7 +180,7 @@ export default function Transcriber() {
                     size="icon"
                     className="rounded-full w-8 h-8 lg:w-10 lg:h-10 4xl:w-16 4xl:h-16"
                   >
-                    <XIcon className="w-4 h-4 lg:w-5 lg:h-5 4xl:w-8 4xl:h-8 4xl:size-10" />
+                    <Cross2Icon className="w-4 h-4 lg:w-5 lg:h-5 4xl:w-8 4xl:h-8 4xl:size-10" />
                   </Button>
                 </motion.div>
               </div>

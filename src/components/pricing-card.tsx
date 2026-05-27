@@ -9,7 +9,7 @@ import {
 import { PricingCardProps } from "@/components/pricing";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 export default function PricingCard({
   features,
@@ -65,7 +65,7 @@ export default function PricingCard({
           <ul className="flex flex-col gap-2 4xl:gap-4 4xl:text-xl">
             {features.map((feature) => (
               <li key={feature} className="flex items-center gap-2">
-                <Check className="size-4 shrink-0" />
+                <CheckIcon className="size-4 shrink-0" />
                 {feature}
               </li>
             ))}

@@ -26,8 +26,8 @@ The colors are mapped to CSS variables in `globals.css` and `tailwind.config.ts`
 - **Soft Lines**: `#DCCFB6`
 
 ### Accents
-- **Terracotta (Primary CTA)**: `#B4513A`
-- **Terracotta Deep (Hover)**: `#8A3D2D`
+- **Fuchsia (Primary CTA)**: `#d946ef`
+- **Fuchsia Deep (Hover)**: `#a21caf`
 - **Gold**: `#B89855`
 - **Soft Gold**: `#D4B97A`
 - **Olive**: `#5A6B3F`

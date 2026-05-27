@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useColorTheme } from "@/hooks/color-theme-context";
-import { Check, Palette } from "lucide-react";
+import { CheckIcon, PaletteIcon } from "@radix-ui/react-icons";
 import { motion } from "motion/react";
 
 export function ColorThemeSwitcher({ themeNames, themeSwatches }: { themeNames: string[], themeSwatches: Record<string, string> }) {
@@ -63,7 +63,7 @@ export function ColorThemeSwitcher({ themeNames, themeSwatches }: { themeNames: 
                 />
                 <span className="flex-1 capitalize">{theme}</span>
                 {isSelected && (
-                  <Check className="h-4 w-4 text-primary" />
+                  <CheckIcon className="h-4 w-4 text-primary" />
                 )}
               </DropdownMenuItem>
             );

@@ -4,13 +4,13 @@ import AnimatedSection from "@/components/AnimatedSection";
 export default function PositioningSection() {
   return (
     <section className="py-24 bg-dark-section watermark-ale relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-sunset opacity-20" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-primary opacity-20" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-sunset-orange/5 rounded-full blur-[150px]" />
       
       <div className="container max-w-4xl relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-10">
-            <span className="text-gradient-sunset">Organizzare Ibiza bene</span>
+            <span className="text-primary">Organizzare Ibiza bene</span>
             <br />
             <span className="text-foreground">cambia tutto</span>
           </h2>

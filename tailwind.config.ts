@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ["Tosh", "Outfit", "system-ui", "sans-serif"],
         body: ["Roboto", "Space Grotesk", "system-ui", "sans-serif"],
+        menu: ['"Space Grotesk"', "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

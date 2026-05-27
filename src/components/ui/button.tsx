@@ -19,7 +19,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         hero: "group relative inline-flex items-center gap-3 pl-2 pr-6 bg-[#0B0C0E] border border-white/5 text-foreground rounded-full transition-all duration-300 hover:shadow-[0_0_22px_rgba(249,115,22,0.4)] hover:border-white/15 hover:bg-[#121316] select-none cursor-pointer font-bold tracking-wide h-auto py-2",
         whatsapp: "bg-whatsapp text-whatsapp-foreground hover:opacity-90 font-semibold",
-        "outline-brand": "border border-sunset-red/30 bg-transparent text-sunset-orange hover:bg-sunset-red/10 hover:border-sunset-red/50",
+        "outline-brand": "border border-sunset-red/30 bg-transparent text-primary hover:bg-sunset-red/10 hover:border-sunset-red/50",
         "ghost-light": "text-foreground/70 hover:text-foreground hover:bg-card",
       },
       size: {

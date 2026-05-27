@@ -10,7 +10,7 @@ import "./globals.css";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
   return (
-    <html lang="it" suppressHydrationWarning>
+    <html lang="it" suppressHydrationWarning className="bg-black">
       <body suppressHydrationWarning className="bg-black relative min-h-screen">
         {/* Grain overlay */}
         <div className="grain-overlay" />
