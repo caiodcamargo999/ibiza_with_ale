@@ -9,7 +9,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'upload.wikimedia.org',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'dv7zfk0hwmxgu.cloudfront.net',
+      },
     ],
   },
 };

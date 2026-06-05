@@ -218,7 +218,7 @@ const itineraries = [
           { icon: SunIcon, text: "Recupero e spiaggia", time: "12:00" },
           { icon: SpeakerLoudIcon, text: "Pool party a Ushuaïa nel pomeriggio – l'open air più famoso", time: "15:00" },
           { icon: CookieIcon, text: "Cena rapida a Playa d'en Bossa", time: "21:00" },
-          { icon: SpeakerLoudIcon, text: "Hï Ibiza – Afterlife by Tale of Us o Fisher nella Theatre", time: "23:30" },
+          { icon: SpeakerLoudIcon, text: "Hï Ibiza – DJ internazionali tra Theatre e Club room", time: "23:30" },
         ],
       },
       {

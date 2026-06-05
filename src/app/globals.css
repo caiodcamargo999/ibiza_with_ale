@@ -106,6 +106,13 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    /* Hide native scrollbar but keep scroll functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -116,6 +123,14 @@
 @layer utilities {
   .font-menu {
     font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 
   .text-gradient-sunset {
