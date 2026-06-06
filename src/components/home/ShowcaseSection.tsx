@@ -49,8 +49,8 @@ export default function ShowcaseSection() {
               {/* Inner Image Container */}
               <div className="relative aspect-[4/5] rounded-[1.7rem] overflow-hidden">
                 <Image fill sizes="100vw"
-                  src="/images/cilex_in_unvrs.jpg"
-                  alt="Cilex in UNVRS Ibiza"
+                  src="/images/obeach.jpg"
+                  alt="O Beach Ibiza"
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />

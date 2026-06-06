@@ -33,14 +33,14 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "David Guetta",
       genre: "EDM / Pop Dance",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/137878/coupon-1651067479.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/137878/slideshow-1651067479.jpg",
     },
     {
       club: "Pacha",
       party: "Sonny Fodera",
       dj: "Sonny Fodera",
       genre: "House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/142651/coupon-1752077820.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142651/slideshow-1752077820.jpg",
     },
     {
       club: "[UNVRS]",
@@ -48,14 +48,14 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "John Summit",
       genre: "Tech House / Techno",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144979/coupon-1768925938.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/144979/slideshow-1768927039.jpg",
     },
     {
       club: "DC-10",
       party: "Circoloco",
       dj: "Various Artists",
       genre: "Underground / Minimal",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/88910/coupon-1778845830.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/135633/slideshow-1582130282.jpg",
     }
   ],
   "Martedì": [
@@ -65,21 +65,21 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Calvin Harris",
       genre: "EDM / Dance",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/133059/coupon-1770842235.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/133059/slideshow-1770842235.jpg",
     },
     {
       club: "Hï Ibiza",
       party: "The Martinez Brothers",
       dj: "The Martinez Brothers",
       genre: "Tech House / NYC House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/136287/coupon-1677235954.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/136287/slideshow-1677235954.jpg",
     },
     {
       club: "Pikes",
       party: "Pikes Presents",
       dj: "Various Artists",
       genre: "House / Disco",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/142651/coupon-1752077820.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/143189/slideshow-1749389162.jpg",
     }
   ],
   "Mercoledì": [
@@ -89,7 +89,7 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Dimitri Vegas & Like Mike",
       genre: "EDM / Mainstage",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/121873/coupon-1769016185.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/121873/slideshow-1769016185.jpg",
     },
     {
       club: "Hï Ibiza",
@@ -97,14 +97,14 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Meduza & James Hype",
       genre: "Tech House",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/142666/coupon-1768345822.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142666/slideshow-1768345822.jpg",
     },
     {
       club: "[UNVRS]",
       party: "Jamie Jones",
       dj: "Jamie Jones",
       genre: "House / Tech House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144979/coupon-1768925938.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142669/slideshow-1753165919.jpg",
     }
   ],
   "Giovedì": [
@@ -114,7 +114,7 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Martin Garrix",
       genre: "EDM / Future Bass",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/121873/coupon-1769016185.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/121873/slideshow-1769016185.jpg",
     },
     {
       club: "Chinois",
@@ -122,14 +122,14 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Various Artists",
       genre: "House",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144884/coupon-1780662089.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/144884/slideshow-1780662089.jpg",
     },
     {
       club: "Pacha",
       party: "Pure Pacha",
       dj: "Purple Disco Machine",
       genre: "Disco / House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/132969/coupon-1716029008.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/132969/slideshow-1716029008.jpg",
     }
   ],
   "Venerdì": [
@@ -139,7 +139,7 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Marco Carola",
       genre: "Techno / Tech House",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/132969/coupon-1716029008.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/132969/slideshow-1749384457.jpg",
     },
     {
       club: "Hï Ibiza",
@@ -147,21 +147,21 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Dom Dolla",
       genre: "Tech House",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/142666/coupon-1768345822.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142666/slideshow-1768345822.jpg",
     },
     {
       club: "Amnesia",
       party: "Glitterbox",
       dj: "Various Artists",
       genre: "Disco / Classic House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144900/coupon-1780562947.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/144900/slideshow-1780562947.jpg",
     },
     {
       club: "[UNVRS]",
       party: "David Guetta",
       dj: "David Guetta",
       genre: "EDM",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/143100/coupon-1755518491.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/143100/slideshow-1755518491.jpg",
     }
   ],
   "Sabato": [
@@ -171,7 +171,7 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Andrea Oliva & Guests",
       genre: "Tech House / Minimal",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/88910/coupon-1778845830.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/88910/slideshow-1778845830.jpg",
     },
     {
       club: "[UNVRS]",
@@ -179,21 +179,21 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Various Artists",
       genre: "Tech House / Party",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144979/coupon-1768925938.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142491/slideshow-1749772360_0.jpg",
     },
     {
       club: "Pacha",
       party: "Flower Power",
       dj: "Roger Sanchez",
       genre: "House / Classic",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/142651/coupon-1752077820.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/70252/slideshow-1779280441.jpg",
     },
     {
       club: "Chinois",
       party: "The Masquerade",
       dj: "Claptone",
       genre: "House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144884/coupon-1780662089.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142640/slideshow-1748385465.jpg",
     }
   ],
   "Domenica": [
@@ -203,7 +203,7 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Solomun",
       genre: "Deep / Melodic House",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/136287/coupon-1677235954.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/70258/slideshow-1710886199.jpg",
     },
     {
       club: "[UNVRS]",
@@ -211,14 +211,14 @@ const residenciesByDay: Record<string, Residency[]> = {
       dj: "Carl Cox",
       genre: "Techno",
       highlight: true,
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/142543/coupon-1755943137.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142543/slideshow-1755943137.jpg",
     },
     {
       club: "Chinois",
       party: "SAGA",
       dj: "Bedouin",
       genre: "Deep House",
-      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/embedded_auto_740_width/public/promoter-images/144884/coupon-1780662089.jpg",
+      image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/142794/slideshow-1741101673.jpg",
     }
   ]
 };
@@ -228,7 +228,7 @@ const specialEvents = [
     icon: LightningBoltIcon,
     title: "Opening Parties",
     period: "Maggio – Giugno 2026",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80",
+    image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/137878/slideshow-1651067479.jpg",
     description: "L'inizio della stagione: i club aprono con eventi speciali, line-up stellari e un'energia unica.",
     events: ["Ushuaïa Opening – Fine maggio", "Hï Ibiza Opening – Inizio giugno", "Amnesia Opening – Giugno", "Pacha Opening – Fine maggio", "DC-10 Circoloco Opening – Giugno"],
   },
@@ -236,7 +236,7 @@ const specialEvents = [
     icon: StarIcon,
     title: "Closing Parties",
     period: "Settembre – Ottobre 2026",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80",
+    image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/promoter-images/70258/slideshow-1710886199.jpg",
     description: "Le ultime serate della stagione sono leggendarie. Set più lunghi, DJ che danno il massimo.",
     events: ["Ushuaïa Closing – Fine settembre", "Hï Ibiza Closing – Ottobre", "Amnesia Closing – Ottobre", "DC-10 Closing – Prima settimana ottobre", "Pacha Closing – Ultimo weekend ottobre"],
   },
@@ -244,7 +244,7 @@ const specialEvents = [
     icon: MixerHorizontalIcon,
     title: "Eventi Speciali 2026",
     period: "Tutta la stagione",
-    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80",
+    image: "https://dv7zfk0hwmxgu.cloudfront.net/sites/default/files/styles/auto_1500_width/public/event-images/125952/slideshow-1547541512.jpg",
     description: "Oltre alle residenze settimanali, Ibiza offre eventi unici durante tutta la stagione.",
     events: ["IMS (International Music Summit) – Maggio", "Ibiza Gay Pride – Giugno", "Medieval Fair Dalt Vila – Maggio", "Fiestas de la Tierra – Agosto", "Ibiza Spirit Festival – Settembre"],
   },
